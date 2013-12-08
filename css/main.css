@@ -2,24 +2,32 @@ nav {
   left: 10px;
   position: fixed;
   top: 10px;
-  width: 100px; }
+  width: 95px; }
+  nav img {
+    margin: 0 auto; }
 
 #main {
   margin-left: 120px; }
 
+#social-media {
+  text-align: center; }
+  #social-media a {
+    float: left; }
+
 .sprite {
   background: url(/img/sprite.png);
   height: 32px;
-  width: 32px; }
+  width: 32px;
+  padding: 3px; }
 
 .sprint-twitter {
-  background-position: 0px 0px; }
+  background-position: 0 0; }
 
 .sprite-linkedin {
-  background-position: 0px -32px; }
+  background-position: 0 -32px; }
 
 .sprite-google-plus {
-  background-position: 0px -64px; }
+  background-position: 0 -64px; }
 
 .sprite-github {
-  background-position: 0px -96px; }
+  background-position: 0 -96px; }

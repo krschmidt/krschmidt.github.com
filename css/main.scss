@@ -2,16 +2,27 @@ nav {
   left: 10px;
   position: fixed;
   top: 10px;
-  width: 100px;
+  width: 95px;
+  img {
+    margin: 0 auto;
+  }  
 }
 #main {
   margin-left: 120px;
+}
+
+#social-media {
+  text-align: center;
+  a {
+    float: left;
+  }  
 }
 
 .sprite {
   background: url(/img/sprite.png);
   height: 32px;
   width: 32px;
+  padding: 3px;
 }
 .sprint-twitter {
   background-position: 0 0;
