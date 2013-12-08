@@ -1,1 +1,25 @@
-nav{position:fixed;left:10px;top:10px;width:100px}#main{margin-left:120px}
+nav {
+  left: 10px;
+  position: fixed;
+  top: 10px;
+  width: 100px; }
+
+#main {
+  margin-left: 120px; }
+
+.sprite {
+  background: url(/img/sprite.png);
+  height: 32px;
+  width: 32px; }
+
+.sprint-twitter {
+  background-position: 0px 0px; }
+
+.sprite-linkedin {
+  background-position: 0px -32px; }
+
+.sprite-google-plus {
+  background-position: 0px -64px; }
+
+.sprite-github {
+  background-position: 0px -96px; }
