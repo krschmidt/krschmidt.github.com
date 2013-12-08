@@ -25,6 +25,16 @@ h1 {
   font-size: 2em;
   font-variant: small-caps; }
 
+.invisible {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px; }
+
 .sprite {
   background: url(/img/sprite.png);
   display: inline-block;
