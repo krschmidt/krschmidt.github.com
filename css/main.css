@@ -6,7 +6,11 @@ nav {
   width: 100px; }
   nav ul {
     list-style-type: none;
-    padding-left: 0; }
+    padding-left: 5px;
+    text-align: left; }
+    nav ul a, nav ul a:visited {
+      color: blue;
+      text-decoration: none; }
 
 #main {
   font-family: 'Architects Daughter', cursive;
