@@ -6,10 +6,10 @@ nav {
   width: 100px; }
 
 #main {
-  margin-left: 120px; }
+  margin-left: 120px;
+  font-family: 'Architects Daughter', cursive; }
 
 h1 {
-  font-family: 'Architects Daughter', cursive;
   font-variant: small-caps; }
 
 .sprite {
