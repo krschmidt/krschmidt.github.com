@@ -6,8 +6,12 @@ nav {
   width: 100px;
 }
 #main {
-  margin-left: 120px;
   font-family: 'Architects Daughter', cursive;
+  margin-left: 120px;
+  max-width: 650px;
+  p, span {
+    font-size: 1.3em;
+  }
 }
 
 h1 {
