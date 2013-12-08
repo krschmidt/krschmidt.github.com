@@ -9,7 +9,8 @@ nav {
   margin-left: 120px; }
 
 h1 {
-  font-family: 'Architects Daughter', cursive; }
+  font-family: 'Architects Daughter', cursive;
+  font-variant: small-caps; }
 
 .sprite {
   background: url(/img/sprite.png);
