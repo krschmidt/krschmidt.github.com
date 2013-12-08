@@ -11,8 +11,9 @@ nav {
     margin: 10px 0;
     padding-left: 12px;
     text-align: left; }
-    nav ul a, nav ul a:visited {
-      color: blue;
+    nav ul a,
+    nav ul a:visited {
+      color: #00f;
       text-decoration: none; }
 
 body {
@@ -31,9 +32,9 @@ h1 {
   border: 0;
   clip: rect(0, 0, 0, 0);
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
+  padding: 0;
   position: absolute;
   width: 1px; }
 

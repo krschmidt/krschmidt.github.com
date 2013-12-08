@@ -4,21 +4,22 @@ nav {
   text-align: center;
   top: 20px;
   width: 100px;
-  img.avatar{
+  img.avatar {
     border-radius: 5px;
   }
-  ul{
+  ul {
     list-style-type: none;
     margin: 10px 0;
     padding-left: 12px;
-    text-align:left;
-    a, a:visited{
-        color: blue;
-        text-decoration:none;
+    text-align: left;
+    a,
+    a:visited {
+      color: #00f;
+      text-decoration: none;
     }
   }
 }
-body{
+body {
   font-family: 'Architects Daughter', sans;
   font-size: 120%;
 }
@@ -32,13 +33,13 @@ h1 {
   font-variant: small-caps;
 }
 
-.invisible{
+.invisible {
   border: 0;    
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
+  padding: 0;
   position: absolute;
   width: 1px;
 }
