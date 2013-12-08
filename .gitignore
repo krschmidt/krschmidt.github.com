@@ -1,3 +1,4 @@
+resources
 _site
 _posts/*.draft
 .sass-cache
