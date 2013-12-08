@@ -12,12 +12,13 @@ nav {
       color: blue;
       text-decoration: none; }
 
+body {
+  font-family: 'Architects Daughter', sans;
+  font-size: 120%; }
+
 #main {
-  font-family: 'Architects Daughter', cursive;
   margin-left: 120px;
   max-width: 650px; }
-  #main p, #main span {
-    font-size: 1.3em; }
 
 h1 {
   font-size: 2em;
