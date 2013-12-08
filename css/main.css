@@ -8,6 +8,9 @@ nav {
 #main {
   margin-left: 120px; }
 
+h1 {
+  font-family: 'Architects Daughter', cursive; }
+
 .sprite {
   background: url(/img/sprite.png);
   display: inline-block;
