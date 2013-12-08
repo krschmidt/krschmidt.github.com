@@ -4,6 +4,9 @@ nav {
   text-align: center;
   top: 10px;
   width: 100px; }
+  nav ul {
+    list-style-type: none;
+    padding-left: 0; }
 
 #main {
   font-family: 'Architects Daughter', cursive;
