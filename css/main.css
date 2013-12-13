@@ -58,3 +58,46 @@ h1 {
 
 .sprite-github {
   background-position: 0 -96px; }
+
+#resume {
+  font-family: Serif;
+  font-size: 1rem; }
+  #resume .section-row {
+    border-bottom: #000 double 2px;
+    padding: 1em 0; }
+    #resume .section-row:last-child {
+      border-bottom: 0; }
+  #resume #content {
+    margin-left: 12%;
+    width: 800px; }
+  #resume .info-title {
+    float: left;
+    width: 18%; }
+    #resume .info-title h1 {
+      font-size: 160%;
+      font-style: italic;
+      font-weight: normal;
+      margin: 0; }
+  #resume .info {
+    margin-left: 20%; }
+    #resume .info h1 {
+      font-size: 100%;
+      font-weight: normal;
+      margin: 0; }
+    #resume .info h2 {
+      font-size: 95%;
+      font-weight: normal;
+      margin: 0; }
+    #resume .info p {
+      font-size: 85%;
+      margin-bottom: 1.1em;
+      margin-top: 4px;
+      text-align: justify; }
+  #resume .dates {
+    float: right; }
+  #resume .boringlink {
+    color: #000;
+    text-decoration: none; }
+  #resume .download-icon {
+    float: left;
+    width: 70px; }
