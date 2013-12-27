@@ -1,3 +1,6 @@
+@import "reset.css";
+@import "resume";
+
 nav {
   left: 10px;
   position: fixed;
@@ -72,60 +75,4 @@ h1 {
 }
 .sprite-github {
   background-position: 0 -96px;
-}
-
-#resume {
-  font-family: Serif;
-  font-size: 1rem;
-  .section-row {
-    border-bottom: #000 double 2px;
-    padding: 1em 0;
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-  #content {
-    margin-left: 12%;    
-    width: 800px;
-  }
-  .info-title {
-    float: left;
-    width: 18%;
-    h1 {
-      font-size: 160%;    
-      font-style: italic;
-      font-weight: normal;
-      margin: 0;
-    }
-  }
-  .info {
-    margin-left: 20%;
-    h1 {
-      font-size: 100%;
-      font-weight: normal;
-      margin: 0;
-    }
-    h2 {
-      font-size: 95%;
-      font-weight: normal;
-      margin: 0;
-    }
-    p {
-      font-size: 85%;
-      margin-bottom: 1.1em;
-      margin-top: 4px;
-      text-align: justify;
-    }
-  }
-  .dates {
-    float: right;
-  }
-  .boringlink {
-    color: #000;
-    text-decoration: none;
-  }
-  .download-icon {
-    float: left;
-    width: 70px;
-  }
 }
