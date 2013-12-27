@@ -38,6 +38,9 @@
 	</div>
 </nav>
 <div id="main">
+	{% if page.topTitle %}
+		<h1 class='top-title'>{{ page.topTitle }}</h1>
+	{% endif %}
 {{ content }}
 </div>
 </body>

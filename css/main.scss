@@ -46,6 +46,10 @@ body {
 h1 {
   font-size: 2em;
   font-variant: small-caps;
+  margin: 1em 0;
+  &.top-title {
+    margin-top: 0;
+  }
 }
 
 p {
