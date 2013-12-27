@@ -2,10 +2,10 @@
 @import "resume";
 
 nav {
-  left: 10px;
+  left: 1em;
   position: fixed;
   text-align: center;
-  top: 20px;
+  top: 1em;
   width: 100px;
   img.avatar {
     border-radius: 5px;
@@ -44,6 +44,10 @@ body {
 h1 {
   font-size: 2em;
   font-variant: small-caps;
+}
+
+p {
+  margin-bottom: 1em;
 }
 
 .invisible {
