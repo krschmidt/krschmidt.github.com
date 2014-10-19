@@ -3,11 +3,19 @@ layout: layout
 ---
 <article>
    <h1>
-       <a href="{{ page.url }}">{{ page.title }}</a>
+    <a href="{{ page.url }}">{{ page.title }}</a>
    </h1>
 
    <section class="byline">
-       <span>{{ page.date | date: "%B %e, %Y" }}</span>
+    <span>{{ page.date | date: "%B %e, %Y" }}</span>
+   </section>
+
+   <section class="tags">
+    <ul>
+        {% for tag in page.tags %}
+        <li>{{ tag }}</li>
+        {% endfor %}
+    </ul>
    </section>
 
 	{{ content }}
