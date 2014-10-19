@@ -45,8 +45,37 @@ nav {
   float: right;
 }
 
+img {
+  max-width: 100%;
+}
+
 body {
   font-size: 18px;
+}
+
+.tags {
+  margin: .25em;
+  li {
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 75%;
+    padding: .40em;
+    &.woodworking {
+      background-color: #592d0d;
+      color: #fff;
+    }
+  }
+}
+
+article h1 {
+  margin-bottom: .3em;
+  a {
+    color: #000;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 h1 {
