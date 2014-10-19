@@ -7,13 +7,13 @@ layout: layout
    </h1>
 
    <section class="byline">
-    <span>{{ page.date | date: "%B %e, %Y" }}</span>
+    <span>Posted {{ page.date | date: "%B %e, %Y" }}</span>
    </section>
 
    <section class="tags">
     <ul>
         {% for tag in page.tags %}
-        <li>{{ tag }}</li>
+        <li class="{{ tag|downcase }}">{{ tag }}</li>
         {% endfor %}
     </ul>
    </section>
