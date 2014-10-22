@@ -142,6 +142,12 @@ body {
     .tags li.woodworking {
       background-color: #592d0d;
       color: #fff; }
+    .tags li.highered {
+      background-color: #20588c;
+      color: #fff; }
+    .tags li.web {
+      background-color: #60be5c;
+      color: #fff; }
 
 article h1 {
   margin-bottom: .1em; }
@@ -150,6 +156,10 @@ article h1 {
     text-decoration: none; }
     article h1 a:hover {
       text-decoration: underline; }
+article h2 {
+  font-family: 'Architects Daughter', sans;
+  font-weight: bold;
+  margin-bottom: .2em; }
 article img {
   display: block;
   margin: 0 auto; }

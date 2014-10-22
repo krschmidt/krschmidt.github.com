@@ -61,7 +61,15 @@ body {
     font-size: 75%;
     padding: .40em;
     &.woodworking {
-      background-color: #592d0d;
+      background-color: #592d0d; //brown
+      color: #fff;
+    }
+    &.highered {
+      background-color: #20588c; //blue
+      color: #fff;
+    }
+    &.web {
+      background-color: #60be5c; //green
       color: #fff;
     }
   }
@@ -77,6 +85,11 @@ article {
         text-decoration: underline;
       }
     }
+  }
+  h2 {
+    font-family: 'Architects Daughter', sans;
+    font-weight: bold;
+    margin-bottom: .2em;
   }
   img {
     display: block;
