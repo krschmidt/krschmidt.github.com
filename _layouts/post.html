@@ -13,7 +13,9 @@ layout: layout
    <section class="tags">
     <ul>
         {% for tag in page.tags %}
-        <li class="{{ tag|downcase }}">{{ tag }}</li>
+        <li>
+          <a class="tag {{ tag|downcase }}" href="/tag/{{ tag }}">{{ tag }}</a>
+        </li>
         {% endfor %}
     </ul>
    </section>

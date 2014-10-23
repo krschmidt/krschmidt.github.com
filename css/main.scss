@@ -56,22 +56,29 @@ body {
 .tags {
   margin: .35em;
   li {
-    border-radius: 3px;
     display: inline-block;
-    font-size: 75%;
-    padding: .40em;
-    &.woodworking {
-      background-color: #592d0d; //brown
-      color: #fff;
-    }
-    &.highered {
-      background-color: #20588c; //blue
-      color: #fff;
-    }
-    &.web {
-      background-color: #60be5c; //green
-      color: #fff;
-    }
+  }
+}
+
+a.tag,
+a:hover.tag,
+a:active.tag,
+a:visited.tag {
+  border-radius: 3px;  
+  font-size: 75%;
+  padding: .4em .4em .3em;
+  text-decoration: none;
+  &.woodworking {
+    background-color: #592d0d; //brown
+    color: #fff;
+  }
+  &.highered {
+    background-color: #20588c; //blue
+    color: #fff;
+  }
+  &.web {
+    background-color: #60be5c; //green
+    color: #fff;
   }
 }
 
@@ -107,6 +114,10 @@ h1 {
   &.top-title {
     margin: 0 0 12px;
   }
+}
+
+.content li {
+  margin-bottom: .1em;
 }
 
 p {

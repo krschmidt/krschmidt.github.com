@@ -135,19 +135,34 @@ body {
 .tags {
   margin: .35em; }
   .tags li {
-    border-radius: 3px;
-    display: inline-block;
-    font-size: 75%;
-    padding: .40em; }
-    .tags li.woodworking {
-      background-color: #592d0d;
-      color: #fff; }
-    .tags li.highered {
-      background-color: #20588c;
-      color: #fff; }
-    .tags li.web {
-      background-color: #60be5c;
-      color: #fff; }
+    display: inline-block; }
+
+a.tag,
+a:hover.tag,
+a:active.tag,
+a:visited.tag {
+  border-radius: 3px;
+  font-size: 75%;
+  padding: .4em .4em .3em;
+  text-decoration: none; }
+  a.tag.woodworking,
+  a:hover.tag.woodworking,
+  a:active.tag.woodworking,
+  a:visited.tag.woodworking {
+    background-color: #592d0d;
+    color: #fff; }
+  a.tag.highered,
+  a:hover.tag.highered,
+  a:active.tag.highered,
+  a:visited.tag.highered {
+    background-color: #20588c;
+    color: #fff; }
+  a.tag.web,
+  a:hover.tag.web,
+  a:active.tag.web,
+  a:visited.tag.web {
+    background-color: #60be5c;
+    color: #fff; }
 
 article h1 {
   line-height: 30px;
@@ -173,6 +188,9 @@ h1 {
   margin: 1em 0; }
   h1.top-title {
     margin: 0 0 12px; }
+
+.content li {
+  margin-bottom: .1em; }
 
 p {
   font-family: sans;
