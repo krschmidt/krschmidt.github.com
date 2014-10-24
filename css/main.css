@@ -164,14 +164,11 @@ a:visited.tag {
     background-color: #60be5c;
     color: #fff; }
 
-article h1 {
-  line-height: 30px;
-  margin: 0 0 .1em; }
-  article h1 a {
-    color: #000;
-    text-decoration: none; }
-    article h1 a:hover {
-      text-decoration: underline; }
+article h1 a {
+  color: #000;
+  text-decoration: none; }
+  article h1 a:hover {
+    text-decoration: underline; }
 article h2 {
   font-family: 'Architects Daughter', sans;
   font-weight: bold;
@@ -184,8 +181,8 @@ h1 {
   font-family: 'Architects Daughter', sans;
   font-size: 48px;
   font-variant: small-caps;
-  line-height: 48px;
-  margin: 1em 0; }
+  line-height: 30px;
+  margin: 0 0 .1em; }
   h1.top-title {
     margin: 0 0 12px; }
 
