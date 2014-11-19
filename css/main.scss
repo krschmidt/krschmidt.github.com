@@ -68,6 +68,7 @@ a:visited.tag {
   font-size: 75%;
   padding: .4em .4em .3em;
   text-decoration: none;
+  //http://bl.ocks.org/shamangeorge/8029743
   &.woodworking {
     background-color: #592d0d; //brown
     color: #fff;
@@ -78,6 +79,10 @@ a:visited.tag {
   }
   &.web {
     background-color: #60be5c; //green
+    color: #fff;
+  }
+  &.development {
+    background-color: #FF6E4A; //Outrageous Orange
     color: #fff;
   }
 }

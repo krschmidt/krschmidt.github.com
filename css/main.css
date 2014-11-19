@@ -163,6 +163,12 @@ a:visited.tag {
   a:visited.tag.web {
     background-color: #60be5c;
     color: #fff; }
+  a.tag.development,
+  a:hover.tag.development,
+  a:active.tag.development,
+  a:visited.tag.development {
+    background-color: #FF6E4A;
+    color: #fff; }
 
 article h1 a {
   color: #000;
