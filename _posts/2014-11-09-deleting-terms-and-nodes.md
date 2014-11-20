@@ -4,6 +4,7 @@ title: Deleting the nodes tagged with a taxonomy term
 date: 2014-11-19 19:05:15
 tags:
 - Development
+- Web
 ---
 Occasionally, [we](http://www.lanecc.edu) find ourselves with a area of the website that we no longer use and can safetly delete. Normally, it's a very small area of the site, and one of our content administrators will delete the nodes, then I'll remove the files and the taxonomy term associated with the nodes (we use Drupal's taxonomy module to regulate permission and to generate URLs).
 

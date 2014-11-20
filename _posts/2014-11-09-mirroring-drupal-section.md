@@ -4,6 +4,7 @@ title: Mirroring some of a Drupal site
 date: 2014-11-19 18:02:45
 tags:
 - Development
+- Web
 ---
 The other day, we were all ready to delete a bunch of nodes from our Drupal site, when the owner of those pages requested a backup of them she could keep locally, just in case. Since there's no easy way to do this within Drupal, we did it via Bash.
 
