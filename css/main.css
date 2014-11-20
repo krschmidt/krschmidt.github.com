@@ -202,6 +202,9 @@ p {
 time {
   color: #666; }
 
+code, pre {
+  font-family: Consolas, Courier New, monospace; }
+
 .invisible {
   border: 0;
   clip: rect(0, 0, 0, 0);
