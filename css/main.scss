@@ -4,6 +4,7 @@
 $white: #f5f5f5;
 $black: #050505;
 $grey: #666;
+$blue: #0000f5;
 
 nav {
   left: 10px;
@@ -24,7 +25,7 @@ nav {
 
     a,
     a:visited {
-      color: #00f;
+      color: $blue;
     }
 
     li {
@@ -74,9 +75,7 @@ body {
   }
 }
 
-a.tag,
-a:hover.tag,
-a:active.tag,
+.tag,
 a:visited.tag {
   border-radius: 3px;  
   font-size: 75%;

@@ -106,7 +106,7 @@ nav {
     text-align: left; }
     nav ul a,
     nav ul a:visited {
-      color: #00f; }
+      color: #0000f5; }
     nav ul li {
       font-family: 'Muli', sans-serif; }
 
@@ -141,35 +141,25 @@ body {
   .tags li {
     display: inline-block; }
 
-a.tag,
-a:hover.tag,
-a:active.tag,
+.tag,
 a:visited.tag {
   border-radius: 3px;
   font-size: 75%;
   padding: .4em .4em .3em;
   text-decoration: none; }
-  a.tag.woodworking,
-  a:hover.tag.woodworking,
-  a:active.tag.woodworking,
+  .tag.woodworking,
   a:visited.tag.woodworking {
     background-color: #592d0d;
     color: #f5f5f5; }
-  a.tag.highered,
-  a:hover.tag.highered,
-  a:active.tag.highered,
+  .tag.highered,
   a:visited.tag.highered {
     background-color: #20588c;
     color: #f5f5f5; }
-  a.tag.web,
-  a:hover.tag.web,
-  a:active.tag.web,
+  .tag.web,
   a:visited.tag.web {
     background-color: #60be5c;
     color: #f5f5f5; }
-  a.tag.development,
-  a:hover.tag.development,
-  a:active.tag.development,
+  .tag.development,
   a:visited.tag.development {
     background-color: #ff6e4a;
     color: #f5f5f5; }
