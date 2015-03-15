@@ -167,7 +167,7 @@ a:visited.tag {
   a:hover.tag.development,
   a:active.tag.development,
   a:visited.tag.development {
-    background-color: #FF6E4A;
+    background-color: #ff6e4a;
     color: #fff; }
 
 article h1 a {
@@ -176,15 +176,14 @@ article h1 a {
   article h1 a:hover {
     text-decoration: underline; }
 article h2 {
-  font-family: 'Architects Daughter', sans;
-  font-weight: bold;
+  font-family: 'Ovo', serif;
   margin-bottom: .2em; }
 article img {
   display: block;
   margin: 0 auto; }
 
 h1 {
-  font-family: 'Architects Daughter', sans;
+  font-family: 'Ovo', serif;
   font-size: 48px;
   font-variant: small-caps;
   line-height: 30px;
@@ -196,13 +195,14 @@ h1 {
   margin-bottom: .1em; }
 
 p {
-  font-family: sans;
+  font-family: 'Muli', sans-serif;
   margin-bottom: 1em; }
 
 time {
   color: #666; }
 
-code, pre {
+code,
+pre {
   font-family: Consolas, Courier New, monospace; }
 
 .invisible {
@@ -216,7 +216,7 @@ code, pre {
   width: 1px; }
 
 .sprite {
-  background: url(/img/sprite.png);
+  background: url("/img/sprite.png");
   display: inline-block;
   height: 32px;
   margin: 1px;
@@ -233,3 +233,5 @@ code, pre {
 
 .sprite-github {
   background-position: 0 -96px; }
+
+/*# sourceMappingURL=main.css.map */

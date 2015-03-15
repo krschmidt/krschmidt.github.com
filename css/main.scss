@@ -1,5 +1,5 @@
-@import "reset";
-@import "resume";
+@import 'reset';
+@import 'resume';
 
 nav {
   left: 10px;
@@ -7,22 +7,27 @@ nav {
   text-align: center;
   top: 20px;
   width: 100px;
+
   img.avatar {
     border-radius: 5px;
   }
+
   ul {
     list-style-type: none;
     margin: 10px 0;
     padding-left: 12px;
     text-align: left;
+
     a,
     a:visited {
       color: #00f;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     li {
       font-family: sans;
       line-height: 1.2em;
@@ -55,6 +60,7 @@ body {
 
 .tags {
   margin: .35em;
+
   li {
     display: inline-block;
   }
@@ -68,19 +74,23 @@ a:visited.tag {
   font-size: 75%;
   padding: .4em .4em .3em;
   text-decoration: none;
+
   //http://bl.ocks.org/shamangeorge/8029743
   &.woodworking {
     background-color: #592d0d; //brown
     color: #fff;
   }
+
   &.highered {
     background-color: #20588c; //blue
     color: #fff;
   }
+
   &.web {
     background-color: #60be5c; //green
     color: #fff;
   }
+
   &.development {
     background-color: #ff6e4a; //Outrageous Orange
     color: #fff;
@@ -91,15 +101,17 @@ article {
   h1 a {
     color: #000;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
   }
+
   h2 {
-    font-family: 'Architects Daughter', sans;
-    font-weight: bold;
+    font-family: 'Ovo', serif;
     margin-bottom: .2em;
   }
+
   img {
     display: block;
     margin: 0 auto;
@@ -107,11 +119,12 @@ article {
 }
 
 h1 {
-  font-family: 'Architects Daughter', sans;
+  font-family: 'Ovo', serif;
   font-size: 48px;
   font-variant: small-caps;
   line-height: 30px;
   margin: 0 0 .1em;
+
   &.top-title {
     margin: 0 0 12px;
   }
@@ -122,7 +135,7 @@ h1 {
 }
 
 p {
-  font-family: sans;
+  font-family: 'Muli', sans-serif;
   margin-bottom: 1em;
 }
 
@@ -147,21 +160,25 @@ pre {
 }
 
 .sprite {
-  background: url(/img/sprite.png);
+  background: url('/img/sprite.png');
   display: inline-block;
   height: 32px;
   margin: 1px;
   width: 32px;
 }
+
 .sprint-twitter {
   background-position: 0 0;
 }
+
 .sprite-linkedin {
   background-position: 0 -32px;
 }
+
 .sprite-google-plus {
   background-position: 0 -64px;
 }
+
 .sprite-github {
   background-position: 0 -96px;
 }
