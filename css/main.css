@@ -97,7 +97,7 @@ nav {
   text-align: center;
   top: 20px;
   width: 100px; }
-  nav img.avatar {
+  nav .avatar {
     border-radius: 5px; }
   nav ul {
     list-style-type: none;
@@ -106,12 +106,17 @@ nav {
     text-align: left; }
     nav ul a,
     nav ul a:visited {
-      color: #00f;
-      text-decoration: none; }
-    nav ul a:hover {
-      text-decoration: underline; }
+      color: #00f; }
     nav ul li {
       font-family: 'Muli', sans-serif; }
+
+a,
+a:link,
+a:active {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
 
 #main {
   line-height: 1.2em;
@@ -170,10 +175,7 @@ a:visited.tag {
     color: #fff; }
 
 article h1 a {
-  color: #000;
-  text-decoration: none; }
-  article h1 a:hover {
-    text-decoration: underline; }
+  color: #000; }
 article h2 {
   font-family: 'Ovo', serif;
   font-size: 1.2em;
