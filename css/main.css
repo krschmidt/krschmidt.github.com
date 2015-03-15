@@ -118,7 +118,7 @@ a:active {
 a:hover {
   text-decoration: underline; }
 
-#main {
+.main {
   line-height: 1.2em;
   margin-left: 120px;
   margin-top: 20px;
@@ -185,7 +185,7 @@ h1 {
     margin: 0 0 12px; }
 
 .content li {
-  margin-bottom: .1em; }
+  margin-bottom: .15em; }
 
 p {
   font-family: 'Muli', sans-serif;
