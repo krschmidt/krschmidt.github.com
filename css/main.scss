@@ -1,6 +1,10 @@
 @import 'reset';
 @import 'resume';
 
+$white: #f5f5f5;
+$black: #050505;
+$grey: #666;
+
 nav {
   left: 10px;
   position: fixed;
@@ -82,28 +86,28 @@ a:visited.tag {
   //http://bl.ocks.org/shamangeorge/8029743
   &.woodworking {
     background-color: #592d0d; //brown
-    color: #fff;
+    color: $white;
   }
 
   &.highered {
     background-color: #20588c; //blue
-    color: #fff;
+    color: $white;
   }
 
   &.web {
     background-color: #60be5c; //green
-    color: #fff;
+    color: $white;
   }
 
   &.development {
     background-color: #ff6e4a; //Outrageous Orange
-    color: #fff;
+    color: $white;
   }
 }
 
 article {
   h1 a {
-    color: #000;
+    color: $black;
   }
 
   h2 {
@@ -141,7 +145,7 @@ p {
 }
 
 time {
-  color: #666;
+  color: $grey;
 }
 
 code, 
