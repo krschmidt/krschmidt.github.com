@@ -101,14 +101,15 @@ nav {
     border-radius: 5px; }
   nav ul {
     list-style-type: none;
-    margin: 10px 0;
+    margin: 8px 0;
     padding-left: 12px;
     text-align: left; }
     nav ul a,
     nav ul a:visited {
       color: #0000f5; }
     nav ul li {
-      font-family: 'Muli', sans-serif; }
+      font-family: 'Muli', sans-serif;
+      margin-bottom: .15em; }
 
 a,
 a:link,
