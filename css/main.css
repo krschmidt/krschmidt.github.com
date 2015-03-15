@@ -111,8 +111,7 @@ nav {
     nav ul a:hover {
       text-decoration: underline; }
     nav ul li {
-      font-family: sans;
-      line-height: 1.2em; }
+      font-family: 'Muli', sans-serif; }
 
 #main {
   line-height: 1.2em;
@@ -177,7 +176,9 @@ article h1 a {
     text-decoration: underline; }
 article h2 {
   font-family: 'Ovo', serif;
-  margin-bottom: .2em; }
+  font-size: 1.2em;
+  margin-bottom: .3em;
+  margin-top: 1em; }
 article img {
   display: block;
   margin: 0 auto; }
