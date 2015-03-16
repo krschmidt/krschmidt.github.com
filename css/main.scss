@@ -106,10 +106,6 @@ a:visited.tag {
 }
 
 article {
-  h1 a {
-    color: $black;
-  }
-
   h2 {
     font-family: 'Ovo', serif;
     font-size: 1.2em;
@@ -127,8 +123,12 @@ h1 {
   font-family: 'Ovo', serif;
   font-size: 48px;
   font-variant: small-caps;
-  line-height: 30px;
+  line-height: .8em;
   margin: 0 0 .1em;
+
+  a {
+    color: $black;
+  }
 
   &.top-title {
     margin: 0 0 12px;
@@ -142,6 +142,7 @@ h1 {
 p {
   font-family: 'Muli', sans-serif;
   margin-bottom: 1em;
+  text-align: justify;
 }
 
 time {

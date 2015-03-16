@@ -165,8 +165,6 @@ a:visited.tag {
     background-color: #ff6e4a;
     color: #f5f5f5; }
 
-article h1 a {
-  color: #050505; }
 article h2 {
   font-family: 'Ovo', serif;
   font-size: 1.2em;
@@ -180,8 +178,10 @@ h1 {
   font-family: 'Ovo', serif;
   font-size: 48px;
   font-variant: small-caps;
-  line-height: 30px;
+  line-height: .8em;
   margin: 0 0 .1em; }
+  h1 a {
+    color: #050505; }
   h1.top-title {
     margin: 0 0 12px; }
 
@@ -190,7 +190,8 @@ h1 {
 
 p {
   font-family: 'Muli', sans-serif;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  text-align: justify; }
 
 time {
   color: #666; }
