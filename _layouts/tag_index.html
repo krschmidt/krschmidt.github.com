@@ -8,7 +8,6 @@ layout: layout
   {% if tag == page.tag %}
   <li class="archive_list">
     <time datetime='{{post.date | date: "%Y-%m-%d"}}'>{{post.date | date: "%m/%d/%y"}}</time> <a class="archive_list_article_link" href='{{post.url}}'>{{post.title}}</a>
-    <p class="summary">{{post.summary}}
     <!--
     <ul class="tag_list">
       {% for tag in post.tags %}
