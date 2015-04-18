@@ -185,6 +185,9 @@ h1 {
     color: #050505; }
   h1.top-title {
     margin: 0 0 12px; }
+  h1.index-title {
+    font-size: 60px;
+    letter-spacing: -1px; }
 
 .content li {
   margin-bottom: .15em; }
