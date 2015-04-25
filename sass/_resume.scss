@@ -1,42 +1,52 @@
 #resume {
   font-family: Serif;
   font-size: 1rem;
+
   h1 {
     font-family: Serif; //fixes font setting on main.scss
     font-weight: normal;
     line-height: 1.3rem;
     margin: 0;    
   }
+
   .section-row {
     border-bottom: #000 double 2px;
     padding: 1em 0;
+
     &:last-child {
       border-bottom: 0;
     }
   }
+
   #content {
     margin-left: 12%;    
     width: 750px;
   }
+
   .info-title {
     float: left;
     width: 19%;
+
     h1 {
       font-size: 160%;    
       font-style: italic;
     }
   }
+
   .info {
     margin-left: 21%;
+
     h1 {
       font-size: 100%;
     }
+
     h2 {
       font-size: 95%;
       font-weight: normal;
       line-height: 1.1em;
       margin: 0;
     }
+    
     p {
       font-size: 85%;
       line-height: 1.1em;
@@ -45,13 +55,16 @@
       text-align: justify;
     }
   }
+
   .dates {
     float: right;
   }
+
   .boringlink {
     color: #000;
     text-decoration: none;
   }
+
   .download-icon {
     float: left;
     width: 70px;
