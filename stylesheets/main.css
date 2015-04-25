@@ -85,15 +85,7 @@ nav ul li {
   margin-bottom: .15em;
 }
 
-/* line 18, ../sass/main.scss */
-.main {
-  line-height: 1.2em;
-  margin-left: 120px;
-  margin-top: 20px;
-  max-width: 38em;
-}
-
-/* line 26, ../sass/main.scss */
+/* line 19, ../sass/main.scss */
 article h2 {
   font-family: 'Ovo', serif;
   font-size: 1.4em;
@@ -101,30 +93,30 @@ article h2 {
   margin-bottom: .3em;
   margin-top: 1em;
 }
-/* line 34, ../sass/main.scss */
+/* line 27, ../sass/main.scss */
 article img {
   display: block;
   margin: 0 auto;
 }
 
-/* line 40, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 .content li {
   margin-bottom: .15em;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 p {
   font-family: 'Muli', sans-serif;
   margin-bottom: 1em;
   text-align: justify;
 }
 
-/* line 50, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 time {
   color: #666;
 }
 
-/* line 54, ../sass/main.scss */
+/* line 47, ../sass/main.scss */
 code,
 pre {
   font-family: Consolas, Courier New, monospace;

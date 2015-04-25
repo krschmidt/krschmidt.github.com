@@ -2,6 +2,7 @@
 @import "breakpoint";
 @import "variables";
 @import "tags";
+@import "components";
 
 // Global Styles that apply everywhere
 a,
@@ -46,8 +47,13 @@ h1 {
   }
   
   &.index-title {
+    display: none;
     font-size: 60px;
     letter-spacing: -1px;
+
+    @include breakpoint($desktop) {
+      display: block;
+    }
   }
 }
 
@@ -87,14 +93,22 @@ h1 {
 }
 
 nav {
+  background-color: $white;
+  border-bottom: $black solid 1px;
+  display: table-row;
   left: 0;
+  padding: 2px;
   position: fixed;
-  text-align: center;
   top: 0;
   width: 100%;
 
   @include breakpoint($desktop) {
+    background-color: transparent;
+    border: 0;
+    display: block;
     left: 10px;
+    padding: 0;
+    text-align: center;
     top: 20px;
     width: 100px;
   }
@@ -106,69 +120,45 @@ nav {
   a,
   a:visited {
     color: $blue;
-  }    
+  } 
+}
+
+.main {
+  line-height: 1.2em;
+  margin: 60px 5px auto;
+
+  @include breakpoint($desktop) {
+    margin: 20px auto auto 120px;
+    max-width: 38em;
+  }
+}
+
+#menu {
+  display: none;
+
+  @include breakpoint($desktop) {
+    display: block;
+  }
 }
 
 #hamburger {
-  cursor: pointer;
-  height: 45px;
-  margin: 50px auto;
-  position: relative;
-  transform: rotate(0deg);
-  transition: .5s ease-in-out;
-  width: 60px;
+  display: table-cell;
 
-  span {
-    background: #d3531a;
-    border-radius: 9px;
-    display: block;
-    height: 9px;
-    left: 0;
-    opacity: 1;
-    position: absolute;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
-    width: 100%;
-
-    &:nth-child(1) {
-      top: 0;
-    }
-
-    &:nth-child(2),
-    &:nth-child(3) {
-      top: 18px;
-    }
-
-    &:nth-child(4) {
-      top: 36px;
-    }
-  }
-}
-
-#hamburger.open {
-  span:nth-child(1) {
-    left: 50%;
-    top: 18px;
-    width: 0%;
-  }
-
-  span:nth-child(2) {
-    transform: rotate(45deg);
-  }
-
-  span:nth-child(3) {
-    transform: rotate(-45deg);
-  }
-
-  span:nth-child(4) {
-    left: 50%;
-    top: 18px;
-    width: 0%;
-  }
-}
-
-@include breakpoint($desktop) {
-  #hamburger {
+  @include breakpoint($desktop) {
     display: none;
+  }
+}
+
+#mobile-title {
+  display: table-cell;
+  padding-left: 2px;
+  vertical-align: middle;
+
+  @include breakpoint($desktop) { 
+    display: none;
+  }
+
+  h1 {
+    font-size: 12vw;
   }
 }
