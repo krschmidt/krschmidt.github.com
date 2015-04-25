@@ -202,20 +202,26 @@ h1.index-title {
 
 /* line 89, ../sass/screen.scss */
 nav {
+  left: 0;
   position: fixed;
   text-align: center;
-}
-
-/* line 95, ../sass/screen.scss */
-nav {
-  left: 0px;
-  top: 0px;
+  top: 0;
   width: 100%;
 }
-
+@media (min-width: 320px) {
+  /* line 89, ../sass/screen.scss */
+  nav {
+    left: 10px;
+    top: 20px;
+    width: 100px;
+  }
+}
 /* line 102, ../sass/screen.scss */
-nav {
-  left: 10px;
-  top: 20px;
-  width: 100px;
+nav .avatar {
+  border-radius: 5px;
+}
+/* line 106, ../sass/screen.scss */
+nav a,
+nav a:visited {
+  color: #0000f5;
 }

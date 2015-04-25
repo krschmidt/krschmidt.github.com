@@ -87,8 +87,17 @@ h1 {
 }
 
 nav {
+  left: 0;
   position: fixed;
   text-align: center;
+  top: 0;
+  width: 100%;
+
+  @include breakpoint($desktop) {
+    left: 10px;
+    top: 20px;
+    width: 100px;
+  }
 
   .avatar {
     border-radius: 5px;
@@ -98,20 +107,4 @@ nav {
   a:visited {
     color: $blue;
   }    
-}
-
-// Mobile Styles
-nav {
-  left: 0;
-  top: 0;
-  width: 100%;
-}
-
-// Desktop styples
-@include breakpoint($desktop) {
-  nav {
-    left: 10px;
-    top: 20px;
-    width: 100px;
-  }
 }
