@@ -225,3 +225,67 @@ nav a,
 nav a:visited {
   color: #0000f5;
 }
+
+/* line 112, ../sass/screen.scss */
+#hamburger {
+  cursor: pointer;
+  height: 45px;
+  margin: 50px auto;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  width: 60px;
+}
+/* line 121, ../sass/screen.scss */
+#hamburger span {
+  background: #d3531a;
+  border-radius: 9px;
+  display: block;
+  height: 9px;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+  width: 100%;
+}
+/* line 133, ../sass/screen.scss */
+#hamburger span:nth-child(1) {
+  top: 0;
+}
+/* line 137, ../sass/screen.scss */
+#hamburger span:nth-child(2), #hamburger span:nth-child(3) {
+  top: 18px;
+}
+/* line 142, ../sass/screen.scss */
+#hamburger span:nth-child(4) {
+  top: 36px;
+}
+
+/* line 149, ../sass/screen.scss */
+#hamburger.open span:nth-child(1) {
+  left: 50%;
+  top: 18px;
+  width: 0%;
+}
+/* line 155, ../sass/screen.scss */
+#hamburger.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+/* line 159, ../sass/screen.scss */
+#hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+/* line 163, ../sass/screen.scss */
+#hamburger.open span:nth-child(4) {
+  left: 50%;
+  top: 18px;
+  width: 0%;
+}
+
+@media (min-width: 320px) {
+  /* line 171, ../sass/screen.scss */
+  #hamburger {
+    display: none;
+  }
+}
