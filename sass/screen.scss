@@ -57,6 +57,15 @@ h1 {
   }
 }
 
+time {
+  color: $grey;
+}
+
+code, 
+pre { 
+  font-family: Consolas, Courier New, monospace; 
+}
+
 .invisible {
   border: 0;    
   clip: rect(0, 0, 0, 0);
@@ -97,8 +106,7 @@ nav {
   border-bottom: $black solid 1px;
   display: table-row;
   left: 0;
-  padding: 2px;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
 
@@ -121,6 +129,22 @@ nav {
   a:visited {
     color: $blue;
   } 
+
+  ul {
+    list-style-type: none;
+    margin: 8px 0;
+    padding-left: 12px;
+    text-align: center;
+
+    @include breakpoint($desktop) {
+      text-align: left;
+    }
+
+    li {
+      font-family: 'Muli', sans-serif;
+      margin-bottom: .15em;
+    }
+  }
 }
 
 .main {
@@ -135,14 +159,20 @@ nav {
 
 #menu {
   display: none;
+  text-align: center;
 
   @include breakpoint($desktop) {
+    display: block;
+  }
+
+  &.open {
     display: block;
   }
 }
 
 #hamburger {
   display: table-cell;
+  margin: 2px;
 
   @include breakpoint($desktop) {
     display: none;
@@ -151,7 +181,7 @@ nav {
 
 #mobile-title {
   display: table-cell;
-  padding-left: 2px;
+  padding: 2px;
   vertical-align: middle;
 
   @include breakpoint($desktop) { 
