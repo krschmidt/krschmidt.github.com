@@ -57,6 +57,16 @@ h1 {
   }
 }
 
+.content li {
+  margin-bottom: .15em;
+}
+
+p {
+  font-family: 'Muli', sans-serif;
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
 time {
   color: $grey;
 }
@@ -133,10 +143,11 @@ nav {
   ul {
     list-style-type: none;
     margin: 8px 0;
-    padding-left: 12px;
+    padding: 0;
     text-align: center;
 
     @include breakpoint($desktop) {
+      padding-left: 12px;
       text-align: left;
     }
 

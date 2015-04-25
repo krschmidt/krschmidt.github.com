@@ -85,15 +85,3 @@ article img {
   display: block;
   margin: 0 auto;
 }
-
-/* line 19, ../sass/main.scss */
-.content li {
-  margin-bottom: .15em;
-}
-
-/* line 23, ../sass/main.scss */
-p {
-  font-family: 'Muli', sans-serif;
-  margin-bottom: 1em;
-  text-align: justify;
-}
