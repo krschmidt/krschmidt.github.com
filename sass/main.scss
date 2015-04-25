@@ -1,20 +1,6 @@
 @import "resume";
 @import "variables";
 
-nav {
-  ul {
-    list-style-type: none;
-    margin: 8px 0;
-    padding-left: 12px;
-    text-align: left;
-
-    li {
-      font-family: 'Muli', sans-serif;
-      margin-bottom: .15em;
-    }
-  }
-}
-
 article {
   h2 {
     font-family: 'Ovo', serif;
@@ -38,13 +24,4 @@ p {
   font-family: 'Muli', sans-serif;
   margin-bottom: 1em;
   text-align: justify;
-}
-
-time {
-  color: $grey;
-}
-
-code, 
-pre { 
-  font-family: Consolas, Courier New, monospace; 
 }
