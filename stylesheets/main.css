@@ -72,37 +72,29 @@
   width: 70px;
 }
 
-/* line 4, ../sass/main.scss */
-nav {
-  left: 10px;
-  position: fixed;
-  text-align: center;
-  top: 20px;
-  width: 100px;
-}
-/* line 11, ../sass/main.scss */
+/* line 5, ../sass/main.scss */
 nav .avatar {
   border-radius: 5px;
 }
-/* line 15, ../sass/main.scss */
+/* line 9, ../sass/main.scss */
 nav ul {
   list-style-type: none;
   margin: 8px 0;
   padding-left: 12px;
   text-align: left;
 }
-/* line 21, ../sass/main.scss */
+/* line 15, ../sass/main.scss */
 nav ul a,
 nav ul a:visited {
   color: #0000f5;
 }
-/* line 26, ../sass/main.scss */
+/* line 20, ../sass/main.scss */
 nav ul li {
   font-family: 'Muli', sans-serif;
   margin-bottom: .15em;
 }
 
-/* line 33, ../sass/main.scss */
+/* line 27, ../sass/main.scss */
 .main {
   line-height: 1.2em;
   margin-left: 120px;
@@ -110,7 +102,7 @@ nav ul li {
   max-width: 38em;
 }
 
-/* line 41, ../sass/main.scss */
+/* line 35, ../sass/main.scss */
 article h2 {
   font-family: 'Ovo', serif;
   font-size: 1.4em;
@@ -118,30 +110,30 @@ article h2 {
   margin-bottom: .3em;
   margin-top: 1em;
 }
-/* line 49, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 article img {
   display: block;
   margin: 0 auto;
 }
 
-/* line 55, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 .content li {
   margin-bottom: .15em;
 }
 
-/* line 59, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 p {
   font-family: 'Muli', sans-serif;
   margin-bottom: 1em;
   text-align: justify;
 }
 
-/* line 65, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 time {
   color: #666;
 }
 
-/* line 69, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 code,
 pre {
   font-family: Consolas, Courier New, monospace;

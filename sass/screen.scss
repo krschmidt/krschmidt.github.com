@@ -86,6 +86,32 @@ h1 {
   background-position: 0 -96px;
 }
 
+nav {
+  position: fixed;
+  text-align: center;
+
+  .avatar {
+    border-radius: 5px;
+  }
+
+  a,
+  a:visited {
+    color: $blue;
+  }    
+}
+
 // Mobile Styles
+nav {
+  left: 0;
+  top: 0;
+  width: 100%;
+}
 
 // Desktop styples
+@include breakpoint($desktop) {
+  nav {
+    left: 10px;
+    top: 20px;
+    width: 100px;
+  }
+}

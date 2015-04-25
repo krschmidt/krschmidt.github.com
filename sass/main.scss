@@ -2,26 +2,11 @@
 @import "variables";
 
 nav {
-  left: 10px;
-  position: fixed;
-  text-align: center;
-  top: 20px;
-  width: 100px;
-
-  .avatar {
-    border-radius: 5px;
-  }
-
   ul {
     list-style-type: none;
     margin: 8px 0;
     padding-left: 12px;
     text-align: left;
-
-    a,
-    a:visited {
-      color: $blue;
-    }
 
     li {
       font-family: 'Muli', sans-serif;

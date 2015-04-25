@@ -199,3 +199,23 @@ h1.index-title {
 .sprite-github {
   background-position: 0 -96px;
 }
+
+/* line 89, ../sass/screen.scss */
+nav {
+  position: fixed;
+  text-align: center;
+}
+
+/* line 95, ../sass/screen.scss */
+nav {
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+/* line 102, ../sass/screen.scss */
+nav {
+  left: 10px;
+  top: 20px;
+  width: 100px;
+}
