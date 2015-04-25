@@ -62,3 +62,71 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
+
+/* line 6, ../sass/screen.scss */
+a,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+/* line 12, ../sass/screen.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 16, ../sass/screen.scss */
+.left {
+  float: left;
+}
+
+/* line 20, ../sass/screen.scss */
+.right {
+  float: right;
+}
+
+/* line 24, ../sass/screen.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 28, ../sass/screen.scss */
+.invisible {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* line 39, ../sass/screen.scss */
+.sprite {
+  background: url("/img/sprite.png");
+  display: inline-block;
+  height: 32px;
+  margin: 1px;
+  width: 32px;
+}
+
+/* line 47, ../sass/screen.scss */
+.sprint-twitter {
+  background-position: 0 0;
+}
+
+/* line 51, ../sass/screen.scss */
+.sprite-linkedin {
+  background-position: 0 -32px;
+}
+
+/* line 55, ../sass/screen.scss */
+.sprite-google-plus {
+  background-position: 0 -64px;
+}
+
+/* line 59, ../sass/screen.scss */
+.sprite-github {
+  background-position: 0 -96px;
+}
