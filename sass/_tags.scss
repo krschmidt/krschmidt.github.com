@@ -1,0 +1,40 @@
+@import "variables";
+
+// tag colors can be found at http://bl.ocks.org/shamangeorge/8029743
+// they're the crayola crayon colors
+
+.tags {
+  margin: .35em;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.tag,
+a:visited.tag {
+  border-radius: 3px;  
+  font-size: 75%;
+  padding: .4em .4em .3em;
+  text-decoration: none;
+
+  &.woodworking {
+    background-color: #592d0d; //brown
+    color: $white;
+  }
+
+  &.highered {
+    background-color: #20588c; //blue
+    color: $white;
+  }
+
+  &.web {
+    background-color: #60be5c; //green
+    color: $white;
+  }
+
+  &.development {
+    background-color: #ff6e4a; //Outrageous Orange
+    color: $white;
+  }
+}

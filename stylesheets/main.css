@@ -110,54 +110,7 @@ nav ul li {
   max-width: 38em;
 }
 
-/* line 40, ../sass/main.scss */
-body {
-  font-size: 18px;
-}
-
-/* line 44, ../sass/main.scss */
-.tags {
-  margin: .35em;
-}
-/* line 47, ../sass/main.scss */
-.tags li {
-  display: inline-block;
-}
-
-/* line 52, ../sass/main.scss */
-.tag,
-a:visited.tag {
-  border-radius: 3px;
-  font-size: 75%;
-  padding: .4em .4em .3em;
-  text-decoration: none;
-}
-/* line 60, ../sass/main.scss */
-.tag.woodworking,
-a:visited.tag.woodworking {
-  background-color: #592d0d;
-  color: #f5f5f5;
-}
-/* line 65, ../sass/main.scss */
-.tag.highered,
-a:visited.tag.highered {
-  background-color: #20588c;
-  color: #f5f5f5;
-}
-/* line 70, ../sass/main.scss */
-.tag.web,
-a:visited.tag.web {
-  background-color: #60be5c;
-  color: #f5f5f5;
-}
-/* line 75, ../sass/main.scss */
-.tag.development,
-a:visited.tag.development {
-  background-color: #ff6e4a;
-  color: #f5f5f5;
-}
-
-/* line 82, ../sass/main.scss */
+/* line 41, ../sass/main.scss */
 article h2 {
   font-family: 'Ovo', serif;
   font-size: 1.4em;
@@ -165,52 +118,30 @@ article h2 {
   margin-bottom: .3em;
   margin-top: 1em;
 }
-/* line 90, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 article img {
   display: block;
   margin: 0 auto;
 }
 
-/* line 96, ../sass/main.scss */
-h1 {
-  font-family: 'Ovo', serif;
-  font-size: 48px;
-  font-variant: small-caps;
-  line-height: .8em;
-  margin: 0 0 .1em;
-}
-/* line 103, ../sass/main.scss */
-h1 a {
-  color: #050505;
-}
-/* line 107, ../sass/main.scss */
-h1.top-title {
-  margin: 0 0 12px;
-}
-/* line 111, ../sass/main.scss */
-h1.index-title {
-  font-size: 60px;
-  letter-spacing: -1px;
-}
-
-/* line 117, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .content li {
   margin-bottom: .15em;
 }
 
-/* line 121, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 p {
   font-family: 'Muli', sans-serif;
   margin-bottom: 1em;
   text-align: justify;
 }
 
-/* line 127, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 time {
   color: #666;
 }
 
-/* line 131, ../sass/main.scss */
+/* line 69, ../sass/main.scss */
 code,
 pre {
   font-family: Consolas, Courier New, monospace;

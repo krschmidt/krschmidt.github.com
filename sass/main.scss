@@ -37,47 +37,6 @@ nav {
   max-width: 38em;
 }
 
-body {
-  font-size: 18px;
-}
-
-.tags {
-  margin: .35em;
-
-  li {
-    display: inline-block;
-  }
-}
-
-.tag,
-a:visited.tag {
-  border-radius: 3px;  
-  font-size: 75%;
-  padding: .4em .4em .3em;
-  text-decoration: none;
-
-  //http://bl.ocks.org/shamangeorge/8029743
-  &.woodworking {
-    background-color: #592d0d; //brown
-    color: $white;
-  }
-
-  &.highered {
-    background-color: #20588c; //blue
-    color: $white;
-  }
-
-  &.web {
-    background-color: #60be5c; //green
-    color: $white;
-  }
-
-  &.development {
-    background-color: #ff6e4a; //Outrageous Orange
-    color: $white;
-  }
-}
-
 article {
   h2 {
     font-family: 'Ovo', serif;
@@ -90,27 +49,6 @@ article {
   img {
     display: block;
     margin: 0 auto;
-  }
-}
-
-h1 {
-  font-family: 'Ovo', serif;
-  font-size: 48px;
-  font-variant: small-caps;
-  line-height: .8em;
-  margin: 0 0 .1em;
-
-  a {
-    color: $black;
-  }
-
-  &.top-title {
-    margin: 0 0 12px;
-  }
-  
-  &.index-title {
-    font-size: 60px;
-    letter-spacing: -1px;
   }
 }
 

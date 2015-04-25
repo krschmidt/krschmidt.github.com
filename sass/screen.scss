@@ -1,6 +1,7 @@
 @import "compass/reset";
 @import "breakpoint";
 @import "variables";
+@import "tags";
 
 // Global Styles that apply everywhere
 a,
@@ -23,6 +24,31 @@ a:hover {
 
 img {
   max-width: 100%;
+}
+
+body {
+  font-size: 18px;
+}
+
+h1 {
+  font-family: 'Ovo', serif;
+  font-size: 48px;
+  font-variant: small-caps;
+  line-height: .8em;
+  margin: 0 0 .1em;
+
+  a {
+    color: $black;
+  }
+
+  &.top-title {
+    margin: 0 0 12px;
+  }
+  
+  &.index-title {
+    font-size: 60px;
+    letter-spacing: -1px;
+  }
 }
 
 .invisible {
