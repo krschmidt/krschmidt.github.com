@@ -218,7 +218,7 @@ h1.index-title {
   font-size: 60px;
   letter-spacing: -1px;
 }
-@media (min-width: 320px) {
+@media (min-width: 450px) {
   /* line 49, ../sass/screen.scss */
   h1.index-title {
     display: block;
@@ -277,7 +277,7 @@ nav {
   top: 0;
   width: 100%;
 }
-@media (min-width: 320px) {
+@media (min-width: 450px) {
   /* line 95, ../sass/screen.scss */
   nav {
     background-color: transparent;
@@ -305,7 +305,7 @@ nav a:visited {
   line-height: 1.2em;
   margin: 60px 5px auto;
 }
-@media (min-width: 320px) {
+@media (min-width: 450px) {
   /* line 126, ../sass/screen.scss */
   .main {
     margin: 20px auto auto 120px;
@@ -317,7 +317,7 @@ nav a:visited {
 #menu {
   display: none;
 }
-@media (min-width: 320px) {
+@media (min-width: 450px) {
   /* line 136, ../sass/screen.scss */
   #menu {
     display: block;
@@ -328,7 +328,7 @@ nav a:visited {
 #hamburger {
   display: table-cell;
 }
-@media (min-width: 320px) {
+@media (min-width: 450px) {
   /* line 144, ../sass/screen.scss */
   #hamburger {
     display: none;
@@ -341,7 +341,7 @@ nav a:visited {
   padding-left: 2px;
   vertical-align: middle;
 }
-@media (min-width: 320px) {
+@media (min-width: 450px) {
   /* line 152, ../sass/screen.scss */
   #mobile-title {
     display: none;
