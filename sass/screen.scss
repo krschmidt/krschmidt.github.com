@@ -65,7 +65,11 @@ h1 {
 p {
   font-family: 'Muli', sans-serif;
   margin-bottom: 1em;
-  text-align: justify;
+  text-align: left;
+
+  @include breakpoint($desktop) {
+    text-align: justify;
+  }
 }
 
 time {
