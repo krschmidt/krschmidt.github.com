@@ -182,39 +182,43 @@ a:visited.tag.development {
   padding: 1em 0;
 }
 /* line 18, ../sass/_resume.scss */
+#resume .section-row:first-child {
+  padding-top: 0;
+}
+/* line 22, ../sass/_resume.scss */
 #resume .section-row:last-child {
   border-bottom: 0;
 }
-/* line 23, ../sass/_resume.scss */
+/* line 27, ../sass/_resume.scss */
 #resume #content {
   width: 750px;
 }
-/* line 27, ../sass/_resume.scss */
+/* line 31, ../sass/_resume.scss */
 #resume .info-title {
   float: left;
   width: 19%;
 }
-/* line 31, ../sass/_resume.scss */
+/* line 35, ../sass/_resume.scss */
 #resume .info-title h1 {
   font-size: 160%;
   font-style: italic;
 }
-/* line 37, ../sass/_resume.scss */
+/* line 41, ../sass/_resume.scss */
 #resume .info {
   margin-left: 21%;
 }
-/* line 40, ../sass/_resume.scss */
+/* line 44, ../sass/_resume.scss */
 #resume .info h1 {
   font-size: 100%;
 }
-/* line 44, ../sass/_resume.scss */
+/* line 48, ../sass/_resume.scss */
 #resume .info h2 {
   font-size: 95%;
   font-weight: normal;
   line-height: 1.1em;
   margin: 0;
 }
-/* line 51, ../sass/_resume.scss */
+/* line 55, ../sass/_resume.scss */
 #resume .info p {
   font-size: 85%;
   line-height: 1.1em;
@@ -222,16 +226,16 @@ a:visited.tag.development {
   margin-top: 4px;
   text-align: justify;
 }
-/* line 60, ../sass/_resume.scss */
+/* line 64, ../sass/_resume.scss */
 #resume .dates {
   float: right;
 }
-/* line 64, ../sass/_resume.scss */
+/* line 68, ../sass/_resume.scss */
 #resume .boringlink {
   color: #050505;
   text-decoration: none;
 }
-/* line 69, ../sass/_resume.scss */
+/* line 73, ../sass/_resume.scss */
 #resume .download-icon {
   left: 25px;
   position: absolute;
@@ -375,7 +379,7 @@ article img {
 }
 
 /* line 126, ../sass/screen.scss */
-.sprite-google-plus {
+.sprite-goodreads {
   background-position: 0 -64px;
 }
 
