@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 #resume {
   font-family: Serif;
@@ -21,7 +21,6 @@
   }
 
   #content {
-    margin-left: 12%;    
     width: 750px;
   }
 
@@ -68,7 +67,9 @@
   }
 
   .download-icon {
-    float: left;
+    left: 25px;
+    position: absolute;
+    top: 254px;
     width: 70px;
   }
 }

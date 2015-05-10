@@ -187,35 +187,34 @@ a:visited.tag.development {
 }
 /* line 23, ../sass/_resume.scss */
 #resume #content {
-  margin-left: 12%;
   width: 750px;
 }
-/* line 28, ../sass/_resume.scss */
+/* line 27, ../sass/_resume.scss */
 #resume .info-title {
   float: left;
   width: 19%;
 }
-/* line 32, ../sass/_resume.scss */
+/* line 31, ../sass/_resume.scss */
 #resume .info-title h1 {
   font-size: 160%;
   font-style: italic;
 }
-/* line 38, ../sass/_resume.scss */
+/* line 37, ../sass/_resume.scss */
 #resume .info {
   margin-left: 21%;
 }
-/* line 41, ../sass/_resume.scss */
+/* line 40, ../sass/_resume.scss */
 #resume .info h1 {
   font-size: 100%;
 }
-/* line 45, ../sass/_resume.scss */
+/* line 44, ../sass/_resume.scss */
 #resume .info h2 {
   font-size: 95%;
   font-weight: normal;
   line-height: 1.1em;
   margin: 0;
 }
-/* line 52, ../sass/_resume.scss */
+/* line 51, ../sass/_resume.scss */
 #resume .info p {
   font-size: 85%;
   line-height: 1.1em;
@@ -223,18 +222,20 @@ a:visited.tag.development {
   margin-top: 4px;
   text-align: justify;
 }
-/* line 61, ../sass/_resume.scss */
+/* line 60, ../sass/_resume.scss */
 #resume .dates {
   float: right;
 }
-/* line 65, ../sass/_resume.scss */
+/* line 64, ../sass/_resume.scss */
 #resume .boringlink {
   color: #050505;
   text-decoration: none;
 }
-/* line 70, ../sass/_resume.scss */
+/* line 69, ../sass/_resume.scss */
 #resume .download-icon {
-  float: left;
+  left: 25px;
+  position: absolute;
+  top: 254px;
   width: 70px;
 }
 
