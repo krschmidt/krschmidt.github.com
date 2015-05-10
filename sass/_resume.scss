@@ -15,6 +15,10 @@
     border-bottom: $black double 2px;
     padding: 1em 0;
 
+    &:first-child {
+      padding-top: 0;
+    }
+
     &:last-child {
       border-bottom: 0;
     }
