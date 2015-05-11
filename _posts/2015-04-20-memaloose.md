@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: Memaloose State Park & First Hang
+title: Memaloose & First Hang
 date: 2015-04-20 19:23:35
 tags:
 - Camping
@@ -16,7 +16,7 @@ We ended up at [Memaloose State Park](http://www.oregonstateparks.org/index.cfm?
 
 We should have known better. Though it seemed like a perfect spot when we arrived, the park sits between I-80 and a set of train tracks &emdash; with another set right across the river. Every half hour, all night, another hundred cars rolled through. And the trucks on the highway were non-stop.
 
-It was a mistake to hang my Hennessey Hammock Expedition Asym Zip](http://www.amazon.com/gp/product/B008CE3ACQ/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B008CE3ACQ&linkCode=as2&tag=maat10mp-20&linkId=HFQP5YGBW754GYMP) between two pine trees, as I ended up getting sap on the straps.
+It was a mistake to hang my [Hennessey Hammock Expedition Asym Zip](http://www.amazon.com/gp/product/B008CE3ACQ/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B008CE3ACQ&linkCode=as2&tag=maat10mp-20&linkId=HFQP5YGBW754GYMP) between two pine trees, as I ended up getting sap on the straps.
 
 <a href="http://imgur.com/6rCGAe4"><img alt="Hammock hang between two pine trees" src="http://i.imgur.com/6rCGAe4.jpg"></a>
 
