@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 // tag colors can be found at http://bl.ocks.org/shamangeorge/8029743
 // they're the crayola crayon colors
@@ -35,6 +35,11 @@ a:visited.tag {
 
   &.development {
     background-color: #ff6e4a; //Outrageous Orange
+    color: $white;
+  }
+
+  &.camping {
+    background-color: #158078; //pine green
     color: $white;
   }
 }

@@ -104,6 +104,12 @@ a:visited.tag.development {
   background-color: #ff6e4a;
   color: #f5f5f5;
 }
+/* line 41, ../sass/_tags.scss */
+.tag.camping,
+a:visited.tag.camping {
+  background-color: #158078;
+  color: #f5f5f5;
+}
 
 /* line 1, ../sass/_components.scss */
 #hamburger {
