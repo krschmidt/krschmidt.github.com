@@ -1,14 +1,22 @@
 @import 'variables';
 
 #resume {
-  font-family: Serif;
   font-size: 1rem;
 
   h1 {
-    font-family: Serif; //fixes font setting on main.scss
     font-weight: normal;
     line-height: 1.3rem;
     margin: 0;    
+  }
+
+  ul {
+    margin: -.75em 0 1em;
+
+    li {
+      font-size: 85%;
+      list-style-type: disc;
+      margin-left: 1em;
+    }
   }
 
   .section-row {
