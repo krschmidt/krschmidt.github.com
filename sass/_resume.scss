@@ -80,14 +80,13 @@
   }
 
   .download-icon {
+    bottom: 10px;
     left: 10px;
     position: fixed;
-    bottom: 10px;
     width: 70px;
 
-    @include breakpoint($desktop){
+    @include breakpoint($desktop) {
       left: 25px;
-      position: absolute;
       top: 254px;
     }
   }

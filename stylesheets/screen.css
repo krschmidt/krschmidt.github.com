@@ -261,7 +261,6 @@ a:visited.tag.camping {
   /* line 82, ../sass/_resume.scss */
   #resume .download-icon {
     left: 25px;
-    position: absolute;
     top: 254px;
   }
 }
