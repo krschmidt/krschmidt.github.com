@@ -1,9 +1,9 @@
-@import "compass/reset";
-@import "breakpoint";
-@import "variables";
-@import "tags";
-@import "components";
-@import "resume";
+@import 'compass/reset';
+@import 'breakpoint';
+@import 'variables';
+@import 'tags';
+@import 'components';
+@import 'resume';
 
 // Global Styles that apply everywhere
 a,
@@ -64,7 +64,7 @@ h1 {
 }
 
 .content li {
-  margin-bottom: .15em;
+  margin-bottom: .22em;
 }
 
 p {
