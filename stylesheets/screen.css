@@ -401,7 +401,13 @@ pre {
   font-family: Consolas, Courier New, monospace;
 }
 
-/* line 89, ../sass/screen.scss */
+@media (min-width: 450px) {
+  /* line 88, ../sass/screen.scss */
+  article {
+    margin-right: 10px;
+  }
+}
+/* line 93, ../sass/screen.scss */
 article h2 {
   font-family: 'Ovo', serif;
   font-size: 1.4em;
@@ -409,13 +415,13 @@ article h2 {
   margin-bottom: .3em;
   margin-top: 1em;
 }
-/* line 97, ../sass/screen.scss */
+/* line 101, ../sass/screen.scss */
 article img {
   display: block;
   margin: 0 auto;
 }
 
-/* line 103, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
 .invisible {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -427,7 +433,7 @@ article img {
   width: 1px;
 }
 
-/* line 114, ../sass/screen.scss */
+/* line 118, ../sass/screen.scss */
 .sprite {
   background: url("/img/sprite.png");
   display: inline-block;
@@ -436,27 +442,27 @@ article img {
   width: 32px;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 .sprint-twitter {
   background-position: 0 0;
 }
 
-/* line 126, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
 .sprite-linkedin {
   background-position: 0 -32px;
 }
 
-/* line 130, ../sass/screen.scss */
+/* line 134, ../sass/screen.scss */
 .sprite-goodreads {
   background-position: 0 -64px;
 }
 
-/* line 134, ../sass/screen.scss */
+/* line 138, ../sass/screen.scss */
 .sprite-github {
   background-position: 0 -96px;
 }
 
-/* line 138, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 nav {
   background-color: #f5f5f5;
   border-bottom: #050505 solid 1px;
@@ -467,7 +473,7 @@ nav {
   width: 100%;
 }
 @media (min-width: 450px) {
-  /* line 138, ../sass/screen.scss */
+  /* line 142, ../sass/screen.scss */
   nav {
     background-color: transparent;
     border: 0;
@@ -480,16 +486,16 @@ nav {
     width: 100px;
   }
 }
-/* line 159, ../sass/screen.scss */
+/* line 163, ../sass/screen.scss */
 nav .avatar {
   border-radius: 5px;
 }
-/* line 163, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 nav a,
 nav a:visited {
   color: #0000f5;
 }
-/* line 168, ../sass/screen.scss */
+/* line 172, ../sass/screen.scss */
 nav ul {
   list-style-type: none;
   margin: 8px 0;
@@ -497,72 +503,72 @@ nav ul {
   text-align: center;
 }
 @media (min-width: 450px) {
-  /* line 168, ../sass/screen.scss */
+  /* line 172, ../sass/screen.scss */
   nav ul {
     padding-left: 12px;
     text-align: left;
   }
 }
-/* line 179, ../sass/screen.scss */
+/* line 183, ../sass/screen.scss */
 nav ul li {
   font-family: 'Muli', sans-serif;
   margin-bottom: .15em;
 }
 
-/* line 186, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 .main {
   line-height: 1.2em;
   margin: 60px 5px auto;
 }
 @media (min-width: 450px) {
-  /* line 186, ../sass/screen.scss */
+  /* line 190, ../sass/screen.scss */
   .main {
     margin: 20px auto auto 120px;
     max-width: 38em;
   }
 }
 
-/* line 196, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 #menu {
   display: none;
   text-align: center;
 }
 @media (min-width: 450px) {
-  /* line 196, ../sass/screen.scss */
+  /* line 200, ../sass/screen.scss */
   #menu {
     display: block;
   }
 }
-/* line 204, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
 #menu.open {
   display: block;
 }
 
-/* line 209, ../sass/screen.scss */
+/* line 213, ../sass/screen.scss */
 #hamburger {
   display: table-cell;
   margin: 2px;
 }
 @media (min-width: 450px) {
-  /* line 209, ../sass/screen.scss */
+  /* line 213, ../sass/screen.scss */
   #hamburger {
     display: none;
   }
 }
 
-/* line 218, ../sass/screen.scss */
+/* line 222, ../sass/screen.scss */
 #mobile-title {
   display: table-cell;
   padding: 2px;
   vertical-align: middle;
 }
 @media (min-width: 450px) {
-  /* line 218, ../sass/screen.scss */
+  /* line 222, ../sass/screen.scss */
   #mobile-title {
     display: none;
   }
 }
-/* line 227, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 #mobile-title h1 {
   font-size: 12vw;
 }
