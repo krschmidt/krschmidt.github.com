@@ -3,10 +3,10 @@
 #resume {
   font-size: 1rem;
 
-  h1 {
+  h1, h2, h3, h4, .dates {
+    font-family: 'Ovo', serif;
     font-weight: normal;
-    line-height: 1.3rem;
-    margin: 0;    
+    margin: 0;
   }
 
   ul {
@@ -33,61 +33,72 @@
     }
   }
 
-  #content {
-    width: 750px;
-  }
-
-  .info-title {
-    float: left;
-    width: 19%;
-
-    h1 {
-      font-size: 160%;    
-      font-style: italic;
-    }
-  }
-
-  .info {
-    margin-left: 21%;
-
-    h1 {
-      font-size: 100%;
-    }
-
-    h2 {
-      font-size: 95%;
-      font-weight: normal;
-      line-height: 1.1em;
-      margin: 0;
-    }
-
-    p {
-      font-size: 85%;
-      line-height: 1.1em;
-      margin-bottom: 1.1em;
-      margin-top: 4px;
-      text-align: justify;
-    }
-  }
-
-  .dates {
-    float: right;
-  }
-
   .boringlink {
     color: $black;
     text-decoration: none;
-  }
-
-  .download-icon {
-    bottom: 10px;
-    left: 10px;
-    position: fixed;
-    width: 70px;
-
-    @include breakpoint($desktop) {
-      left: 25px;
-      top: 254px;
+    &:hover {
+      text-decoration: underline;
     }
+  }  
+}
+
+@include breakpoint($resume){
+  #resume {
+    width: 750px;
+
+    h2 {
+      font-variant: small-caps;
+      line-height: 1.3rem;
+    }
+
+    .info-title {
+      float: left;
+      width: 19%;
+
+      h2 {
+        font-size: 160%;    
+        font-style: italic;
+      }
+    }
+
+    .info {
+      margin-left: 21%;
+
+      h3 {
+        font-size: 100%;
+        font-variant: small-caps;
+      }
+
+      h4, .dates {
+        font-size: 95%;
+        font-weight: normal;
+        line-height: 1.1em;
+        margin: 0;
+      }
+
+      p {
+        font-size: 85%;
+        line-height: 1.1em;
+        margin-bottom: 1.1em;
+        margin-top: 4px;
+        text-align: justify;
+      }
+    }
+
+    .dates {
+      float: right;
+    }
+  }
+}
+
+.download-icon {
+  bottom: 10px;
+  left: 10px;
+  position: fixed;
+  width: 70px;
+
+  @include breakpoint($desktop) {
+    left: 25px;
+    top: 254px;
   }
 }

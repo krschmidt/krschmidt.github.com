@@ -181,9 +181,9 @@ a:visited.tag.life {
   font-size: 1rem;
 }
 /* line 6, ../sass/_resume.scss */
-#resume h1 {
+#resume h1, #resume h2, #resume h3, #resume h4, #resume .dates {
+  font-family: 'Ovo', serif;
   font-weight: normal;
-  line-height: 1.3rem;
   margin: 0;
 }
 /* line 12, ../sass/_resume.scss */
@@ -211,61 +211,74 @@ a:visited.tag.life {
   border-bottom: 0;
 }
 /* line 36, ../sass/_resume.scss */
-#resume #content {
-  width: 750px;
-}
-/* line 40, ../sass/_resume.scss */
-#resume .info-title {
-  float: left;
-  width: 19%;
-}
-/* line 44, ../sass/_resume.scss */
-#resume .info-title h1 {
-  font-size: 160%;
-  font-style: italic;
-}
-/* line 50, ../sass/_resume.scss */
-#resume .info {
-  margin-left: 21%;
-}
-/* line 53, ../sass/_resume.scss */
-#resume .info h1 {
-  font-size: 100%;
-}
-/* line 57, ../sass/_resume.scss */
-#resume .info h2 {
-  font-size: 95%;
-  font-weight: normal;
-  line-height: 1.1em;
-  margin: 0;
-}
-/* line 64, ../sass/_resume.scss */
-#resume .info p {
-  font-size: 85%;
-  line-height: 1.1em;
-  margin-bottom: 1.1em;
-  margin-top: 4px;
-  text-align: justify;
-}
-/* line 73, ../sass/_resume.scss */
-#resume .dates {
-  float: right;
-}
-/* line 77, ../sass/_resume.scss */
 #resume .boringlink {
   color: #050505;
   text-decoration: none;
 }
-/* line 82, ../sass/_resume.scss */
-#resume .download-icon {
+/* line 39, ../sass/_resume.scss */
+#resume .boringlink:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 750px) {
+  /* line 46, ../sass/_resume.scss */
+  #resume {
+    width: 750px;
+  }
+  /* line 49, ../sass/_resume.scss */
+  #resume h2 {
+    font-variant: small-caps;
+    line-height: 1.3rem;
+  }
+  /* line 54, ../sass/_resume.scss */
+  #resume .info-title {
+    float: left;
+    width: 19%;
+  }
+  /* line 58, ../sass/_resume.scss */
+  #resume .info-title h2 {
+    font-size: 160%;
+    font-style: italic;
+  }
+  /* line 64, ../sass/_resume.scss */
+  #resume .info {
+    margin-left: 21%;
+  }
+  /* line 67, ../sass/_resume.scss */
+  #resume .info h3 {
+    font-size: 100%;
+    font-variant: small-caps;
+  }
+  /* line 72, ../sass/_resume.scss */
+  #resume .info h4, #resume .info .dates {
+    font-size: 95%;
+    font-weight: normal;
+    line-height: 1.1em;
+    margin: 0;
+  }
+  /* line 79, ../sass/_resume.scss */
+  #resume .info p {
+    font-size: 85%;
+    line-height: 1.1em;
+    margin-bottom: 1.1em;
+    margin-top: 4px;
+    text-align: justify;
+  }
+  /* line 88, ../sass/_resume.scss */
+  #resume .dates {
+    float: right;
+  }
+}
+/* line 94, ../sass/_resume.scss */
+.download-icon {
   bottom: 10px;
   left: 10px;
   position: fixed;
   width: 70px;
 }
 @media (min-width: 450px) {
-  /* line 82, ../sass/_resume.scss */
-  #resume .download-icon {
+  /* line 94, ../sass/_resume.scss */
+  .download-icon {
     left: 25px;
     top: 254px;
   }
