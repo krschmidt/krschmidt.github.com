@@ -2,6 +2,16 @@
 
 .resume {
   font-size: 1rem;
+  padding: 0 15px;
+
+  @include breakpoint($desktop) {
+    padding: 0 15px 0 0;
+  }
+
+  @include breakpoint($resume) {
+    padding: 0;
+    width: 750px;
+  }
 
   h1,
   h2,
@@ -30,6 +40,11 @@
   }
 
   .info-title {
+    @include breakpoint($resume) {
+      float: left;
+      width: 19%;
+    }
+
     h2 {
       font-size: 160%;    
       font-style: italic;
@@ -37,6 +52,10 @@
   }
 
   .info {
+    @include breakpoint($resume) {
+      margin-left: 21%;
+    }
+    
     h3 {
       font-size: 100%;
       font-variant: small-caps;
@@ -55,6 +74,10 @@
       margin-bottom: 1.1em;
       margin-top: 4px;
       text-align: justify;
+
+      @include breakpoint($resume) {
+        font-size: 85%;
+      }
     }
   }
 
@@ -82,25 +105,6 @@
 
   .dates {
     float: right;
-  }
-}
-
-@include breakpoint($resume) {
-  .resume {
-    width: 750px;
-
-    .info-title {
-      float: left;
-      width: 19%;
-    }
-
-    .info {
-      margin-left: 21%;
-
-      p {
-        font-size: 85%;
-      }
-    }
   }
 }
 
