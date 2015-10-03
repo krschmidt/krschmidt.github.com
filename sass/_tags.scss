@@ -38,8 +38,13 @@ a:visited.tag {
     color: $white;
   }
 
-  &.camping {
+  &.outdoors {
     background-color: #158078; //pine green
+    color: $white;
+  }
+
+   &.life {
+    background-color: #926eae; //violet
     color: $white;
   }
 }
