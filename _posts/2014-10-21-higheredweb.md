@@ -14,7 +14,7 @@ Prospective Students can't always identify why content is on the page
 ---------------------------------------------------------------------
 Mark Heiman, an awesome fellow from [Carleton College](http://carleton.edu), gave a session on the lessons they'd learned doing focus groups with people from the surrounding areas, who weren't necessarily familiar with Carleton. 
 
-One of their tests showed well designed homepages from poorly known colleges, and then asking for candid feedback. It became clear that these students thought every item on the homepage was directed at them, including links intended for current students, faculty, and alumni. Of particular note was their strong dislike of "donate now" buttons &emdash; they felt those buttons conveyed a sense of financial instability. 
+One of their tests showed well designed homepages from poorly known colleges, and then asking for candid feedback. It became clear that these students thought every item on the homepage was directed at them, including links intended for current students, faculty, and alumni. Of particular note was their strong dislike of "donate now" buttons &mdash; they felt those buttons conveyed a sense of financial instability. 
 
 But that doesn't mean we can or should hide that button. Mark thought that age (his focus group participants were mostly 16-17) was a significant factor, and that as we age, we get better at piecing together more subtle branding messages. We can use that to our advantage when we design pages. 
 

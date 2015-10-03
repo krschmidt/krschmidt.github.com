@@ -14,7 +14,7 @@ We ended up at [Memaloose State Park](http://www.oregonstateparks.org/index.cfm?
 
 <a href="http://imgur.com/feOldVX"><img alt="Karou scoping out the campsight, with the Columbia River Gorge in the background" src="http://i.imgur.com/feOldVX.jpg"></a>
 
-We should have known better. Though it seemed like a perfect spot when we arrived, the park sits between I-80 and a set of train tracks &emdash; with another set right across the river. Every half hour, all night, another hundred cars rolled through. And the trucks on the highway were non-stop.
+We should have known better. Though it seemed like a perfect spot when we arrived, the park sits between I-80 and a set of train tracks &mdash; with another set right across the river. Every half hour, all night, another hundred cars rolled through. And the trucks on the highway were non-stop.
 
 It was a mistake to hang my [Hennessey Hammock Expedition Asym Zip](http://www.amazon.com/gp/product/B008CE3ACQ/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B008CE3ACQ&linkCode=as2&tag=maat10mp-20&linkId=HFQP5YGBW754GYMP) between two pine trees, as I ended up getting sap on the straps.
 
