@@ -3,7 +3,7 @@ layout: post
 title: Memaloose & First Hang
 date: 2015-04-20 19:23:35
 tags:
-- Camping
+- Outdoors
 ---
 
 This weekend, I went camping with [friends](http://www.mikepsaris.com), while [Jillian](http://www.jillianschmidt.com) had a writers' retreat. This camping trip would be my first in my new hammock, my second time with our dog, and my first with my new stove. And, while it was warm during the day (70s), it was chilly at night (30s), meaning I wasn't sure either the dog or me would be able to keep warm. So no matter where we went, it had to be close enough to the car that if needed, I could throw the dog in the car and head for warmth.
