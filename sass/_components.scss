@@ -1,4 +1,4 @@
-#hamburger {
+.hamburger {
   cursor: pointer;
   height: 43px;
   margin: 1px;
@@ -36,7 +36,7 @@
   }
 }
 
-#hamburger.open span {
+.hamburger.open span {
   &:nth-child(1) {
     left: 50%;
     top: 18px;
