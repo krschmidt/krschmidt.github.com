@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: Deleting the nodes tagged with a taxonomy term 
+title: Deleting nodes tagged with a taxonomy term 
 date: 2014-11-19 19:05:15
 tags:
 - Development
