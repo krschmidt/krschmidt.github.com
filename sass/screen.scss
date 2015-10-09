@@ -64,7 +64,8 @@ h1 {
 }
 
 .listing li {
-  margin-bottom: .5em;
+  line-height: 1.2em;
+  margin-bottom: .15em;
 }
 
 p {
@@ -201,7 +202,7 @@ nav {
   }
 }
 
-#menu {
+.menu {
   display: none;
   text-align: center;
 
@@ -214,7 +215,7 @@ nav {
   }
 }
 
-#hamburger {
+.hamburger {
   display: table-cell;
   margin: 2px;
 
@@ -223,7 +224,7 @@ nav {
   }
 }
 
-#mobile-title {
+.mobile-title {
   display: table-cell;
   padding: 2px;
   vertical-align: middle;
