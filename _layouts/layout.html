@@ -15,23 +15,23 @@
 </head>
 <body>
 <nav>
-	<div id="hamburger">
+	<div class="hamburger">
 	  <span></span>
 	  <span></span>
 	  <span></span>
 	  <span></span>
 	</div>
-	<div id="mobile-title">
+	<div class="mobile-title">
 		<h1>Kyle Schmidt</h1>
 	</div>
-	<div id="menu">
+	<div class="menu">
 		<a href="/"><img src="{{ site.gravatar_url }}?s=150" height="75" width="75" class="avatar" alt="A picture of me wearing a bicycle helmet"/></a>
 		<ul>
 			<li><a href="/about">About</a></li>
 			<li><a href="/">Blog</a></li>
 			<li><a href="/resume">R&eacute;sum&eacute;</a></li>
 		</ul>
-		<div id="social_media">
+		<div class="social_media">
 			<div>
 				<a href="https://twitter.com/Kyle_R_Schmidt" class="sprite sprite-twitter">
 					<span class="invisible">Follow me on Twitter</span>
@@ -59,9 +59,9 @@
 </section>
 <script>
 $(document).ready(function(){
-	$('#hamburger').click(function(){
+	$('.hamburger').click(function(){
 		$(this).toggleClass('open');
-		$('#menu').toggleClass('open');
+		$('.menu').toggleClass('open');
 	});
 });
 </script>
