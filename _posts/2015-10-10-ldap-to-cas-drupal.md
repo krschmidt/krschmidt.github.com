@@ -14,7 +14,7 @@ As part of a larger identity management project at work, I recently changed our 
 4. Configure the module:
     * Made CAS login default on login forms
     * checking that users cannot change their email address or password
-    * require CAS for `user*``
+    * require CAS for `user*`
     * setting the initial login destination to admin/dashboard
 4. Convert all of our LDAP users to new CAS accounts, based on these [instructions](https://www.drupal.org/node/1261232). 
 <script src="https://gist.github.com/krschmidt/c09756eed306cb4f170a.js"></script>
