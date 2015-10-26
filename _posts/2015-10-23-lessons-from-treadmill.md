@@ -5,7 +5,7 @@ date: 2015-10-23 16:51:10
 tags:
 - Life
 ---
-After building my [treadmill desk](% post_url 2015-10-02-treadmill-desk %), it was time to experiment. Not counting the initial mile, I've now walked a total 870 minutes over 10 sessions, for a total of 19.007 miles and an estimated 2506 calories burned.
+After building my [treadmill desk]({% post_url 2015-10-02-treadmill-desk %}), it was time to experiment. Not counting the initial mile, I've now walked a total 870 minutes over 10 sessions, for a total of 19.007 miles and an estimated 2506 calories burned.
 
 Conclusion? I'm glad I have another place to work, but this is an excellent addition.
 
