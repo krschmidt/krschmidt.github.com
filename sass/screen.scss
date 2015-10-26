@@ -96,6 +96,8 @@ pre {
 }
 
 article {
+  margin-bottom: 5em;
+
   @include breakpoint($desktop) {
     margin-right: 10px;   
   }
