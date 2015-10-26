@@ -17,7 +17,9 @@ a:visited.tag {
   display: inline-block;
   font-size: 70%;
   padding: 0 .3em;
+  position: relative;
   text-decoration: none;
+  top: -2px; //centers the tag vertically on the line
 
   article & {
     padding: .5em;
