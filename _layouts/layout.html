@@ -17,10 +17,10 @@
 	  <span></span>
 	</div>
 	<div class="mobile-title">
-		<h1>Kyle Schmidt</h1>
+		<h1>{{ site.name }}</h1>
 	</div>
 	<div class="menu">
-		<a href="/"><img src="{{ site.gravatar_url }}?s=150" height="75" width="75" class="avatar" alt="A picture of me wearing a bicycle helmet"/></a>
+		<a href="/"><img src="{{ site.gravatar_url }}?s=150" height="75" width="75" class="avatar" alt=""/></a>
 		<ul>
 			<li><a href="/about">About</a></li>
 			<li><a href="/">Blog</a></li>
@@ -28,18 +28,18 @@
 		</ul>
 		<div class="social_media">
 			<div>
-				<a href="https://twitter.com/Kyle_R_Schmidt" class="sprite sprite-twitter">
+				<a href="https://twitter.com/{{ site.twitter }}" class="sprite sprite-twitter">
 					<span class="invisible">Follow me on Twitter</span>
 				</a>
-				<a href="https://www.goodreads.com/VeryHungryRaptor" class="sprite sprite-goodreads">
+				<a href="https://www.goodreads.com/{{ site.goodreads }}" class="sprite sprite-goodreads">
 					<span class="invisible">See what I'm reading on Goodreads</span>
 				</a>
 			</div>
 			<div>
-				<a href="https://github.com/krschmidt" class="sprite sprite-github">
+				<a href="https://github.com/{{ site.github }}" class="sprite sprite-github">
 					<span class="invisible">Check out my GitHub</span>
 				</a>
-				<a href="https://www.linkedin.com/in/krschmidt/" class="sprite sprite-linkedin">
+				<a href="https://www.linkedin.com/in/{{ site.linkedin }}" class="sprite sprite-linkedin">
 					<span class="invisible">Connect with me on LinkedIn</span>
 				</a>
 			</div>
@@ -51,7 +51,7 @@
 		<h1 class='top-title'>{{ page.topTitle }}</h1>
 	{% endif %}
 {{ content }}
-<span class="copy-notice">&copy;2015 Kyle Schmidt <a href="/copyright">Some rights reserved</a></span>
+<span class="copy-notice">&copy;2015 {{ site.name }} <a href="/copyright">Some rights reserved</a></span>
 </section>
 <script>
 $(document).ready(function(){
@@ -67,7 +67,7 @@ $(document).ready(function(){
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-3315743-1', 'auto');
+  ga('create', '{{ site.google_analytics }}', 'auto');
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
 
