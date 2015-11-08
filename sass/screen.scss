@@ -33,10 +33,6 @@ body {
   font-size: 18px;
 }
 
-h2 {
-  font-family: 'Ovo', serif;
-}
-
 h1 {
   font-family: 'Ovo', serif;
   font-size: 48px;
@@ -99,19 +95,18 @@ pre {
   font-family: Consolas, Courier New, monospace; 
 }
 
+h2 {
+  font-family: 'Ovo', serif;
+  font-size: 1.5em;
+  line-height: 1.1em;
+  margin-bottom: .1em;
+  margin-top: 1em;
+}
+
 article {
-  margin-bottom: 5em;
 
   @include breakpoint($desktop) {
     margin-right: 10px;   
-  }
-  
-  h2 {
-    font-family: 'Ovo', serif;
-    font-size: 1.4em;
-    line-height: 1.1em;
-    margin-bottom: .1em;
-    margin-top: 1em;
   }
 
   img {
@@ -254,6 +249,18 @@ nav {
 
   @include breakpoint($desktop) {
     display: none;
+  }
+}
+
+.copy-notice {
+  color: $grey * 1.75;
+  display: inline-block;
+  font-size: 70%;
+  margin: 1em 0;
+
+  a,
+  a:visited {
+    color: $grey * 1.75;
   }
 }
 
