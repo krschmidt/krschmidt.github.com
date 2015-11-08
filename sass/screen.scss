@@ -2,20 +2,11 @@
 @import 'breakpoint';
 @import 'variables';
 @import 'tags';
+@import 'typography';
 @import 'components';
 @import 'resume';
 
 // Global Styles that apply everywhere
-a,
-a:link,
-a:active {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 .left {
   float: left;
 }
@@ -28,33 +19,14 @@ img {
   max-width: 100%;
 }
 
-body {
-  font-family: 'Muli', sans-serif;
-  font-size: 18px;
-}
-
 h1 {
-  font-family: 'Ovo', serif;
-  font-size: 48px;
-  font-variant: small-caps;
-  line-height: .8em;
-  margin: 0 0 .1em;
-
-  a {
-    color: $black;
-  }
-
-  &.top-title {
-    margin: 0 0 12px;
-  }
-  
   &.index-title {
     display: none;
-    font-size: 60px;
-    letter-spacing: -1px;
 
     @include breakpoint($desktop) {
       display: block;
+      font-size: 60px;
+      letter-spacing: -1px;
     }
   }
 }
@@ -67,44 +39,11 @@ h1 {
   }
 }
 
-p {
-  line-height: 1.4em;
-  margin-bottom: 1em;
-  text-align: left;
-
-  @include breakpoint($desktop) {
-    text-align: justify;
-  }
-}
-
-time {
-  color: $grey;
-  font-size: 90%;
-}
-
 .twitter-tweet {
   margin: 0 auto;
 }
 
-abbr {
-  font-size: 90%;
-}
-
-code, 
-pre { 
-  font-family: Consolas, Courier New, monospace; 
-}
-
-h2 {
-  font-family: 'Ovo', serif;
-  font-size: 1.5em;
-  line-height: 1.1em;
-  margin-bottom: .1em;
-  margin-top: 1em;
-}
-
 article {
-
   @include breakpoint($desktop) {
     margin-right: 10px;   
   }
@@ -249,18 +188,6 @@ nav {
 
   @include breakpoint($desktop) {
     display: none;
-  }
-}
-
-.copy-notice {
-  color: $grey * 1.75;
-  display: inline-block;
-  font-size: 70%;
-  margin: 1em 0;
-
-  a,
-  a:visited {
-    color: $grey * 1.75;
   }
 }
 
