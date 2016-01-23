@@ -24,3 +24,5 @@ She definitely didn't like it though, and slinked across the log, shivering the 
 Overall, my first experience hiking in a hard rain was a lot better than I'd expected. I managed to keep warm, even though everything I had soaked through &ndash; pants, jacket, and hat. I should probably treat my pants again, but the Mountain Hardware Finder jacket was brand new. Karou wore her jacket as well, which definitely helped, but if we're hiking in the rain any more, she'll need something warmer. Similarly, while my hat kept me warm, if the hike had been much longer, water would have started running off it down my face. A wide brim hat may be in my future.
 
 I also desperately need to remember to bring a nicer camera than my iPhone 4S.
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18389.39826867518!2d-122.67132841696022!3d43.84774016654213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1453509620584" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen title="Map of Goodman Creek Trail and Hardesty Trailhead"></iframe>

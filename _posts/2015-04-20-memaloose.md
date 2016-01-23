@@ -10,7 +10,11 @@ This weekend, I went camping with [friends](http://www.mikepsaris.com), while [J
 
 Our first pick was [Oxbow Regional Park](http://www.oregonmetro.gov/parks/oxbow-regional-park), as it was relatively close to Portland and had open spots for car camping. But we soon discovered it's also a nature preserve, meaning no dogs allowed. Finding a new spot was tricky. Most Oregon parks don't open until mid-May. 
 
-We ended up at [Memaloose State Park](http://www.oregonstateparks.org/index.cfm?do=parkPage.dsp_parkPage&parkId=118), in between Hood River and The Dalles, right on the river. Since we had no reservation, we were worried headed out there, as it was a beautiful weekend and we already knew there weren't any other open parks. But it wasn't even half full, and the view of the river and the gorge was awesome. It seemed perfect.
+We ended up at [Memaloose State Park](http://www.oregonstateparks.org/index.cfm?do=parkPage.dsp_parkPage&parkId=118), in between Hood River and The Dalles, right on the river. 
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2786.7791493390864!2d-121.34053058481675!3d45.695403926007714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549610a010b1b7b7%3A0x35773f9996ffc7ab!2sMemaloose+State+Park!5e0!3m2!1sen!2sus!4v1453509342303" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen title="Map of Memaloose State Park"></iframe>
+
+Since we had no reservation, we were worried headed out there, as it was a beautiful weekend and we already knew there weren't any other open parks. But it wasn't even half full, and the view of the river and the gorge was awesome. It seemed perfect.
 
 <a href="http://imgur.com/feOldVX"><img alt="Karou scoping out the campsight, with the Columbia River Gorge in the background" src="http://i.imgur.com/feOldVX.jpg"></a>
 
