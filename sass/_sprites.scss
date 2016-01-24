@@ -1,0 +1,23 @@
+.sprite {
+  background: url('/img/sprite.png');
+  display: inline-block;
+  height: 32px;
+  margin: 1px;
+  width: 32px;
+}
+
+.sprint-twitter {
+  background-position: 0 0;
+}
+
+.sprite-linkedin {
+  background-position: 0 -32px;
+}
+
+.sprite-goodreads {
+  background-position: 0 -64px;
+}
+
+.sprite-github {
+  background-position: 0 -96px;
+}
