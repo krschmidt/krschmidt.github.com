@@ -1,12 +1,28 @@
+.invisible {
+  border: 0;    
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 .hamburger {
   cursor: pointer;
+  display: table-cell;
   height: 43px;
-  margin: 1px;
+  margin: 2px;
   padding: 2px;
   position: relative;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
   width: 43px;
+
+  @include breakpoint($desktop) {
+    display: none;
+  }
 
   span {
     background: $black;
@@ -34,26 +50,26 @@
       top: 36px;
     }
   }
-}
 
-.hamburger.open span {
-  &:nth-child(1) {
-    left: 50%;
-    top: 18px;
-    width: 0;
-  }
+  &.open span {
+    &:nth-child(1) {
+      left: 50%;
+      top: 18px;
+      width: 0;
+    }
 
-  &:nth-child(2) {
-    transform: rotate(45deg);
-  }
+    &:nth-child(2) {
+      transform: rotate(45deg);
+    }
 
-  &:nth-child(3) {
-    transform: rotate(-45deg);
-  }
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
 
-  &:nth-child(4) {
-    left: 50%;
-    top: 18px;
-    width: 0;
+    &:nth-child(4) {
+      left: 50%;
+      top: 18px;
+      width: 0;
+    }
   }
 }
