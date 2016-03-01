@@ -45,10 +45,12 @@ article {
   li {
     margin-bottom: .5em;
     text-align: justify;
+    text-indent: -1em;
   }
 
   ol {
     list-style: number inside;
+    padding-left: 2em;
 
     ul,
     ol {
@@ -58,6 +60,7 @@ article {
 
   ul {
     list-style: disc inside;
+    padding-left: 2em;
 
     ul,
     ol {
