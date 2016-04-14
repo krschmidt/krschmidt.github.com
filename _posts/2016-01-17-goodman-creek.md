@@ -5,7 +5,7 @@ date: 2016-01-17 15:07:10
 tags:
 - Outdoors
 ---
-My friend Kate was in town for the weekend, and we decided we needed an adventure in the woods. But it was supposed to rain. A lot. Snow would keep us out of the mountains, and with foggy conditions all over, it didn't feel worth climbing a hill. I'd never hiked from the [Hardesty Trailhead](http://www.fs.usda.gov/recarea/willamette/recreation/recarea/?recid=81069), even though I've traveled past there a dozen times. So, with no plan, we set out. 
+My friend [Kate](http://www.katemarsi.com) was in town for the weekend, and we decided we needed an adventure in the woods. But it was supposed to rain. A lot. Snow would keep us out of the mountains, and with foggy conditions all over, it didn't feel worth climbing a hill. I'd never hiked from the [Hardesty Trailhead](http://www.fs.usda.gov/recarea/willamette/recreation/recarea/?recid=81069), even though I've traveled past there a dozen times. So, with no plan, we set out. 
 
 Karou was a little skeptical of our plan.
 
