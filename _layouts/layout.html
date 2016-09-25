@@ -28,8 +28,6 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Ovo|Muli' rel='stylesheet' type='text/css'>
   	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 </head>
 <body>
 <nav>
@@ -77,11 +75,10 @@
 <span class="copy-notice">&copy;2016 {{ site.name }} <a href="/copyright">some rights reserved</a></span>
 </section>
 <script>
-$(document).ready(function(){
-	$('.hamburger').click(function(){
-		$(this).toggleClass('open');
-		$('.menu').toggleClass('open');
-	});
+var burger = document.getElementsByClassName('hamburger')[0];
+burger.addEventListener('click', function(e){
+	burger.classList.toggle('open');
+	document.getElementsByClassName('menu')[0].classList.toggle('open');
 });
 </script>
 <script>
