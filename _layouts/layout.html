@@ -3,6 +3,29 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}</title>
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="{{ site.twitter }}">
+	<meta name="twitter:creator" content="{{ site.twitter }}">
+	{% if page.title %}
+	  <meta name="twitter:title" content="{{ page.title }}">
+	{% else %}
+	  <meta name="twitter:title" content="{{ site.title }}">
+	{% endif %}
+	{% if page.url %}
+	  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+	{% endif %}
+	{% if page.description %}
+	  <meta name="twitter:description" content="{{ page.description }}">
+	{% else %}
+	  <meta name="twitter:description" content="{{ site.description }}">
+	{% endif %}
+	{% if page.image %}
+	  <meta name="twitter:image:src" content="{{ page.image }}">
+	{% else %}
+	  <meta name="twitter:image:src" content="{{ site.url }}/img/threeofus.jpg">
+	{% endif %}
+
 	<link href='http://fonts.googleapis.com/css?family=Ovo|Muli' rel='stylesheet' type='text/css'>
   	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
