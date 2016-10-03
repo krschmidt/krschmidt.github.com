@@ -1,6 +1,10 @@
 body {
   font-family: 'Muli', sans-serif;
   font-size: 19px;
+
+  @include breakpoint($desktop) {
+    font-size: 21px;
+  }
 }
 
 a,
@@ -26,11 +30,10 @@ a:hover {
 }
 
 h1 {
-  font-family: 'Ovo', serif;
   font-size: 2.5em;
   font-variant: small-caps;
   line-height: .9em;
-  margin: 0 0 .1em;
+  margin: 0 0 .1em -.1em;
 
   &.top-title {
     margin: 0 0 12px;
