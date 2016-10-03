@@ -8,7 +8,7 @@ tags:
 ---
 Because I had such a good time [last year](% post_url 2014-10-21-higheredweb %), once again I returned to [HigherEd Web](http://2015.highedweb.org/), this year in Milwaukee, Wisconsin. Here's a quick summary of my notes, typed on the flight home.
 
-<a href="http://imgur.com/0Hsdt73"><img alt="Predawn on the lakeshore" src="http://imgur.com/0Hsdt73.jpg"></a>
+<a href="http://imgur.com/0Hsdt73"><img alt="Predawn on the lakeshore" src="https://imgur.com/0Hsdt73.jpg"></a>
 
 Our Email is Bad
 ----------------
@@ -18,7 +18,7 @@ There's a prevailing opinion on our campus that students these days don't "do" e
 
 You too can see just how bad some of the HigherEd email is in his [Email Audit](http://www.uofadmissionsmarketing.com/p/email-audit.html). 
 
-<a href="http://imgur.com/ok14njW"><img alt="Sunset from my hotel window" src="http://imgur.com/ok14njW.jpg"></a>
+<a href="http://imgur.com/ok14njW"><img alt="Sunset from my hotel window" src="https://imgur.com/ok14njW.jpg"></a>
 
 Content is king
 ---------------
@@ -36,7 +36,7 @@ While we're talking content, we need to be more explicit in the purposes of each
 
 We should try recording some students trying to do an action on our website, and overlay the recording of them on top of the recording of what was on the screen at the time. During one session, I saw a couple of those videos that were fascinating. I imagine they'd point out a lot of places we're completely failing.
 
-<a href="http://imgur.com/yS83nnL"><img alt="Button on a wall labeled 'Push to Play Polka'" src="http://i.imgur.com/yS83nnL.jpg?2"></a>
+<a href="http://imgur.com/yS83nnL"><img alt="Button on a wall labeled 'Push to Play Polka'" src="https://i.imgur.com/yS83nnL.jpg?2"></a>
 
 We need a community
 -------------------
@@ -56,6 +56,6 @@ This was another common theme between presentations. Personalized communications
 
 We ought to get one of those.
 
-<a href="http://imgur.com/znbviSx"><img alt="Sunrise at the lake shore" src="http://imgur.com/znbviSx.jpg"></a>
+<a href="http://imgur.com/znbviSx"><img alt="Sunrise at the lake shore" src="https://imgur.com/znbviSx.jpg"></a>
 
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

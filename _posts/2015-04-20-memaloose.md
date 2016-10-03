@@ -16,13 +16,13 @@ We ended up at [Memaloose State Park](http://www.oregonstateparks.org/index.cfm?
 
 Since we had no reservation, we were worried headed out there, as it was a beautiful weekend and we already knew there weren't any other open parks. But it wasn't even half full, and the view of the river and the gorge was awesome. It seemed perfect.
 
-<a href="http://imgur.com/feOldVX"><img alt="Karou scoping out the campsight, with the Columbia River Gorge in the background" src="http://i.imgur.com/feOldVX.jpg"></a>
+<a href="http://imgur.com/feOldVX"><img alt="Karou scoping out the campsight, with the Columbia River Gorge in the background" src="https://i.imgur.com/feOldVX.jpg"></a>
 
 We should have known better. Though it seemed like a perfect spot when we arrived, the park sits between I-80 and a set of train tracks &mdash; with another set right across the river. Every half hour, all night, another hundred cars rolled through. And the trucks on the highway were non-stop.
 
 It was a mistake to hang my [Hennessey Hammock Expedition Asym Zip](http://www.amazon.com/gp/product/B008CE3ACQ/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B008CE3ACQ&linkCode=as2&tag=maat10mp-20&linkId=HFQP5YGBW754GYMP) between two pine trees, as I ended up getting sap on the straps.
 
-<a href="http://imgur.com/6rCGAe4"><img alt="Hammock hang between two pine trees" src="http://i.imgur.com/6rCGAe4.jpg"></a>
+<a href="http://imgur.com/6rCGAe4"><img alt="Hammock hang between two pine trees" src="https://i.imgur.com/6rCGAe4.jpg"></a>
 
 Those went straight into the wash as soon as we got home. If it'd been a warmer night, it would have been great to detach the fly, but I wanted to trap whatever warmth I could. I strongly recommend the [snakeskins](http://www.amazon.com/gp/product/B005J6J11E/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B005J6J11E&linkCode=as2&tag=maat10mp-20&linkId=SUTAS5ZSPIAXTDWY), which made set-up and tear-down take no time at all.
 
@@ -38,6 +38,6 @@ Since we'd arrived after dinner the night before, I ended up not making dinner o
 
 Afterward, on our way back to Eugene, we stopped at the outlets and Karou and I hung out in the parking lot while Jillian grabbed a few things. Thank you to the person that designed these [leashes](http://www.amazon.com/gp/product/B00G2QI1SY/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00G2QI1SY&linkCode=as2&tag=maat10mp-20&linkId=H7NKU4KO2BAB2DWP) with the snap in them. I use that constantly. And thank you to the security guard who directed me to the only tree big enough to provide any shade in the entire parking lot, and who made my day by mistaking my dog for a coyote.
 
-<a href="http://imgur.com/gpLeSu5"><img alt="Hammock hang between two pine trees" src="http://i.imgur.com/gpLeSu5.jpg"></a>
+<a href="http://imgur.com/gpLeSu5"><img alt="Hammock hang between two pine trees" src="https://i.imgur.com/gpLeSu5.jpg"></a>
 
 Overall, glad I took the trip. But next time, I'll pick somewhere else.

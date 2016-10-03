@@ -21,19 +21,19 @@ After some eggs and an English muffin, we were on the road by 4:10 and at the tr
 
 Despite arriving before sunrise, the parking lot was full, and we had to park with a number of other cars along the side of the entrance. It was around freezing, so we bundled up as we headed out. By afternoon, when temperatures reached 90, Mike certainly didn't need his puffy jacket and I was glad to have depended on only a hat and gloves.
 
-<a href="http://imgur.com/jqTzHc8"><img alt="Mike at Devil's Lake Trailhead" src="http://i.imgur.com/jqTzHc8.jpg"></a>
+<a href="http://imgur.com/jqTzHc8"><img alt="Mike at Devil's Lake Trailhead" src="https://i.imgur.com/jqTzHc8.jpg"></a>
 
 We took the South Side Route, which has an [excellent map](http://karl-helser.com/wp-content/uploads/2013/05/South-Sister-8-11-08.jpg) on [Karl Helser's](http://karl-helser.com/) website. As predicted by the state of the parking lot, it was a very popular route. Seeing crowds like this (shot at the trail junction to Moraine Lake) at every stop took something away from being out in the woods:
 
-<a href="http://imgur.com/TGD2MSB"><img alt="Trail junction with many people in view" src="http://i.imgur.com/TGD2MSB.jpg"></a>
+<a href="http://imgur.com/TGD2MSB"><img alt="Trail junction with many people in view" src="https://i.imgur.com/TGD2MSB.jpg"></a>
 
 Next was a gentle walk on the golf course, where the trail was wide enough to walk two abreast. 
 
-<a href="http://imgur.com/NoUXcl1"><img alt="Trail junction with many people in view" src="http://i.imgur.com/NoUXcl1.jpg"></a>
+<a href="http://imgur.com/NoUXcl1"><img alt="Trail junction with many people in view" src="https://i.imgur.com/NoUXcl1.jpg"></a>
 
 Of course, soon it was time to head back uphill. The trail was broken gray rock for about a thousand vertical feet.
 
-<a href="http://imgur.com/yGrHyWP"><img alt="Me hiking uphill in some grey rock, surrounded again by tons of people" src="http://i.imgur.com/yGrHyWP.jpg"></a>
+<a href="http://imgur.com/yGrHyWP"><img alt="Me hiking uphill in some grey rock, surrounded again by tons of people" src="https://i.imgur.com/yGrHyWP.jpg"></a>
 
 For most of my adult life I've had problems with my plantar fascia. At its worst, after walking even a quarter mile I'd feel a tearing sensation on the bottom of my foot, and I'd be forced to hobble home. After seeing a doctor who recommended surgery, I instead read Chris McDougall's [Born to Run](http://amzn.to/2cngJcF) and started down the path of barefoot travel. It took me a few years, but I'd finally reached a point where I could walk around town in my [Five Fingers](http://amzn.to/2cTk4QL) without issue for at least a few miles. 
 
@@ -41,7 +41,7 @@ Since South Sister is an 11 mile round trip hike, I wanted as much assurance as 
 
 Just above 8000 feet we stopped at a common lunch spot, overlooking a little late below Lewis Glacier. 
 
-<a href="http://imgur.com/mNvPOSX"><img alt="Water below Lewis Glacier" src="http://i.imgur.com/mNvPOSX.jpg"></a>
+<a href="http://imgur.com/mNvPOSX"><img alt="Water below Lewis Glacier" src="https://i.imgur.com/mNvPOSX.jpg"></a>
 
 Before we started moving again, I switched over to my [Vivobarefoot Trackers](http://amzn.to/2cbpPKW). They're as close to barefoot boots as I can find, and when I added some snow gaiters, I had no rock issues the rest of the hike. 
 
@@ -49,27 +49,27 @@ But I did have altitude issues. By the time we'd gotten to this ridge, I was sta
 
 From here things turned somehow even more sharply uphill, on an exposed scree slope. If you look closely, you can see people most of the way up the mountain. 
 
-<a href="http://imgur.com/c66PMPp"><img alt="Reddish scree, with people hiking a small trail into the distance" src="http://i.imgur.com/c66PMPp.jpg"></a>
+<a href="http://imgur.com/c66PMPp"><img alt="Reddish scree, with people hiking a small trail into the distance" src="https://i.imgur.com/c66PMPp.jpg"></a>
 
 I didn't realize how loose the rock was until the trip back down, but I'm glad we climbed in the morning, when everyone was moving slowly uphill. In the afternoon, when most people are coming off the mountain, there's a lot of people who don't pay attention to the danger posed by rocks they kick down the mountain while descending in a hurry.
 
 I also stared to struggle with my knee. I've had trouble with my left knee for twenty years, and I'm actually pretty happy to have made it to over 9000 feet without any problems. I might look into [knee sleeves](http://amzn.to/2cXgBTZ) to see if adding some compression around the knee helps to prevent issues, but without the discomfort that comes with a brace. I was happy to be hiking with trekking poles, which helped take some weight off my leg. 
 
-<a href="http://imgur.com/nkQ3zOP"><img alt="Reddish scree, on a very steep slope." src="http://i.imgur.com/nkQ3zOP.jpg"></a>
+<a href="http://imgur.com/nkQ3zOP"><img alt="Reddish scree, on a very steep slope." src="https://i.imgur.com/nkQ3zOP.jpg"></a>
 
 At some point I stopped to put my brace on, which helped keep my knee problems from getting any worse, but I still found myself favoring my right leg, to a point where by the end of the hike only my right leg was sore.
 
 Though we were on one of the shortest section of the hike, we easily spent the most time here. In the last few hundred vertical feet I was stopping at every large rock. More worryingly, I started to feel like I was on the edge of nausea. At least the views were good.
 
-<a href="http://imgur.com/2ip7zNs"><img alt="View over Lewis Glacier and the Lake below it, with reddish scree in the foreground." src="http://i.imgur.com/2ip7zNs.jpg"></a>
+<a href="http://imgur.com/2ip7zNs"><img alt="View over Lewis Glacier and the Lake below it, with reddish scree in the foreground." src="https://i.imgur.com/2ip7zNs.jpg"></a>
 
 Despite my issues, we made it to the top. Mike was able to head out onto the ice. I stayed on the rim, since I'd left my sunglasses sitting on the table at home where I wouldn't forget them.
 
-<a href="http://imgur.com/Sg1lN4Z"><img alt="Mike standing on some ice on the summit" src="http://i.imgur.com/Sg1lN4Z.jpg"></a>
+<a href="http://imgur.com/Sg1lN4Z"><img alt="Mike standing on some ice on the summit" src="https://i.imgur.com/Sg1lN4Z.jpg"></a>
 
 We saw one guy camping with his dog on the rim (though this picture features a different man and dog). That seems like a great way to explore this mountain. There's a number of wind breaks built around the rim if you need some more cover, and the views would be absolutely spectacular at night.
 
-<a href="http://imgur.com/iSDao6P"><img alt="Orange tent on the south rim" src="http://imgur.com/iSDao6P.jpg"></a>
+<a href="http://imgur.com/iSDao6P"><img alt="Orange tent on the south rim" src="https://imgur.com/iSDao6P.jpg"></a>
 
 The official summit is about a hundred feet higher up, on the north side. Mike climbed it, while I napped on some rather sharp rocks, afraid to climb higher on my knee and with my altitude issues. I'm sure I could have made it, but it would have taken and hour and we were running out of time. We'd told our wives to get worried if they hadn't heard from us by nine that evening. Though we'd be out of the woods by then, we were a two hour drive from cell service (T-Mobile's service in the Oregon Woods is fairly deplorable). Since there was no question Mike could move a lot faster than me, he summited and reported he could see mountains on the north side of Hood, some 150 miles away.
 

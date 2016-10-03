@@ -9,15 +9,15 @@ My friend [Kate](http://www.katemarsi.com) was in town for the weekend, and we d
 
 Karou was a little skeptical of our plan.
 
-<a href="http://imgur.com/HnHmMHr"><img alt="Karou, standing in the rain in the parking lot at the trailhead." src="http://i.imgur.com/HnHmMHr.jpg"></a>
+<a href="http://imgur.com/HnHmMHr"><img alt="Karou, standing in the rain in the parking lot at the trailhead." src="https://i.imgur.com/HnHmMHr.jpg"></a>
 
 [The hike](http://www.oregonhiking.com/oregon-adventures/100-hikes-in-the-central-oregon-cascades/hikes-in-the-willamette-foothills/goodman-creek-hike) was a great excuse to get into the woods. Old growth douglas fir surrounded us, with some trees as much as five or six feet wide. And while there weren't any vistas, there were occasional views.
 
-<a href="http://imgur.com/3bnPgnW"><img alt="Karou, looking at me, wondering why we're standing here" src="http://i.imgur.com/3bnPgnW.jpg"></a>
+<a href="http://imgur.com/3bnPgnW"><img alt="Karou, looking at me, wondering why we're standing here" src="https://i.imgur.com/3bnPgnW.jpg"></a>
 
 There were a couple of giant trees across the path, and at least once it was difficult to figure out which way the trail went. Although it's winter, so a lot of trees were bare, that was more than made up for by the number of trees covered in brilliant green moss. Karou had some trouble fording a stream once, but after I was half way across she jumped right in. She really impressed me when she hopped right up on this bridge. 
 
-<a href="http://imgur.com/G0VMtGJ"><img alt="A single log felled across a stream, serving as a bridge" src="http://i.imgur.com/G0VMtGJ.jpg"></a>
+<a href="http://imgur.com/G0VMtGJ"><img alt="A single log felled across a stream, serving as a bridge" src="https://i.imgur.com/G0VMtGJ.jpg"></a>
 
 She definitely didn't like it though, and slinked across the log, shivering the whole time. Not too long after that we realized we should probably get home, so we turned around. By the time we got back to the car, Karou had started to shiver.
 
