@@ -87,7 +87,9 @@ pre {
 
 time {
   color: $grey;
-  font-size: 90%;
+  display: inline-block;
+  font-size: 80%;
+  width: 7em;
 }
 
 em {

@@ -20,14 +20,6 @@ img {
   max-width: 100%;
 }
 
-.listing li {
-  line-height: 1.15em;
-
-  &.year-break {
-    margin-top: 1em;
-  }
-}
-
 .twitter-tweet {
   margin: 0 auto;
 }
@@ -35,6 +27,7 @@ img {
 article {
   @include breakpoint($desktop) {
     margin-right: 10px;   
+    max-width: 35em;
   }
 
   img {
@@ -124,7 +117,6 @@ nav {
 
   @include breakpoint($desktop) {
     margin: 18px auto auto 120px;
-    max-width: 38em;
   }
 }
 
@@ -160,4 +152,26 @@ nav {
 blockquote {
   font-style: italic;
   margin: 0 4em;
+}
+
+.listing {
+  h2 {
+    color: $grey;
+    display: inline-block;
+    font-size: 1.25em;
+    padding-right: .75em;
+  }
+
+  li {
+    line-height: 1.25em;
+  }
+
+  ul {
+    display: inline-block;
+    margin-top: 1em;
+  }
+}
+
+.post-listing {
+  display: inline-block;
 }
