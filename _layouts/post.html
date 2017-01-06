@@ -6,19 +6,21 @@ layout: layout
     {{ page.title }}
    </h1>
 
-   <section class="byline">
-    <span>Posted {{ page.date | date: "%B %e, %Y" }}</span>
-   </section>
+   <div>
+     <section class="tags">
+      <ul>
+          {% for tag in page.tags %}
+          <li>
+            <a class="tag {{ tag|downcase }}" href="/tag/{{ tag }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+      </ul>
+     </section>
 
-   <section class="tags">
-    <ul>
-        {% for tag in page.tags %}
-        <li>
-          <a class="tag {{ tag|downcase }}" href="/tag/{{ tag }}">{{ tag }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-   </section>
+    <section class="byline">
+      <span>Posted {{ page.date | date: "%B %e, %Y" }}</span>
+     </section>
+   </div>
 
 	{{ content | abbr }}
 
