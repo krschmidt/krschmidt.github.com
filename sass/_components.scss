@@ -114,21 +114,20 @@ iframe {
 }
 
 .note-number {
+  color: $grey;
   display: none;
+  font-size: 18px;
+  margin-left: -16px;
+  vertical-align: bottom;
 
   @include breakpoint($addside) {
     display: inline;
   }
-
-  color: $grey;
-  font-size: 18px;
-  margin-left: -16px;
-  vertical-align: bottom;
 }
 
 figcaption {
-  text-align: center;
   font-size: .8em;
   margin-bottom: 1em;
   padding-top: .1em;
+  text-align: center;
 }

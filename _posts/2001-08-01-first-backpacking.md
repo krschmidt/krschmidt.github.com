@@ -45,7 +45,7 @@ With our bag down, we saw it hadn't completely escaped the destruction. But the 
 Not even a mile later, Carrie's foot slipped off a rock and her ankle bent in a way it shouldn't have. This wasn't her first time having trouble with that ankle, and she didn't want it to be the reason we turned around. She wrapped it in an ace bandage, popped a couple Advil, and insisted we continue on. We went a little slower, but arrived at the summit without further issue. After snacking a bit, with views clear to Vermont, we started back down. 
 
 <figure>
-<a href="http://imgur.com/cAC5GUK"><img src="http://i.imgur.com/cAC5GUK.jpg" alt="Me, on top of Mt Marcy"></a>
+<a href="http://imgur.com/cAC5GUK"><img src="//i.imgur.com/cAC5GUK.jpg" alt="Me, on top of Mt Marcy"></a>
 <figcaption>Me, atop Mt Marcy. Picture courtesy Carrie</figcaption>
 </figure>
 
