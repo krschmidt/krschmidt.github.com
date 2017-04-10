@@ -1,6 +1,6 @@
 body {
   font-family: 'Muli', sans-serif;
-  font-size: 19px;
+  font-size: 20px;
 
   @include breakpoint($desktop) {
     font-size: 21px;
@@ -71,7 +71,7 @@ abbr {
 
 p {
   color: $post-text;
-  line-height: 1.4em;
+  line-height: 1.7em;
   margin-bottom: 1em;
   text-align: left;
 
@@ -99,4 +99,15 @@ em {
 .byline {
   color: $grey;
   display: inline-block;
+}
+
+sup, sub, small {
+  font-size: 0.65em;
+}
+
+sup {
+  vertical-align: super;
+}
+sub {
+  vertical-align: sub;
 }

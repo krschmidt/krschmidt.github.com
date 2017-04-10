@@ -46,6 +46,7 @@
 			<li><a href="/about">About</a></li>
 			<li><a href="/">Blog</a></li>
 			<li><a href="/resume">R&eacute;sum&eacute;</a></li>
+      <li><a href="/tag/Tale">Tales</a></li>
 		</ul>
 		<div class="social_media">
 			<div>
@@ -79,6 +80,45 @@ var burger = document.getElementsByClassName('hamburger')[0];
 burger.addEventListener('click', function(e){
 	burger.classList.toggle('open');
 	document.getElementsByClassName('menu')[0].classList.toggle('open');
+});
+
+// Show side/foot notes if avaialble.
+var s = document.getElementsByClassName('note');
+for(var i=0;i<s.length;i++){
+  s[i].addEventListener('click', function(event){
+    var targetNumber = event.target.textContent;
+    var possibles = document.getElementsByClassName('note-number');
+    for(var j=0;j<possibles.length;j++){
+      if(possibles[j].textContent.substring(0, 1) == targetNumber){
+        // check background color to make sure we're not getting clicked on while on wide mode
+        styles = window.getComputedStyle(possibles[j].parentElement);
+        if(styles.getPropertyValue('display') != 'block' && styles.getPropertyValue('background-color') != 'transparent'){
+          possibles[j].parentElement.style.display = 'block';
+          possibles[j].parentElement.style.left = event.clientX + "px";
+        }
+      }
+    }
+  });
+}
+
+//and then close them again
+var notes = document.getElementsByClassName('sidenote');
+for(var i=0;i<notes.length;i++){
+  notes[i].addEventListener('click', function(event){
+    event.target.style.display = null;
+  });
+}
+
+// remove left when switching to side notes. test an element first, to see if it's time
+window.addEventListener('resize', function(){
+  var notes = document.getElementsByClassName('sidenote');
+  var testNote = document.getElementsByClassName('note-number');
+  styles = window.getComputedStyle(testNote[0]);
+  if(styles.getPropertyValue('display') == 'inline'){
+    for(var i=0;i<notes.length;i++){
+      notes[i].style.left = null;
+    }
+  }
 });
 </script>
 <script>

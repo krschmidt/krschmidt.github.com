@@ -1,8 +1,15 @@
 ---
 layout: layout
 ---
+{% if page.title contains 'Tale' %}
+<h1 class="post_title">Tales</h1>
+{% else %}
 <h1 class="post_title">{{page.title}}</h1>
+{% endif %}
 <section class="content">
+{% if page.title contains 'Tale' %}
+<p>These posts are adventures from the past, which I'm recording here before my friends and I forget they happened.</p>
+{% endif %}
 <ul class="listing">
   {% for post in site.posts %}
   {% for tag in post.tags %}

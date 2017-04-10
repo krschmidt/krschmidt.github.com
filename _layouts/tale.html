@@ -1,0 +1,27 @@
+---
+layout: layout
+---
+<article>
+   <h1>
+    {{ page.title }}
+   </h1>
+
+   <div>
+     <section class="tags">
+      <ul>
+          {% for tag in page.tags %}
+          <li>
+            <a class="tag {{ tag|downcase }}" href="/tag/{{ tag }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+      </ul>
+     </section>
+
+    <section class="byline">
+      <span>{{ page.date | date: "%B %e, %Y" }}</span>, <span>recorded {{ page.written | date: "%B %e, %Y" }}
+     </section>
+   </div>
+
+  {{ content | abbr }}
+
+</article>
