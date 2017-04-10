@@ -44,7 +44,10 @@ With our bag down, we saw it hadn't completely escaped the destruction. But the 
 
 Not even a mile later, Carrie's foot slipped off a rock and her ankle bent in a way it shouldn't have. This wasn't her first time having trouble with that ankle, and she didn't want it to be the reason we turned around. She wrapped it in an ace bandage, popped a couple Advil, and insisted we continue on. We went a little slower, but arrived at the summit without further issue. After snacking a bit, with views clear to Vermont, we started back down. 
 
+<figure>
 <a href="http://imgur.com/cAC5GUK"><img src="http://i.imgur.com/cAC5GUK.jpg" alt="Me, on top of Mt Marcy"></a>
+<figcaption>Me, atop Mt Marcy. Picture courtesy Carrie</figcaption>
+</figure>
 
 We returned to camp, retrieved our bear bag from a mercifully empty line, and made dinner. Uncomfortable from walking on it all day, Carrie took her boots off, taking pressure off her ankle. Before we were done eating, her ankle had grown to the size of a grapefruit. She iced it in Marcy Pond while we talked over options. Her opinion was that things would be worse in the morning and she'd be lucky to get the boot back on at all; my opinion was that the bear was going to give us another sleepless night. I packed up the campsite and reallocated our gear. Though it was only two flat miles to get back to the car, it took us two full hours, with plenty of rest along the way. Five long hours after that we were back home.
 

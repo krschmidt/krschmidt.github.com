@@ -80,12 +80,12 @@ iframe {
 }
 
 .note {
-  cursor: pointer;
   color: $blue;
+  cursor: pointer;
 
-  @include breakpoint($addside){
-    cursor: inherit;
+  @include breakpoint($addside) {
     color: inherit;
+    cursor: inherit;   
   }
 }
 
@@ -95,7 +95,7 @@ iframe {
   border-radius: 10px;
   cursor: pointer;
   display: none;
-  font-size: 0.6em;
+  font-size: .6em;
   line-height: 1.3em;
   margin-right: -250px;
   padding: 10px;
@@ -104,7 +104,7 @@ iframe {
   top: auto;
   width: 180px;
 
-  @include breakpoint($addside){
+  @include breakpoint($addside) {
     background-color: transparent;
     cursor: inherit;
     display: block;
@@ -115,7 +115,8 @@ iframe {
 
 .note-number {
   display: none;
-  @include breakpoint($addside){
+
+  @include breakpoint($addside) {
     display: inline;
   }
 
@@ -123,4 +124,11 @@ iframe {
   font-size: 18px;
   margin-left: -16px;
   vertical-align: bottom;
+}
+
+figcaption {
+  text-align: center;
+  font-size: .8em;
+  margin-bottom: 1em;
+  padding-top: .1em;
 }
