@@ -66,7 +66,7 @@ But there were no rooms. We were driving near [Saratoga Springs](https://en.wiki
 
 At three am, at Coccoa's hotel in Colonie, we finally found a room. The five of us fit into the hotel room as best we could, with Carrie volunteering for the floor on top a number of camping pads. Having been desperate for sleep in a cramped back of the car, David, Solenne, and Carrie were asleep before long.
 
-But Natasha and me, wired from coffee, donuts, and driving, laid on opposite beds, staring at each other, wide awake. We agreed we'd have been better off if we'd just kept driving, since only one or two exits further down the highway was the Thruway. Once on the Thruway there'd be no hotels until almost Oneonta, which was close enough to home no one would have asked us to stop. But now, still awake as dawn approached, all we could do was remark that David, snoring, sounded exactly like a bear.
+But Natasha and I, wired from coffee, donuts, and driving, laid on opposite beds, staring at each other, wide awake. We agreed we'd have been better off if we'd just kept driving, since only one or two exits further down the highway was the Thruway. Once on the Thruway there'd be no hotels until almost Oneonta, which was close enough to home no one would have asked us to stop. But now, still awake as dawn approached, all we could do was remark that David, snoring, sounded exactly like a bear.
 
 We checked out as late as we could and drove home.
 
