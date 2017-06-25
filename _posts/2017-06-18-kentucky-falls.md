@@ -9,7 +9,7 @@ One of my favorite Oregon hikes is Kentucky Falls, located in the coastal range 
 
 Over the last few weeks, my sister and her husband have been hiking with Hudson and me while <a href="http://www.jillianschmidt.com">Jillian</a> is at work. Most hikes so far have been within town, but now that Hudson can walk part of the way we're able to adventure a little further out of town.
 
-<a href="http://imgur.com/a/XJRkO"><img alt="Me walking Hudson down the trail" src="//i.imgur.com/XJRkO.jpg"></a>
+<a href="http://imgur.com/u1jqaOg"><img alt="Me walking Hudson down the trail" src="https://i.imgur.com/u1jqaOg"></a>
 
 Unlike most hikes, this one starts at the high point, before descending to two waterfalls. After a set of switchbacks, we arrived at Upper Kentucky Falls.
 
