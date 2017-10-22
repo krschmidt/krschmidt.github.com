@@ -8,5 +8,5 @@ goodreads: VeryHungryRaptor
 url: https://kyleschmidt.com
 google_analytics: UA-3315743-1
 
-gems:
+plugins:
  - jekyll-sitemap
