@@ -36,7 +36,7 @@ We enjoyed watching the countryside slip away as we headed south toward the Baha
 
 We turned around, with a plane full of people wondering why the captain didn't want to get stuck in the Bahamas. We landed about an hour later&mdash;we'd made it almost half way there.
 
-We parked on the tarmac for a while, while maintenance was on the plane, trying to get things fixed. First it was just a bad switch, but then there's an announcement that we all need to get off the plane while they power it down (without the Auxiliary Power Unit, there'd be no AC, and it was very hot in Charlotte). But we were allowed to leave stuff on the plane, and they'd have us back inside the plane in twenty minutes. No one believed them, and we all let with our carry-ons, much to the frustration of the crew. Ironically, we deplane at our original departure gate, from before the plane switch.
+We parked on the tarmac for a while, while maintenance was on the plane, trying to get things fixed. First it was just a bad switch, but then there's an announcement that we all need to get off the plane while they power it down (without the Auxiliary Power Unit, there'd be no AC, and it was very hot in Charlotte). But we were allowed to leave stuff on the plane, and they'd have us back inside the plane in twenty minutes. No one believed them, and we all left with our carry-ons, much to the frustration of the crew. Ironically, we deplane at our original departure gate, from before the plane switch.
 
 Forty minutes later, the flight board still says we're leaving twenty minutes ago. Then usairways.com reports that we're supposed to leave in six minutes, but arrive in the Bahamas in ten minutes. A flight crew boards the aircraft, and there's hope. But it turns out it's only because they're actually going to move us to a new aircraft, and a flight crew needs to be present while we all retrieve our stuff. One of the passengers asks the gate attendant, "Do we need to get our gate checked bags as well?" 
 
@@ -74,15 +74,15 @@ Once that plane gets underway, it's our turn. Just before we're ready to board, 
 
 Not very reassuring.
 
-But ultimately it doesn't matter, because that aircraft (which was apparently coming from the hanger) doesn't materialize. Instead, they give us a different aircraft at our original gate (that's aircraft 3 for this leg alone). We finally board two hours late. While waiting, we have many awkward conversations whit the bathroom attendants, whom we see every time we think the plane is about to board&mdash;you always want to get that last trip in before you make a cross country flight.
+But ultimately it doesn't matter, because that aircraft (which was apparently coming from the hanger) doesn't materialize. Instead, they give us a different aircraft at our original gate (that's aircraft 3 for this leg alone). We finally board two hours late. While waiting, we have many awkward conversations with the bathroom attendants, whom we see every time we think the plane is about to board&mdash;you always want to get that last trip in before you make a cross country flight.
 
 We taxi over to the runway. Just before turning onto it the captain makes an announcement, "We have a stuck valve. We're going to try restarting the aircraft to see if that fixes it." Then he proceeds to turn the plane off and on, while we watch plane after plane land on the runway in front of us. After hearing about how we might skip the safety check, this is rather unsettling.
 
 But we took off with no further delays. Since the new plane was a different model aircraft with more seats, we were at least able to get a spare middle seat for our trip. But it's virtually impossible to be comfortable in coach, no matter how many extra, empty seats you have. We spent the entire flight trying unsuccessfully to get comfortable. Neither of us really slept at all.
 
-We finally landed at SFO at 11:20pm at Terminal 1. We know we'll be taking off in the morning at Terminal 3, and since that's the bigger terminal we decide to spend the night there. We exit security and ride the train over to Terminal 1.
+We finally landed at SFO at 11:20pm at Terminal 1. We know we'll be taking off in the morning at Terminal 3, and since that's the bigger terminal we decide to spend the night there. We exited security and rode the train over to Terminal 1.
 
-The very nice TSA girl explains that they're not closing until midnight, and that all the food inside the terminal is closed already, so we should probably go upstairs to subway and get some food. We get two subs (sans drinks, since we know how the TSA feels about drinks) and have Jillian change out of the zip off pants that keep getting her searched. We head back to security at 11:45.
+The very nice TSA girl explains that they're not closing until midnight, and that all the food inside the terminal is closed already, so we should probably go upstairs to Subway and get some food. We get two subs (sans drinks, since we know how the TSA feels about drinks) and have Jillian change out of the zip off pants that keep getting her searched. We head back to security at 11:45.
 
 There we're informed by a different TSA guy that because our flight doesn't leave until morning, we can't spend the night in the terminal proper. We can only spend it pre-security. We're at a loss for what to do at this point, so we burst out in maniacal laughter. Then we have a lengthy conversation with the TSA guy about where he'd spend the night in the terminal.
 
