@@ -6,7 +6,7 @@ tags:
 - HigherEd
 - Web
 ---
-Because I had such a good time [last year](% post_url 2014-10-21-higheredweb %), once again I returned to [HigherEd Web](http://2015.highedweb.org/), this year in Milwaukee, Wisconsin. Here's a quick summary of my notes, typed on the flight home.
+Because I had such a good time [last year]({% post_url 2014-10-21-higheredweb %}), once again I returned to [HigherEd Web](http://2015.highedweb.org/), this year in Milwaukee, Wisconsin. Here's a quick summary of my notes, typed on the flight home.
 
 <a href="http://imgur.com/0Hsdt73"><img alt="Predawn on the lakeshore" src="https://imgur.com/0Hsdt73.jpg"></a>
 

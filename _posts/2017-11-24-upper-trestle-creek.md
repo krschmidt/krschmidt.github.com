@@ -5,7 +5,7 @@ date: 2017-11-24 20:23:10
 tags:
 - Outdoors
 ---
-Kate, from [previous](% post_url 2016-01-17-goodman-creek %) [adventures](% post_url 2016-12-18-timpano %), pointed out that it was an unexpectedly warm day, so we should get out into the woods. Based on [Eugene Cascades &amp; Coast's recommendation](https://www.eugenecascadescoast.org/7-waterfalls/trestle/), we headed out to Trestle Creek Falls, with a goal of viewing both the upper and lower falls. 
+Kate, from [previous]({% post_url 2016-01-17-goodman-creek %}) [adventures]({% post_url 2016-12-18-timpano %}), pointed out that it was an unexpectedly warm day, so we should get out into the woods. Based on [Eugene Cascades &amp; Coast's recommendation](https://www.eugenecascadescoast.org/7-waterfalls/trestle/), we headed out to Trestle Creek Falls, with a goal of viewing both the upper and lower falls. 
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6807.592691524436!2d-122.65721783671414!3d43.64511253226445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54c6d742d9ce94f3%3A0x3e9bf6c5ad3436d1!2sUpper+Trestle+Creek+Falls!5e0!3m2!1sen!2sus!4v1511584351749" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
