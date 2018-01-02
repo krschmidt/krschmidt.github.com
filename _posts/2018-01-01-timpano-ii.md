@@ -10,7 +10,7 @@ Last year, we made a [Timpano]({% post_url 2016-12-18-timpano %}), based on the 
 
 We started our sauce at 9am.
 
-<a href="https://imgur.com/yA0Ayk6"><img alt="Our tomato sauce, cooking down on the stove top" src="https://i.imgur.com/yA0Ayk6.jpg"></a>
+<a href="https://imgur.com/yA0Ayk6"><img alt="Our tomato sauce, cooking down on the stove top" src="https://i.imgur.com/yA0Ayk6.jpg?1"></a>
 
 Rather than dried oregano, we used fresh. We also included anchovy paste, which we'd avoided buying last year, and an entire can of tomato paste, which we'd simply forgotten last time.
 
@@ -20,7 +20,7 @@ My sister was kind enough to loan us her [KitchenAid](http://amzn.to/2EqTvzD), w
 
 We also upped the quality of meat, including grinding our own chuck with some awesome meat from friends down in Roseburg. No sausage or meatloaf this year: we used veal, pork, and chuck.
 
-<a href="https://imgur.com/QD1nCJj"><img alt="Meatballs frying" src="https://i.imgur.com/QD1nCJj.jpg"></a>
+<a href="https://imgur.com/QD1nCJj"><img alt="Meatballs frying" src="https://i.imgur.com/QD1nCJj.jpg?1"></a>
 
 To keep things authentic, we watched the first three or four episodes of Frasier while browning meatballs. It's better than I'd remembered.
 
