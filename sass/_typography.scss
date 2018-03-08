@@ -68,8 +68,8 @@ h2 {
 h3 {
   font-size: 1.12em;
   line-height: 1.05em;
-  margin-bottom: 0.1em;
-  margin-top: 0.25em;
+  margin-bottom: .1em;
+  margin-top: .25em;
 }
 
 abbr {
@@ -108,13 +108,16 @@ em {
   display: inline-block;
 }
 
-sup, sub, small {
-  font-size: 0.65em;
+sup,
+sub,
+small {
+  font-size: .65em;
 }
 
 sup {
   vertical-align: super;
 }
+
 sub {
   vertical-align: sub;
 }

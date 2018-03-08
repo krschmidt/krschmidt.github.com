@@ -29,7 +29,8 @@ article {
     margin-right: 10px;   
     max-width: 35em;
   }
-  @include breakpoint($addside){
+
+  @include breakpoint($addside) {
     position: relative;
   }
 
