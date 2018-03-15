@@ -64,6 +64,8 @@ I've been doing this on and off for a while, but I decided to get serious about 
 
 After starting with a 16 hours fasting, 8 hours non-fasting schedule, I moved to 17 hours fasting, 7 hours non-fasting in mid January. Other than a few outlying days, where I got busy at work and accidentally fasted 19 hours, I've had no problems with energy levels or hunger so far. 
 
+### Eating Less Meat
+Given the [impact of meat production on the planet](https://en.wikipedia.org/wiki/Environmental_impact_of_meat_production) I wanted to commit to eating less meat this year. I didn't have a formal goal; I just figured we'd just avoid meat meals when we do our meal planning. My first real meat free week came in early March, though I still got beef on my burrito bowl the week after that.
 
 {% comment %}
 no candy next change???
