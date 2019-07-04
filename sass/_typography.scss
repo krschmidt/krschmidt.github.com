@@ -114,10 +114,13 @@ small {
   font-size: .65em;
 }
 
-sup {
-  vertical-align: super;
+sup,
+sub {
+  position: relative;
+  top: -.8em;
+  vertical-align: baseline;
 }
 
-sub {
-  vertical-align: sub;
+sub { 
+  top: .4em; 
 }
