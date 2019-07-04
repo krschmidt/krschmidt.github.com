@@ -80,28 +80,28 @@ We taxi over to the runway. Just before turning onto it the captain makes an ann
 
 But we took off with no further delays. Since the new plane was a different model aircraft with more seats, we were at least able to get a spare middle seat for our trip. But it's virtually impossible to be comfortable in coach, no matter how many extra, empty seats you have. We spent the entire flight trying unsuccessfully to get comfortable. Neither of us really slept at all.
 
-We finally landed at SFO at 11:20pm at Terminal 1. We know we'll be taking off in the morning at Terminal 3, and since that's the bigger terminal we decide to spend the night there. We exited security and rode the train over to Terminal 1.
+We finally landed at SFO at 11:20pm at Terminal 1. We know we'll be taking off in the morning at Terminal 3, and since that's the bigger terminal we decide to spend the night there. We exited security and rode the train over to Terminal 3.
 
 The very nice TSA girl explains that they're not closing until midnight, and that all the food inside the terminal is closed already, so we should probably go upstairs to Subway and get some food. We get two subs (sans drinks, since we know how the TSA feels about drinks) and have Jillian change out of the zip off pants that keep getting her searched. We head back to security at 11:45.
 
 There we're informed by a different TSA guy that because our flight doesn't leave until morning, we can't spend the night in the terminal proper. We can only spend it pre-security. We're at a loss for what to do at this point, so we burst out in maniacal laughter. Then we have a lengthy conversation with the TSA guy about where he'd spend the night in the terminal.
 
-He suggested terminal 2, which is the newest, and which matched what I read online. There's big benches on the baggage claim level of Terminal 2. Around 12:30 in the morning, we arrive at our home for the night. There's about 8 benches in 2 areas, half filled with the type of people you only find in the SFO region. We're not comfortable with us both being asleep with all our belongings available for the world to take. One of us needs to stay awake. Jillian passes out on a bench in the shape of a plus symbol, meaning that there's no way for her to be really be comfortable. But she's soon asleep anyway.
+He suggested terminal 2, which is the newest, and which matched what I read online. There's big benches on the baggage claim level of Terminal 2. Around 12:30 in the morning, we arrive at our home for the night. There's about 8 benches in 2 areas, half filled with odd characters already. We're not comfortable with us both being asleep with all our belongings available for the world to take. One of us needs to stay awake. Jillian passes out on a bench in the shape of a plus symbol, meaning that there's no way for her to be really be comfortable. But she's soon asleep anyway.
 
 <figure>
   <a href="http://imgur.com/bWu120A"><img alt="A picture of two plus shaped benches pushed together." src="https://i.imgur.com/bWu120A.jpg"></a>
   <figcaption>Seriously, who designs benches like this for an airport?</figcaption>
 </figure>
 
-I try to pass the time reading on my tablet. But it's getting cold, now that the airport is mostly empty of people. The only long sleeve shirt I had is somehow in my checked luggage. If I twist just right behind the bolted down furniture, I can sit next to the heater, so at least part of me is warm.
+I try to pass the time reading on my tablet. But it's getting cold, now that the airport is mostly empty of people. The only long sleeve shirt I have is somehow in my checked luggage. If I twist just right behind the bolted down furniture, I can sit next to the heater, so at least part of me is warm.
 
-I'm all but laying down by this heater in the baggage claim in Terminal 2, when I see the first rat. Not a gigantic one, but he's looking hungry. Fortunately, he's still far away. But here I am, lying on the floor in the only warm corner, and now I've got to keep my eyes open enough to watch out for a rat that might want to hang out with me. The good news is that this was mentally taxing enough to keep me awake.
+I'm all but laying down by this heater in the baggage claim in Terminal 2, when I see the first rat. Not a gigantic one, but he's looking hungry. He's still far away, but here I am, lying on the floor in the only warm corner, and now I've got to keep my eyes open enough to watch out for a rat that might want to hang out with me. The good news is that this was mentally taxing enough to keep me awake.
 
 At 4:30am, I decided to wake Jillian up when I'm approached by a recently arriving passenger, who tells me his life story about his father dying last night and his not making it back from Witchita in time due to his bus being slow. I'm not sure what bus this is, as we're at the airport. Regardless, while a thin man, his ankles are the size of cantaloupes, and the color of a fire engine. He just wants me to watch his bag while he goes to the bathroom. Naturally, they're locked, and the nearest open one is on the other side of the baggage claim area&mdash;maybe 100 yards. He sets off, not even really giving me a chance to respond, and now I'm stuck with a groggy Jillian, our stuff, this guy's bag, the rats, and two huge frat guys who, after waking, managed to spill three bags of Cheetos onto the ground while having "breakfast".
 
 <a href="http://imgur.com/2qjnEX6"><img alt="Panoramic View of the luggage claim in the morning" src="https://i.imgur.com/2qjnEX6.jpg"></a>
 
-By the time the luggage man is back, Jillian is awake, and once we're through security, it's 6am. After a brief, hour long nap on a bench in front of a fairly spectacular sunrise, rode in front of a screaming 6 month old for the flight back to Eugene.
+By the time the luggage man is back, Jillian is awake, and once we're through security, it's 6am. After a brief, hour long nap on a bench in front of a fairly spectacular sunrise, I rode in front of a screaming 6 month old for the flight back to Eugene.
 
 <a href="http://imgur.com/3uG5Erk"><img alt="View of the sunrise before I passed out" src="https://i.imgur.com/3uG5Erk.jpg"></a>
 
