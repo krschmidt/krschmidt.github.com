@@ -27,7 +27,7 @@ img {
 article {
   @include breakpoint($desktop) {
     margin-right: 10px;   
-    max-width: 35em;
+    max-width: 36em;
   }
 
   @include breakpoint($addside) {
