@@ -132,3 +132,12 @@ figcaption {
   padding-top: .1em;
   text-align: center;
 }
+
+.disclosure {
+  background: darken($white, 2%);
+  border: dotted 3px darken($white, 8%);
+  border-radius: 10px;
+  font-size: .75em;
+  font-style: italic;
+  padding: .75em;
+}
