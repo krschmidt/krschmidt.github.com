@@ -39,6 +39,6 @@ Down at the bottom of the gorge was a great view of an 85' waterfall under the b
 
 <a data-flickr-embed="true" href="https://www.flickr.com/photos/marriageat10mph/49683712573/in/album-72157713570693303/" title="IMG_3208"><img src="https://live.staticflickr.com/65535/49683712573_759dcb282f_b.jpg" width="1024" height="768" alt="Waterfall with the bridge above it">
 
-While not a long hike, it was certainly a nice one, and one I'd be glad to do again with the family. We returned to Salem, too late to stop at the REI, but with plenty of time for a dinner and a desert at [Gustav's Bargarden](https://bargarten.com/). A nice trip, if a bit much time in the car.
+While not a long hike, it was certainly a nice one, and one I'd be glad to do again with the family. We returned to Salem, too late to stop at the REI, but with plenty of time for a dinner and a desert at [Gustav's Bargarden](https://bargarten.com/). A nice trip, if a bit much time in the car. Also a nice excuse to spend more time with the DSLR that had given me so much trouble on the previous adventure. I'm much happier with the photos from this trip (the last two in this post were with the DSLR - the other two were on my iPhone, which is definitely feeling dated).
 
 <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
