@@ -4,7 +4,6 @@
 @import 'tags';
 @import 'typography';
 @import 'components';
-@import 'sprites';
 @import 'resume';
 
 // Global Styles that apply everywhere
@@ -22,6 +21,24 @@ img {
 
 .twitter-tweet {
   margin: 0 auto;
+}
+
+.icon {
+  display: inline-block;
+  height: 34px;
+  margin: 4px 2px;
+  width: 34px;
+
+  &.goodreads svg {
+    background-color: #553b08;
+    border-radius: 2px;
+    fill: white;
+    padding: 3px;
+  }
+
+  &.linkedin svg {
+    fill: #2867b2;
+  }
 }
 
 article {
@@ -84,7 +101,6 @@ nav {
     left: 10px;
     padding: 0;
     position: fixed;
-    text-align: center;
     top: 20px;
     width: 100px;
   }
@@ -99,13 +115,15 @@ nav {
   } 
 
   ul {
+    flex-grow: 2;
     list-style-type: none;
     margin: 8px 0;
     padding: 0;
     text-align: center;
 
     @include breakpoint($desktop) {
-      padding-left: 12px;
+      flex-grow: 1;
+      padding-left: 2px;
       text-align: left;
     }
 
@@ -127,14 +145,17 @@ nav {
 
 .menu {
   display: none;
-  text-align: center;
 
   @include breakpoint($desktop) {
     display: block;
   }
 
   &.open {
-    display: block;
+    display: flex;
+
+    @include breakpoint($desktop) {
+      display: block;
+    }
   }
 }
 
