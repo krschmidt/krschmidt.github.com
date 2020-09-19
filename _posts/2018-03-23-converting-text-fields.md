@@ -8,7 +8,7 @@ tags:
 ---
 Due to a problem with the CK Editor module not working on text fields, tonight I had to switch some text fields to text areas (change the field type from text to long text).
 
-I didn't want a module with some udpate queries, and I didn't want to do it in drush. I just wanted raw queries. Since I had some trouble finding something to work from (though this [Stack Exchange post](https://drupal.stackexchange.com/questions/109663/how-to-convert-text-into-long-text) was pretty good), I thought I'd write it up.
+I didn't want a module with some update queries, and I didn't want to do it in drush. I just wanted raw queries. Since I had some trouble finding something to work from (though this [Stack Exchange post](https://drupal.stackexchange.com/questions/109663/how-to-convert-text-into-long-text) was pretty good), I thought I'd write it up.
 
 This assumes you're changing two fields, a and b, which are currently text fields of length 4096.
 
