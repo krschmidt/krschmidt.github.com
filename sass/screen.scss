@@ -118,6 +118,7 @@ nav {
 
 .main {
   margin: 60px 5px auto;
+  max-width: 50em;
 
   @include breakpoint($desktop) {
     margin: 18px auto auto 120px;
