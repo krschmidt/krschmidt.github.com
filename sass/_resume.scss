@@ -1,120 +1,138 @@
-@import 'variables';
+$accent1: #9A213D;
+$accent2: #2D6B9E;
+$lightGrey: #666;
 
-.resume {
-  font-size: 1rem;
-  padding: 0 15px;
+.resume{
+  line-height: 1.25em;
 
-  @include breakpoint($desktop) {
-    padding: 0 15px 0 0;
+  .control-box {
+    background-color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(6px);
+    padding: 1em 0;
+    position: sticky;
+    top: 0;
+
+    .controls {
+      display:flex;
+      justify-content: space-around;
+    }
   }
 
-  @include breakpoint($resume) {
-    padding: 0;
-    width: 750px;
+  .excessive, .absurd {
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    height: 0;
+    transition: opacity 1s ease-out;
+
+    /* The absurd * property is because you can't use display to animate,
+     * and visibility & opacity don't automatically make children disappear */
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+
+      & *{
+        height: auto;
+      }
+    }
+
+    & *{
+      height:0;
+    }
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  .dates {
-    font-family: 'Ovo', serif;
-    font-weight: normal;
-    margin: 0;
+  h1 {
+    font-size: 3em;
+    font-variant: initial;
+    text-align: center;
   }
 
   h2 {
-    font-variant: small-caps;
-    line-height: 1.3rem;
+    display: flex;
+    color: $accent1;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: -1px;
+
+    &:after {
+      border-bottom: $accent2 solid 3px;
+      content: "";
+      height: 1em;
+      min-width: 10px;
+      // this trick makes the last item use as much space as possible
+      flex-grow: 9999;
+    }
+  }
+
+  h3 {
+    font-size: 1.35em;
+    font-weight: bold;
+    margin-bottom: 0.35em;
+  }
+
+  h4 {
+    font-size: 1.15em;
+    margin-bottom: 0.35em;
+  }
+
+  .location-box {
+    align-items: baseline;
+    display: flex;
+
+    h3, h4 {
+      flex-grow: 9999;
+    }
+    span {
+      text-align: right;
+    }
   }
 
   ul {
-    margin: -.75em 0 1em;
-
-    li {
-      font-size: 85%;
-      line-height: 1.1em;
-      list-style-type: disc;
-      margin-left: 1em;
-    }
+    list-style-type: disc;
+    margin: 0 0 1em 1em;
+    text-align: justify;
   }
 
-  .info-title {
-    @include breakpoint($resume) {
-      float: left;
-      width: 19%;
+
+  .service-row {
+    display: flex;
+
+    .date {
+      min-width: 15%;
+      max-width: 15%;
+      margin-right: 1em;
+      white-space: nowrap;
     }
 
-    h2 {
-      font-size: 160%;    
-      font-style: italic;
-    }
-  }
-
-  .info {
-    @include breakpoint($resume) {
-      margin-left: 21%;
-    }
-    
-    h3 {
-      font-size: 100%;
-      font-variant: small-caps;
-    }
-
-    h4,
-    .dates {
-      font-size: 95%;
-      font-weight: normal;
-      line-height: 1.1em;
-      margin: 0;
-    }
-
-    p {
-      line-height: 1.1em;
-      margin-bottom: 1.1em;
-      margin-top: 4px;
+    .entry {
+      
       text-align: justify;
 
-      @include breakpoint($resume) {
-        font-size: 85%;
+      .entry-title {
+        font-weight: bold;
       }
     }
   }
 
-  .section-row {
-    padding: 1em 0;
-
-    &:first-child {
-      padding-top: 0;
-    }
-
-    &:last-child {
-      border-bottom: 0;
-    }
+  p {
+    margin-bottom: 0.25em;
   }
 
-  .boringlink {
-    color: $black;
-    text-decoration: none;
+  a {
+    text-decoration: underline;
+    text-decoration-skip: edges;
 
-    &:hover {
-      text-decoration: underline;
+    &:link, &:visited {
+      color: inherit;
+      text-decoration-color: $lightGrey;
+      text-decoration-style: dotted;
     }
-  }
 
-  .dates {
-    float: right;
-  }
-}
-
-.download-icon {
-  bottom: 10px;
-  left: 10px;
-  position: fixed;
-  width: 70px;
-
-  @include breakpoint($desktop) {
-    left: 10px;
-    top: 305px;
+    &:hover, &:active, &:focus {
+      color: $accent2;
+      text-decoration-color: $accent2;
+      text-decoration-style: solid;
+    }
   }
 }

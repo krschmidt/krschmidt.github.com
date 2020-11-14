@@ -41,6 +41,15 @@ img {
   }
 }
 
+.icon-inline {
+  height: 1em;
+  vertical-align: middle;
+
+  &.pdf {
+    fill: #ff0000;
+  }
+}
+
 article {
   @include breakpoint($desktop) {
     margin-right: 10px;   
