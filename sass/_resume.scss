@@ -4,6 +4,7 @@ $lightGrey: #666;
 
 .resume{
   line-height: 1.25em;
+  margin-right: 1em;
 
   .control-box {
     background-color: rgba(255,255,255,0.8);
@@ -15,6 +16,10 @@ $lightGrey: #666;
     .controls {
       display:flex;
       justify-content: space-around;
+      flex-wrap: wrap;
+      @include breakpoint($tablet) {
+        flex-wrap: nowrap;
+      }
     }
   }
 
@@ -91,12 +96,23 @@ $lightGrey: #666;
   ul {
     list-style-type: disc;
     margin: 0 0 1em 1em;
-    text-align: justify;
+    text-align: left;
+
+    @include breakpoint($tablet) {
+      text-align: justify;
+    }
   }
 
 
   .service-row {
     display: flex;
+
+    flex-wrap: wrap;
+    margin-top: 0.5em;
+    @include breakpoint($tablet){
+      flex-wrap: nowrap;
+      margin-top: 0;
+    }
 
     .date {
       min-width: 15%;
@@ -106,8 +122,10 @@ $lightGrey: #666;
     }
 
     .entry {
-      
-      text-align: justify;
+      text-align: left;
+      @include breakpoint($tablet){
+        text-align: justify;
+      }
 
       .entry-title {
         font-weight: bold;
