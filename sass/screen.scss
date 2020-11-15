@@ -175,17 +175,15 @@ nav {
 
 .mobile-title {
   display: table-cell;
-  padding: 2px;
+  font-size: 9vw;
+  font-variant: small-caps;
+  // margin is set to 0, to keep the top bar from changing size a little bit right at $tablet
+  margin: 0;
+  padding-left: 2vw;
   vertical-align: middle;
 
   @include breakpoint($tablet) { 
     display: none;
-  }
-
-  // margin is set to 0, to keep the top bar from changing size a little bit right at $tablet
-  h1 {
-    font-size: 12vw;
-    margin: 0;
   }
 }
 
