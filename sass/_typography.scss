@@ -58,7 +58,7 @@ h1 {
   &.index-title {
     display: none;
 
-    @include breakpoint($desktop) {
+    @include breakpoint($tablet) {
       display: block;
       font-size: 60px;
       letter-spacing: -1px;
