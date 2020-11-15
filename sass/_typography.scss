@@ -2,7 +2,7 @@ body {
   font-family: 'Muli', sans-serif;
   font-size: 20px;
 
-  @include breakpoint($desktop) {
+  @include breakpoint($tablet) {
     font-size: 21px;
   }
 }
@@ -34,14 +34,14 @@ a:hover {
 }
 
 .copy-notice {
-  color: $grey * 1.75;
+  color: $lightgrey;
   display: inline-block;
   font-size: 70%;
   margin: 1em 0;
 
   a,
   a:visited {
-    color: $grey * 1.75;
+    color: $lightgrey;
   }
 }
 

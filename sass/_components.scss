@@ -25,7 +25,7 @@ iframe {
   transition: .5s ease-in-out;
   width: 43px;
 
-  @include breakpoint($desktop) {
+  @include breakpoint($tablet) {
     display: none;
   }
 
@@ -91,7 +91,7 @@ iframe {
 
 .sidenote {
   background-color: $popup;
-  border: $grey*2.25 solid 1px;
+  border: $grey solid 1px;
   border-radius: 10px;
   cursor: pointer;
   display: none;

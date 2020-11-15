@@ -17,7 +17,7 @@ $lightGrey: #666;
       display:flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      @include breakpoint($tablet) {
+      @include breakpoint($desktop) {
         flex-wrap: nowrap;
       }
     }
@@ -98,7 +98,7 @@ $lightGrey: #666;
     margin: 0 0 1em 1em;
     text-align: left;
 
-    @include breakpoint($tablet) {
+    @include breakpoint($desktop) {
       text-align: justify;
     }
   }
@@ -109,7 +109,7 @@ $lightGrey: #666;
 
     flex-wrap: wrap;
     margin-top: 0.5em;
-    @include breakpoint($tablet){
+    @include breakpoint($desktop){
       flex-wrap: nowrap;
       margin-top: 0;
     }
@@ -123,7 +123,7 @@ $lightGrey: #666;
 
     .entry {
       text-align: left;
-      @include breakpoint($tablet){
+      @include breakpoint($desktop){
         text-align: justify;
       }
 
