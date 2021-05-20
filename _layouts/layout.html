@@ -31,6 +31,9 @@
 </head>
 <body>
 	<div class="container">
+		{% if page.url == '/' %}
+		<img src="/img/header.png" class="header-img" alt="Me, taking a picture from on top of the butte">
+		{% endif %}
 		<nav>
 			<div class="hamburger" aria-role="button" tabindex="0">
 				<span></span>
@@ -42,7 +45,9 @@
 				{{ site.name }}
 			</div>
 			<div class="menu">
+				{% if page.url != '/' %}
 				<a href="/"><img src="{{ site.gravatar_url }}?s=150" height="85px" width="85px" class="avatar" alt="Return to home"/></a>
+				{% endif %}
 				<ul>
 					<li><a href="/about">About</a></li>
 					<li><a href="/">Blog</a></li>
