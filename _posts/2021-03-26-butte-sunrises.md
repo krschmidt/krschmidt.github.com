@@ -1,7 +1,7 @@
 ---
 layout: post 
 title: Sunrise on the Butte
-date: 2020-03-26 20:13:10
+date: 2021-03-26 20:13:10
 tags:
 - Outdoors
 ---
@@ -18,5 +18,3 @@ It has been a long, long pandemic. But one highlight has been twice weekly morni
 <a data-flickr-embed="true" href="https://www.flickr.com/photos/marriageat10mph/51074986146/in/album-72157718789403813/" title="IMG_1293"><img src="https://live.staticflickr.com/65535/51074986146_7920e31cf6_5k.jpg" width="5120" height="3413" alt="IMG_1293"></a>
 
 See the [album](https://flickr.com/photos/marriageat10mph/albums/72157718789403813) for the full set.
-
-<script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
