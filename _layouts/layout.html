@@ -70,7 +70,11 @@
 				</div>
 			</div>
 		</nav>
+		{% if page.url == '/' %}
+		<section class="main" style="margin:10px auto auto 120px">
+		{% else %}
 		<section class="main">
+		{% endif %}
 			{% if page.topTitle %}
 			<h1 class='top-title'>{{ page.topTitle }}</h1>
 			{% endif %}
