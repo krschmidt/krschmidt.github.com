@@ -14,7 +14,7 @@ We started our sauce at 9am.
 
 Rather than dried oregano, we used fresh. We also included anchovy paste, which we'd avoided buying last year, and an entire can of tomato paste, which we'd simply forgotten last time.
 
-My sister was kind enough to loan us her [KitchenAid](http://amzn.to/2EqTvzD), which made making meatballs much easier. No need to clean any meat off the walls this year.
+My sister was kind enough to loan us her KitchenAid, which made making meatballs much easier. No need to clean any meat off the walls this year.
 
 <a href="https://imgur.com/tc7KG8S"><img alt="Kate, holding up a meatball" src="https://i.imgur.com/tc7KG8S.jpg"></a>
 
@@ -24,13 +24,13 @@ We also upped the quality of meat, including grinding our own chuck with some aw
 
 To keep things authentic, we watched the first three or four episodes of Frasier while browning meatballs. It's better than I'd remembered.
 
-We cheated again on our pasta, because I still don't own a [gnocchi striper](http://amzn.to/2h7fstX). We used the fanciest fusilli we could find, and only cooked it two minutes this year, instead of almost five.
+We cheated again on our pasta, because I still don't own a gnocchi striper. We used the fanciest fusilli we could find, and only cooked it two minutes this year, instead of almost five.
 
 While we measured out the right amount of flour for dough, we had a bit of trouble rolling it out. 
 
 <a href="https://imgur.com/mfP841A"><img alt="Meatballs frying" src="https://i.imgur.com/mfP841A.jpg"></a>
 
-The first time we tried to move it into our pot we were about six inches short. After carefully spreading it out again, we both took turns rolling it with as much weight as we could. We really had to work hard to get it thin enough, and the handles on my rolling pin were scraping the dough. Next time, we'll need a French style [rolling pin](http://amzn.to/2CoMthC).  
+The first time we tried to move it into our pot we were about six inches short. After carefully spreading it out again, we both took turns rolling it with as much weight as we could. We really had to work hard to get it thin enough, and the handles on my rolling pin were scraping the dough. Next time, we'll need a French style rolling pin which just has tapered sides.  
 
 We made some improvements to our layering process. Rather than halve the eggs, we cut half inch strips. And rather than the quarter inch rounds of Genoa salami, we used deli thin slices. But I still think we haven't perfected our cheeses. I wish we'd added cheese in almost every layer, to hold things together a little better when serving. 
 

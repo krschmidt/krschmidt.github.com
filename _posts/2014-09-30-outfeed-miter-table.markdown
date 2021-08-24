@@ -17,7 +17,7 @@ Then it was time to flip the thing over, which I did so successfully that a knot
 
 <a href="http://imgur.com/a/mp8hI#o90hyA8"><img alt="Frame right side up, on top of casters, with a bunch of clamps gluing a knot in" src="http://i.imgur.com/o90hyA8l.jpg"></a>
 
-For the surface, I thought I'd create a <a href="http://www.core77.com/blog/furniture_design/a_look_at_torsion_boxes_26334.asp">torsion box</a>, so that it'd be strong, and very flat. Plus, it'd be cheap. But I wanted to add a cutout to it, where I could mount my <a href="http://www.amazon.com/gp/product/B000V5Z6RG/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B000V5Z6RG&amp;linkCode=as2&amp;tag=maat10mp-20&amp;linkId=FGUENW4Z5X2JL3ZG">Miter Saw</a>, so I first built a frame featuring a place to slide in a platform with my saw on it. Then it was time to start the surface build.
+For the surface, I thought I'd create a <a href="http://www.core77.com/blog/furniture_design/a_look_at_torsion_boxes_26334.asp">torsion box</a>, so that it'd be strong, and very flat. Plus, it'd be cheap. But I wanted to add a cutout to it, where I could mount my Miter Saw, so I first built a frame featuring a place to slide in a platform with my saw on it. Then it was time to start the surface build.
 
 <a href="http://imgur.com/a/mp8hI#IOPvQjP"><img alt="Frame right side up, on top of casters, with a bunch of clamps gluing a knot in" src="http://i.imgur.com/IOPvQjPl.jpg"></a>
 

@@ -22,9 +22,6 @@ layout: layout
      </section>
    </div>
 
-  {% capture amazon %}{{ content | has_amazon }}{% endcapture %}
-  {% if amazon == 'true' %}{% include amazon.html %}{% endif %}
-
 	{{ content | abbr }}
 
 </article>

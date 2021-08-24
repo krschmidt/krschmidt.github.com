@@ -9,7 +9,7 @@ While I've wanted to climb one of the big Cascades peaks ever since moving to Or
 
 I went to bed around 11:30 that night, having stayed up getting everything ready for the weekend. [Jillian](http://www.jillianschmidt.com) tried setting Hudson down around midnight. There were a few blissful moments, but he was soon fussing. By 12:30, everyone was awake and Jillian and I were deep in conversation about our child's desire to stay up until 3am.
 
-Around 1, despite feeding, burping, and a diaper change, Hudson was still wide eyed and wanting to interact. I put him in the [swing](http://amzn.to/2cAbUjP), put [8 hours of forest sounds](https://www.youtube.com/watch?v=eKFTSSKCzWA) on for him to listen to, and then laid down on camping pad where he could still see me and tried to sleep. Of course, by then, I was so awake that despite Hudson sleeping quite well, I laid awake for hours.
+Around 1, despite feeding, burping, and a diaper change, Hudson was still wide eyed and wanting to interact. I put him in the swing, put [8 hours of forest sounds](https://www.youtube.com/watch?v=eKFTSSKCzWA) on for him to listen to, and then laid down on camping pad where he could still see me and tried to sleep. Of course, by then, I was so awake that despite Hudson sleeping quite well, I laid awake for hours.
 
 Our friend [Mike](http://www.mikepsaris.com) drove down from Portland on Friday to spend the night before an early start Saturday. By the time he'd arrived and we'd squared away our gear it was almost 11. Jillian volunteered to camp out in the nursery with Hudson we could get some rest &ndash; I couldn't afford another night like the previous one.
 
@@ -35,7 +35,7 @@ Of course, soon it was time to head back uphill. The trail was broken gray rock 
 
 <a href="http://imgur.com/yGrHyWP"><img alt="Me hiking uphill in some grey rock, surrounded again by tons of people" src="https://i.imgur.com/yGrHyWP.jpg"></a>
 
-For most of my adult life I've had problems with my plantar fascia. At its worst, after walking even a quarter mile I'd feel a tearing sensation on the bottom of my foot, and I'd be forced to hobble home. After seeing a doctor who recommended surgery, I instead read Chris McDougall's [Born to Run](http://amzn.to/2cngJcF) and started down the path of barefoot travel. It took me a few years, but I'd finally reached a point where I could walk around town in my [Five Fingers](http://amzn.to/2cTk4QL) without issue for at least a few miles. 
+For most of my adult life I've had problems with my plantar fascia. At its worst, after walking even a quarter mile I'd feel a tearing sensation on the bottom of my foot, and I'd be forced to hobble home. After seeing a doctor who recommended surgery, I instead read Chris McDougall's <cite>Born to Run</cite> and started down the path of barefoot travel. It took me a few years, but I'd finally reached a point where I could walk around town in my Five Fingers without issue for at least a few miles. 
 
 Since South Sister is an 11 mile round trip hike, I wanted as much assurance as possible that I wouldn't feel the tear and need to limp home. As long as the trail was dirt or crushed stone, I'd been wearing my Five Fingers to try to prevent problems. But on gravel, my shoes were rapidly filling with little stones, which can lead to a whole new set of problems. 
 
@@ -43,7 +43,7 @@ Just above 8000 feet we stopped at a common lunch spot, overlooking a little lat
 
 <a href="http://imgur.com/mNvPOSX"><img alt="Water below Lewis Glacier" src="https://i.imgur.com/mNvPOSX.jpg"></a>
 
-Before we started moving again, I switched over to my [Vivobarefoot Trackers](http://amzn.to/2cbpPKW). They're as close to barefoot boots as I can find, and when I added some snow gaiters, I had no rock issues the rest of the hike. 
+Before we started moving again, I switched over to my Vivobarefoot Trackers. They're as close to barefoot boots as I can find, and when I added some snow gaiters, I had no rock issues the rest of the hike. 
 
 But I did have altitude issues. By the time we'd gotten to this ridge, I was starting to feel a headache, and was having to stop every fifty vertical feet to let my heart rate slow down and catch my breath. I wasn't feeling bad enough to turn around, so we pressed on.
 

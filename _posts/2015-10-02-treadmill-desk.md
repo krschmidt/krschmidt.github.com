@@ -18,4 +18,4 @@ Though it's actually wedged between the supports fairly well, I was still worrie
 
 <a href="http://imgur.com/Ih9Xvdj"><img alt="Detail image of the loop of rope behind the desk, strapping it to the treadmill so it can't fall off" src="https://i.imgur.com/Ih9Xvdj.jpg"></a>
 
-There's about six inches of space between the two layers, and though it's a lot more comfortable to type on now, the monitor of the laptop is still low. To fix that, we'll soon be installing a [mount](http://amzn.to/1ObKyvE) and [monitor](http://amzn.to/1ObKvQs) on the wall.
+There's about six inches of space between the two layers, and though it's a lot more comfortable to type on now, the monitor of the laptop is still low. To fix that, we'll soon be installing a mount and monitor on the wall.

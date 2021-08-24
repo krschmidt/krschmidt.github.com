@@ -11,7 +11,7 @@ As with any project, I first had to start with a shop improvement.
 
 <a href="http://imgur.com/XC2JZLT"><img alt="Short table with sander on top" src="https://i.imgur.com/XC2JZLT.jpg"></a>
 
-For my birthday, I'd gotten a [combination sander](http://amzn.to/29xc3kx), but I'd never really had a place to put it. Since this project was going to involve a lot of sanding, I first built a quick table out of scrap. With that done, I tackled the wool organizer. Since I don't know a lot about wool, I thought I'd make a first draft.
+For my birthday, I'd gotten a combination sander, but I'd never really had a place to put it. Since this project was going to involve a lot of sanding, I first built a quick table out of scrap. With that done, I tackled the wool organizer. Since I don't know a lot about wool, I thought I'd make a first draft.
 
 My spade bit set only has &frac34;" or 1" bits, and the scrap of wood I had was only 2&frac12;" wide, I opted for &frac34;" holes. I used a sander attachment for my drill press to round over the holes&mdash;probably not the best idea, since my drill press isn't built for lateral force like that. I finished with one coat of danish oil, followed by three coats of wipe-on high gloss polyurethane. 
 
