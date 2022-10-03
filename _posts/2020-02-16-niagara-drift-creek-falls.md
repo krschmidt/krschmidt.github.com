@@ -5,7 +5,7 @@ date: 2020-02-16 21:03:10
 tags:
 - Outdoors
 ---
-One of my resolutions after my [last trip]({% post_url 2019-10-06-diamond-peak %}) was to get out into the woods a bit more. Almost immediately after that trip, [Mike](http://mikepsarisweis.com/) and I started an email conversation to find a location for a spring trip. But some unexpected good weather in late January made us overconfident, and we found a weekend to head out in the middle of February. 
+One of my resolutions after my [last trip]({% post_url 2019-10-06-diamond-peak %}) was to get out into the woods a bit more. Almost immediately after that trip, [Mike](http://mikepsaris.com/) and I started an email conversation to find a location for a spring trip. But some unexpected good weather in late January made us overconfident, and we found a weekend to head out in the middle of February. 
 
 After a few dozen emails, we had a plan. To the northwest of Detroit, Oregon there's a bit of forest with the [Phantom Natural Bridge](https://www.oregonhikers.org/field_guide/Phantom_Natural_Bridge_Hike), [Natural Arch](https://www.oregonhikers.org/field_guide/Natural_Arch_Hike), and the [Rocky Top Lookout](https://www.oregonhikers.org/field_guide/Rocky_Top_Hike). We'd meet for breakfast in Mill City, OR, then drive to a dispersed campsite,  and do a couple long hikes on both Saturday and Sunday.
 
