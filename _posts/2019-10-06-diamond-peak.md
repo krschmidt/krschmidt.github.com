@@ -5,7 +5,7 @@ date: 2019-10-06 21:03:10
 tags:
 - Outdoors
 ---
-Fall is my favorite season to spend in the woods in the Pacific Northwest. Comfortable midday temperatures give way to cool evenings, and enough precipitation has fallen to put out the fires and darken the green of the trees, but not enough has fallen to fill the mountains with snow. Once again, it was time for [Mike](http://mikepsarisweis.com/) and me to spend a weekend in the woods.
+Fall is my favorite season to spend in the woods in the Pacific Northwest. Comfortable midday temperatures give way to cool evenings, and enough precipitation has fallen to put out the fires and darken the green of the trees, but not enough has fallen to fill the mountains with snow. Once again, it was time for [Mike](http://mikepsaris.com/) and me to spend a weekend in the woods.
 
 Our first thought was to explore some rocks, and right until the week before the trip we looked at doing [Young's Rock and Moon Point](https://www.alltrails.com/trail/us/oregon/moon-point-and-youngs-rock-via-youngs-creek-trail). But Mike ended up selling me on a trip up [Diamond Peak via the Rockpile Trailhead](https://www.alltrails.com/trail/us/oregon/diamond-peak-via-rockpile-trailhead), with an option to tackle our previous plan on Sunday, or just explore [Pine Creek Falls](https://www.oregonwaterfalls.net/pine.htm). He'd come down Friday night, then we'd leave as early as possible on Saturday, with a goal of reaching the trailhead at dawn around seven, summiting by one, and getting in to camp by five, to give us about an hour and a half before it got too dark to do anything. 
 

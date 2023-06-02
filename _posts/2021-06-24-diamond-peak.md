@@ -5,7 +5,7 @@ date: 2021-06-24 08:00:10
 tags:
 - Outdoors
 ---
-[Two years earlier]({% post_url 2019-10-06-diamond-peak %}), [we'd](http://mikepsarisweis.com/) made an attempt on Diamond Peak, via the [Rockpile Trailhead](https://www.alltrails.com/trail/us/oregon/diamond-peak-via-rockpile-trailhead), and had to give up short of the false summit, due to a combination of too much early season snow on the ground and my boots, which were not as waterproof as I'd hoped. With a weekend free, it was time to try and grab the peak.
+[Two years earlier]({% post_url 2019-10-06-diamond-peak %}), [we'd](http://mikepsaris.com/) made an attempt on Diamond Peak, via the [Rockpile Trailhead](https://www.alltrails.com/trail/us/oregon/diamond-peak-via-rockpile-trailhead), and had to give up short of the false summit, due to a combination of too much early season snow on the ground and my boots, which were not as waterproof as I'd hoped. With a weekend free, it was time to try and grab the peak.
 
 While in the past we'd limited ourselves to overnighters, this time we'd try two nights to get an earlier start. We headed out early enough on a Thursday to have no problems getting a walk-up site at [Sacandaga](https://www.fs.usda.gov/recarea/willamette/recarea/?recid=4510), just as few sites down from our previous one. We arrived early, and spent a really delightful afternoon making conversation with the botanists across the way, exploring some nearby trails, and enjoying an orzo jambalaya cooked over the campfire. We were both in bed before 9, with me asleep almost immediately and him reading for a while.
 
