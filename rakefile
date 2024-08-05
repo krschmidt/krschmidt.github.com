@@ -11,6 +11,7 @@ GITHUB_REPONAME = "krschmidt/krschmidt.github.com"
 
 desc "Generate blog files"
 task :generate do
+  system "rm img/ditaa/*"
   Jekyll::Site.new(Jekyll.configuration({
     "source"      => ".",
     "destination" => "_site"
