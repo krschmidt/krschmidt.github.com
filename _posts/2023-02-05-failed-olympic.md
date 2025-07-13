@@ -4,9 +4,10 @@ title: A failed trip to Olympic
 date: 2023-02-05 17:00:10
 tags:
 - Outdoors
+- Woodworking
 ---
 
-Last year, I very nearly went on a trip to St Helens, and one of the things I was concerned about was the ngiht before. Like many mountains, that one benefits from an early start, so it isn't uncommon to get to the trailhead the night before and sleep near the trailhead for a few hours. While a tent or hammock are always an option, sometimes they can be tricky, particularly if there aren't a lot of spaces for sites, the ground is rocky, or there aren't any trees for a hammock. So some people will sleep in their car.
+Last year, I very nearly went on a trip to St Helens, and one of the things I was concerned about was the night before. Like many mountains, that one benefits from an early start, so it isn't uncommon to get to the trailhead the night before and sleep near the trailhead for a few hours. While a tent or hammock are always an option, sometimes they can be tricky, particularly if there aren't a lot of spaces for sites, the ground is rocky, or there aren't any trees for a hammock. So some people will sleep in their car.
 
 Except, at more than six feet tall, I'm not a particularly small individual. But my car, a now ten year old Honda Fit, is. From trunk door to the back of the front seats is around 50 inches, meaning that even diagonally it isn't enough for me. Making matters worse, the back seats don't fold quite flat. But it's almost seven feet from the back door to the front dash. And the front seat folds almost all the way down. A plan was born.
 
