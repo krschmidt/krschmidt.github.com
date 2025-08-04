@@ -11,7 +11,7 @@ title: Kyle Schmidt
       {% if post.tags contains "Tale" %}
       {% else %}
         {% if forloop.first %}
-          <li><h2 class="year-listing-header">{{ post.date | date: "%Y" }}</h2><ul><li>
+          <li><h2 class="year-listing-header">{{ post.date | date: "%Y" }}</h2><ul>
           {% capture year %}{{ post.date | date: "%Y" }}{% endcapture %}
         {% endif %}
         {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}

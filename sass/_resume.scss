@@ -1,5 +1,5 @@
-$accent1: #9A213D;
-$accent2: #2D6B9E;
+$accent1: #003e51;
+$accent2: #00b0b9;
 $lightGrey: #666;
 
 .resume{
@@ -24,15 +24,18 @@ $lightGrey: #666;
   }
 
   .excessive, .absurd {
+    display: none !important;
     visibility: hidden;
     opacity: 0;
     overflow: hidden;
     height: 0;
-    transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out,
+      display .3s ease allow-discrete;
 
     /* The absurd * property is because you can't use display to animate,
      * and visibility & opacity don't automatically make children disappear */
     &.show {
+      display: unset !important;
       visibility: visible;
       opacity: 1;
       height: auto;
@@ -100,6 +103,18 @@ $lightGrey: #666;
 
     @include breakpoint($desktop) {
       text-align: justify;
+    }
+
+    &.skilllist {
+      li {
+        display: inline;
+      }
+      li:after {
+        content: ",";
+      }
+      li:last-child:after {
+        content: "";
+      }
     }
   }
 
