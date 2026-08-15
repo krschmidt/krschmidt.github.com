@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Platformer - Expanded Levels</title>
+  <style>
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #03030a;
+      font-family: "Courier New", monospace;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+    }
+
+    #wrapper {
+      text-align: center;
+      color: #00ffff;
+    }
+
+    canvas {
+      display: block;
+      max-width: 96vw;
+      max-height: 82vh;
+      border: 3px solid #00ffff;
+      border-radius: 8px;
+      background: #050510;
+      image-rendering: pixelated;
+      box-shadow:
+        0 0 10px #00ffff,
+        0 0 30px #00ffff,
+        0 0 60px #ff00ff;
+    }
+
+    p {
+      margin: 14px 0 0;
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff;
+    }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+  <canvas id="game" width="960" height="540"></canvas>
+  <p>Move: ← → or A/D • Jump: Space/W/↑ • Menu: Esc • Restart Level: R</p>
+</div>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+const WIDTH = canvas.width;
+const HEIGHT = canvas.height;
+
+const GRAVITY = 0.62;
+const MOVE_SPEED = 5;
+const JUMP_SPEED = 13.5;
+
+const keys = {};
+let jumpWasPressed = false;
+let mouseX = 0;
+let mouseY = 0;
+
+document.addEventListener("keydown", e => {
+  keys[e.key.toLowerCase()] = true;
+
+  if ([" ", "arrowup", "arrowdown", "arrowleft", "arrowright"].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+
+  if (gameState === "home") {
+    if (e.key === "1" || e.key === "Enter") {
+      gameState = "playing";
+      if (!levelData) loadLevel(currentLevel);
+    } else if (e.key === "2") {
+      gameState = "shop";
+    } else if (e.key === "3") {
+      gameState = "editor";
+    }
+    return;
+  }
+
+  if (gameState === "shop") {
+    if (e.key === "Escape" || e.key.toLowerCase() === "b") {
+      gameState = "home";
+      return;
+    }
+
+    if (e.key === "1") buySkin("magenta");
+    if (e.key === "2") buySkin("lime");
+    if (e.key === "3") buySkin("gold");
+    if (e.key === "4") equipSkin("cyan");
+    if (e.key === "5") buySkin("violet");
+    if (e.key === "6") buySkin("ember");
+    if (e.key === "7") buySkin("ice");
+    if (e.key === "8") buySkin("shadow");
+    if (e.key.toLowerCase() === "q") buySkin("prism");
+    if (e.key.toLowerCase() === "w") buySkin("inferno");
+    if (e.key.toLowerCase() === "e") buySkin("nova");
+    if (e.key.toLowerCase() === "f") buySkin("eclipse");
+    return;
+  }
+
+  if (gameState === "editor") {
+    if (e.key === "Escape") {
+      gameState = "home";
+      return;
+    }
+
+    if (e.key === "1") editor.selectedTool = "platform";
+    if (e.key === "2") editor.selectedTool = "spike";
+    if (e.key === "3") editor.selectedTool = "coin";
+    if (e.key === "4") editor.selectedTool = "enemy";
+    if (e.key === "5") editor.selectedTool = "shield";
+    if (e.key === "6") editor.selectedTool = "speed";
+    if (e.key === "7") editor.selectedTool = "jump";
+    if (e.key === "8") editor.selectedTool = "start";
+    if (e.key === "9") editor.selectedTool = "goal";
+
+    if (e.key.toLowerCase() === "t") {
+      startEditorTest();
+      return;
+    }
+
+    if (e.key.toLowerCase() === "c") {
+      editor.platforms = [P(0, 490, 500, 50)];
+      editor.spikes = [];
+      editor.coins = [];
+      editor.enemies = [];
+      editor.powerups = [];
+      editor.start = { x: 50, y: 430 };
+      editor.goal = { x: 420, y: 420, width: 20, height: 70 };
+      editorMessage = "LEVEL CLEARED";
+      editorMessageTimer = 90;
+    }
+
+    if (e.key.toLowerCase() === "a" || e.key === "ArrowLeft") {
+      editor.cameraX = Math.max(0, editor.cameraX - 80);
+    }
+    if (e.key.toLowerCase() === "d" || e.key === "ArrowRight") {
+      editor.cameraX = Math.min(editor.width - WIDTH, editor.cameraX + 80);
+    }
+    return;
+  }
+
+  if (gameState === "test") {
+    if (e.key === "Escape") {
+      gameState = "editor";
+      return;
+    }
+    if (e.key.toLowerCase() === "r") {
+      startEditorTest();
+    }
+    return;
+  }
+
+  if (gameState === "playing") {
+    if (e.key === "Escape") {
+      gameState = "home";
+      return;
+    }
+
+    if (e.key.toLowerCase() === "r") {
+      loadLevel(currentLevel, true);
+    }
+  }
+});
+
+
+canvas.addEventListener("mousemove", e => {
+  const rect = canvas.getBoundingClientRect();
+  mouseX = (e.clientX - rect.left) * (canvas.width / rect.width);
+  mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
+});
+
+canvas.addEventListener("mousedown", e => {
+  if (gameState !== "editor") return;
+
+  const worldX = mouseX + editor.cameraX;
+  const worldY = mouseY;
+
+  if (e.button === 2) {
+    deleteEditorObject(worldX, worldY);
+    return;
+  }
+
+  if (editor.selectedTool === "platform" || editor.selectedTool === "spike") {
+    editorDragStart = { x: worldX, y: worldY };
+    return;
+  }
+
+  placeEditorObject(worldX, worldY);
+});
+
+canvas.addEventListener("mouseup", e => {
+  if (gameState !== "editor" || !editorDragStart) return;
+
+  const worldX = mouseX + editor.cameraX;
+
+  if (editor.selectedTool === "platform") {
+    const x = Math.min(editorDragStart.x, worldX);
+    const width = Math.max(40, Math.abs(worldX - editorDragStart.x));
+    const y = Math.round(editorDragStart.y / 10) * 10;
+    editor.platforms.push(P(Math.round(x / 10) * 10, y, Math.round(width / 10) * 10, 20));
+  } else if (editor.selectedTool === "spike") {
+    const x = Math.min(editorDragStart.x, worldX);
+    const width = Math.max(20, Math.abs(worldX - editorDragStart.x));
+    const y = Math.round(editorDragStart.y / 10) * 10;
+    editor.spikes.push(S(Math.round(x / 10) * 10, y, Math.round(width / 10) * 10));
+  }
+
+  editorDragStart = null;
+});
+
+canvas.addEventListener("contextmenu", e => {
+  if (gameState === "editor") e.preventDefault();
+});
+
+document.addEventListener("keyup", e => {
+  keys[e.key.toLowerCase()] = false;
+});
+
+function rectsCollide(a, b) {
+  return (
+    a.x < b.x + b.width &&
+    a.x + a.width > b.x &&
+    a.y < b.y + b.height &&
+    a.y + a.height > b.y
+  );
+}
+
+function P(x, y, width, height = 20) {
+  return { x, y, width, height };
+}
+
+function C(x, y) {
+  return { x, y };
+}
+
+function E(x, y, minX, maxX, speed = 1.5) {
+  return {
+    x, y,
+    width: 34,
+    height: 35,
+    minX,
+    maxX,
+    speed,
+    direction: 1
+  };
+}
+
+function U(type, x, y) {
+  return { type, x, y, width: 24, height: 24 };
+}
+
+function S(x, y, width) {
+  return { x, y, width, height: 24 };
+}
+
+const levels = [
+  {
+    name: "Neon District",
+    width: 2600,
+    start: { x: 50, y: 430 },
+    platforms: [
+      P(0, 490, 380, 50),
+      P(450, 490, 300, 50),
+      P(830, 490, 270, 50),
+      P(1180, 490, 360, 50),
+      P(1630, 490, 250, 50),
+      P(1950, 490, 320, 50),
+      P(2350, 490, 250, 50),
+
+      P(180, 405, 170),
+      P(520, 390, 160),
+      P(900, 360, 160),
+      P(1250, 410, 160),
+      P(1430, 330, 130),
+      P(1690, 390, 150),
+      P(2020, 360, 150),
+      P(2220, 300, 130),
+      P(2420, 245, 150)
+    ],
+    coins: [
+      C(230, 365), C(570, 350), C(950, 320),
+      C(1300, 370), C(1470, 290), C(1735, 350),
+      C(2070, 320), C(2260, 260), C(2470, 205)
+    ],
+    enemies: [
+      E(560, 455, 450, 750, 1.2),
+      E(920, 325, 900, 1060, 1.3),
+      E(1280, 455, 1180, 1540, 1.4),
+      E(2040, 325, 2020, 2170, 1.5)
+    ],
+    spikes: [
+      S(380, 466, 70),
+      S(750, 466, 80),
+      S(1100, 466, 80),
+      S(1540, 466, 90),
+      S(1880, 466, 70),
+      S(2270, 466, 80)
+    ],
+
+    powerups: [
+      U("shield", 720, 445),
+      U("speed", 1510, 290),
+      U("jump", 2290, 260)
+    ],
+    goal: { x: 2520, y: 175, width: 20, height: 70 }
+  },
+
+  {
+    name: "Cyber Heights",
+    width: 3200,
+    start: { x: 40, y: 430 },
+    platforms: [
+      P(0, 490, 250, 50),
+      P(340, 490, 220, 50),
+      P(650, 490, 260, 50),
+      P(1010, 490, 240, 50),
+      P(1340, 490, 300, 50),
+      P(1740, 490, 240, 50),
+      P(2070, 490, 300, 50),
+      P(2470, 490, 260, 50),
+      P(2820, 490, 380, 50),
+
+      P(180, 405, 130),
+      P(410, 345, 130),
+      P(700, 385, 140),
+      P(940, 320, 120),
+      P(1130, 260, 120),
+      P(1370, 390, 150),
+      P(1570, 315, 120),
+      P(1760, 250, 120),
+      P(1980, 190, 120),
+      P(2200, 270, 140),
+      P(2440, 350, 130),
+      P(2660, 285, 130),
+      P(2870, 220, 140),
+      P(3030, 145, 140)
+    ],
+    coins: [
+      C(220, 365), C(450, 305), C(750, 345),
+      C(980, 280), C(1170, 220), C(1420, 350),
+      C(1610, 275), C(1800, 210), C(2020, 150),
+      C(2250, 230), C(2485, 310), C(2705, 245),
+      C(2920, 180), C(3080, 105)
+    ],
+    enemies: [
+      E(370, 455, 340, 560, 1.4),
+      E(720, 455, 650, 910, 1.4),
+      E(1390, 355, 1370, 1520, 1.5),
+      E(1775, 215, 1760, 1880, 1.6),
+      E(2490, 315, 2470, 2730, 1.7),
+      E(2890, 185, 2870, 3010, 1.7)
+    ],
+    spikes: [
+      S(250, 466, 90),
+      S(560, 466, 90),
+      S(910, 466, 100),
+      S(1250, 466, 90),
+      S(1640, 466, 100),
+      S(1980, 466, 90),
+      S(2370, 466, 100),
+      S(2730, 466, 90)
+    ],
+
+    powerups: [
+      U("jump", 1210, 220),
+      U("shield", 1960, 150),
+      U("speed", 2750, 245)
+    ],
+    goal: { x: 3130, y: 75, width: 20, height: 70 }
+  },
+
+  {
+    name: "Glitch Core",
+    width: 3800,
+    start: { x: 50, y: 430 },
+    platforms: [
+      P(0, 490, 220, 50),
+      P(300, 490, 220, 50),
+      P(600, 490, 190, 50),
+      P(880, 490, 250, 50),
+      P(1230, 490, 200, 50),
+      P(1530, 490, 240, 50),
+      P(1870, 490, 250, 50),
+      P(2210, 490, 220, 50),
+      P(2530, 490, 260, 50),
+      P(2890, 490, 200, 50),
+      P(3200, 490, 250, 50),
+      P(3550, 490, 250, 50),
+
+      P(180, 400, 120),
+      P(380, 330, 120),
+      P(650, 390, 110),
+      P(940, 350, 130),
+      P(1130, 280, 120),
+      P(1290, 210, 120),
+      P(1510, 300, 120),
+      P(1700, 230, 120),
+      P(1910, 320, 130),
+      P(2110, 250, 120),
+      P(2340, 180, 120),
+      P(2580, 340, 130),
+      P(2780, 270, 120),
+      P(3000, 200, 120),
+      P(3240, 310, 130),
+      P(3440, 230, 120),
+      P(3600, 150, 140)
+    ],
+    coins: [
+      C(220, 360), C(420, 290), C(690, 350),
+      C(990, 310), C(1170, 240), C(1330, 170),
+      C(1550, 260), C(1740, 190), C(1960, 280),
+      C(2150, 210), C(2380, 140), C(2630, 300),
+      C(2820, 230), C(3040, 160), C(3290, 270),
+      C(3480, 190), C(3650, 110)
+    ],
+    enemies: [
+      E(320, 455, 300, 520, 1.5),
+      E(960, 315, 940, 1070, 1.6),
+      E(1540, 265, 1510, 1630, 1.7),
+      E(1930, 285, 1910, 2040, 1.7),
+      E(2590, 305, 2580, 2710, 1.8),
+      E(3260, 275, 3240, 3370, 1.9),
+      E(3460, 195, 3440, 3560, 1.9)
+    ],
+    spikes: [
+      S(220, 466, 80),
+      S(520, 466, 80),
+      S(790, 466, 90),
+      S(1130, 466, 100),
+      S(1430, 466, 100),
+      S(1770, 466, 100),
+      S(2120, 466, 90),
+      S(2430, 466, 100),
+      S(2790, 466, 100),
+      S(3090, 466, 110),
+      S(3450, 466, 100)
+    ],
+
+    powerups: [
+      U("shield", 1110, 240),
+      U("jump", 2310, 140),
+      U("speed", 3180, 450)
+    ],
+    goal: { x: 3700, y: 80, width: 20, height: 70 }
+  },
+
+  {
+    name: "Final Circuit",
+    width: 4500,
+    start: { x: 40, y: 430 },
+    platforms: [
+      P(0, 490, 230, 50),
+      P(320, 490, 200, 50),
+      P(610, 490, 220, 50),
+      P(920, 490, 200, 50),
+      P(1210, 490, 210, 50),
+      P(1510, 490, 220, 50),
+      P(1830, 490, 220, 50),
+      P(2150, 490, 220, 50),
+      P(2470, 490, 230, 50),
+      P(2800, 490, 200, 50),
+      P(3100, 490, 230, 50),
+      P(3430, 490, 220, 50),
+      P(3750, 490, 230, 50),
+      P(4080, 490, 420, 50),
+
+      P(180, 405, 120),
+      P(400, 340, 120),
+      P(670, 390, 120),
+      P(950, 320, 120),
+      P(1160, 250, 120),
+      P(1340, 180, 120),
+
+      P(1560, 300, 120),
+      P(1760, 230, 120),
+      P(1970, 160, 120),
+
+      P(2190, 280, 120),
+      P(2400, 210, 120),
+      P(2600, 140, 120),
+
+      P(2850, 330, 120),
+      P(3060, 260, 120),
+      P(3280, 190, 120),
+
+      P(3510, 300, 120),
+      P(3720, 230, 120),
+      P(3940, 160, 120),
+
+      P(4160, 260, 130),
+      P(4320, 185, 150)
+    ],
+    coins: [
+      C(220, 365), C(440, 300), C(710, 350),
+      C(990, 280), C(1200, 210), C(1380, 140),
+      C(1600, 260), C(1800, 190), C(2010, 120),
+      C(2230, 240), C(2440, 170), C(2640, 100),
+      C(2890, 290), C(3100, 220), C(3320, 150),
+      C(3550, 260), C(3760, 190), C(3980, 120),
+      C(4200, 220), C(4370, 145)
+    ],
+    enemies: [
+      E(340, 455, 320, 520, 1.7),
+      E(680, 355, 670, 790, 1.7),
+      E(970, 285, 950, 1070, 1.8),
+      E(1570, 265, 1560, 1680, 1.8),
+      E(2200, 245, 2190, 2310, 1.9),
+      E(2860, 295, 2850, 2970, 2.0),
+      E(3520, 265, 3510, 3630, 2.0),
+      E(4180, 225, 4160, 4290, 2.1)
+    ],
+    spikes: [
+      S(230, 466, 90),
+      S(520, 466, 90),
+      S(830, 466, 90),
+      S(1120, 466, 90),
+      S(1420, 466, 90),
+      S(1730, 466, 100),
+      S(2050, 466, 100),
+      S(2370, 466, 100),
+      S(2700, 466, 100),
+      S(3000, 466, 100),
+      S(3330, 466, 100),
+      S(3650, 466, 100),
+      S(3980, 466, 100)
+    ],
+
+    powerups: [
+      U("speed", 1450, 440),
+      U("shield", 2550, 100),
+      U("jump", 4050, 120)
+    ],
+    goal: { x: 4420, y: 115, width: 20, height: 70 }
+  }
+];
+
+const buildings = [
+  [20, 330, 80, 160],
+  [115, 380, 70, 110],
+  [200, 300, 90, 190],
+  [310, 360, 70, 130],
+  [400, 280, 110, 210],
+  [530, 350, 75, 140],
+  [620, 310, 100, 180],
+  [740, 370, 65, 120],
+  [825, 290, 110, 200]
+];
+
+const windowLights = [];
+for (const [x, y, w, h] of buildings) {
+  for (let wy = y + 15; wy < y + h - 10; wy += 25) {
+    for (let wx = x + 12; wx < x + w - 10; wx += 22) {
+      windowLights.push({
+        x: wx,
+        y: wy,
+        color: Math.random() > 0.5
+          ? "rgba(0,255,255,0.35)"
+          : "rgba(255,0,255,0.30)"
+      });
+    }
+  }
+}
+
+let gameState = "home"; // home, playing, shop, editor, test
+let currentLevel = 0;
+let levelData;
+let player;
+let coins;
+let enemies;
+let spikes = [];
+let score = 0;
+let credits = 0;
+let levelScore = 0;
+let lives = 6;
+let gameWon = false;
+let gameOver = false;
+let levelTransition = 0;
+let cameraX = 0;
+let nextLifeAt = 10;
+let lifeMessageTimer = 0;
+let powerups = [];
+let shieldTimer = 0;
+let speedTimer = 0;
+let jumpTimer = 0;
+let powerupMessage = "";
+let powerupMessageTimer = 0;
+
+let shopOpen = false;
+let shopMessage = "";
+let shopMessageTimer = 0;
+
+let permanentSpeedLevel = 0;
+let permanentJumpLevel = 0;
+let shieldCharges = 0;
+
+const skins = {
+  cyan: {
+    name: "CYAN RUNNER",
+    price: 0,
+    owned: true,
+    body: "#00ffff",
+    visor: "#ff00ff",
+    accent: "#ffffff"
+  },
+  magenta: {
+    name: "MAGENTA GHOST",
+    price: 20,
+    owned: false,
+    body: "#ff00ff",
+    visor: "#00ffff",
+    accent: "#ff8cff"
+  },
+  lime: {
+    name: "LIME GLITCH",
+    price: 20,
+    owned: false,
+    body: "#7cff00",
+    visor: "#ffe600",
+    accent: "#d8ff9a"
+  },
+  gold: {
+    name: "GOLD CIRCUIT",
+    price: 20,
+    owned: false,
+    body: "#ffe600",
+    visor: "#ff6b00",
+    accent: "#fff4a3"
+  },
+  violet: {
+    name: "VOID VIOLET",
+    price: 20,
+    owned: false,
+    body: "#8a2be2",
+    visor: "#00ffff",
+    accent: "#d8b4ff"
+  },
+  ember: {
+    name: "EMBER CORE",
+    price: 20,
+    owned: false,
+    body: "#ff4d00",
+    visor: "#ffe600",
+    accent: "#ffb38a"
+  },
+  ice: {
+    name: "ICE BYTE",
+    price: 20,
+    owned: false,
+    body: "#8be9fd",
+    visor: "#ffffff",
+    accent: "#dffcff"
+  },
+  shadow: {
+    name: "SHADOW HEX",
+    price: 20,
+    owned: false,
+    body: "#4a4a68",
+    visor: "#ff1744",
+    accent: "#9c9cb8"
+  },
+  prism: {
+    name: "PRISM OVERDRIVE",
+    price: 45,
+    owned: false,
+    body: "#00e5ff",
+    visor: "#ff4dff",
+    accent: "#ffe600",
+    premium: true,
+    trail: "rainbow"
+  },
+  inferno: {
+    name: "INFERNO PRIME",
+    price: 55,
+    owned: false,
+    body: "#ff2a00",
+    visor: "#fff200",
+    accent: "#ff8a00",
+    premium: true,
+    trail: "fire"
+  },
+  nova: {
+    name: "NOVA SPECTER",
+    price: 65,
+    owned: false,
+    body: "#b44cff",
+    visor: "#ffffff",
+    accent: "#00ffff",
+    premium: true,
+    trail: "spark"
+  },
+  eclipse: {
+    name: "ECLIPSE ZERO",
+    price: 80,
+    owned: false,
+    body: "#11111f",
+    visor: "#ff1744",
+    accent: "#7c4dff",
+    premium: true,
+    trail: "void"
+  }
+};
+
+let equippedSkin = "cyan";
+
+let editor = {
+  width: 3000,
+  cameraX: 0,
+  selectedTool: "platform",
+  platforms: [P(0, 490, 500, 50)],
+  spikes: [],
+  coins: [],
+  enemies: [],
+  powerups: [],
+  start: { x: 50, y: 430 },
+  goal: { x: 420, y: 420, width: 20, height: 70 }
+};
+
+let editorDragStart = null;
+let editorMessage = "";
+let editorMessageTimer = 0;
+
+
+function placeEditorObject(x, y) {
+  x = Math.round(x / 10) * 10;
+  y = Math.round(y / 10) * 10;
+
+  if (editor.selectedTool === "coin") {
+    editor.coins.push(C(x, y));
+  } else if (editor.selectedTool === "enemy") {
+    editor.enemies.push(E(x, y, x - 60, x + 100, 1.4));
+  } else if (editor.selectedTool === "shield") {
+    editor.powerups.push(U("shield", x, y));
+  } else if (editor.selectedTool === "speed") {
+    editor.powerups.push(U("speed", x, y));
+  } else if (editor.selectedTool === "jump") {
+    editor.powerups.push(U("jump", x, y));
+  } else if (editor.selectedTool === "start") {
+    editor.start = { x, y };
+  } else if (editor.selectedTool === "goal") {
+    editor.goal = { x, y, width: 20, height: 70 };
+  }
+}
+
+function deleteEditorObject(x, y) {
+  function hit(obj, w = obj.width || 24, h = obj.height || 24) {
+    return x >= obj.x && x <= obj.x + w && y >= obj.y && y <= obj.y + h;
+  }
+
+  editor.platforms = editor.platforms.filter(o => !hit(o, o.width, o.height));
+  editor.spikes = editor.spikes.filter(o => !hit(o, o.width, o.height));
+  editor.coins = editor.coins.filter(o => !hit(o, 20, 20));
+  editor.enemies = editor.enemies.filter(o => !hit(o, o.width, o.height));
+  editor.powerups = editor.powerups.filter(o => !hit(o, 24, 24));
+}
+
+function startEditorTest() {
+  levelData = {
+    name: "CUSTOM LEVEL",
+    width: editor.width,
+    start: { ...editor.start },
+    platforms: editor.platforms.map(o => ({ ...o })),
+    spikes: editor.spikes.map(o => ({ ...o })),
+    coins: editor.coins.map(o => ({ ...o })),
+    enemies: editor.enemies.map(o => ({ ...o })),
+    powerups: editor.powerups.map(o => ({ ...o })),
+    goal: { ...editor.goal }
+  };
+
+  player = {
+    x: levelData.start.x,
+    y: levelData.start.y,
+    width: 34,
+    height: 50,
+    vx: 0,
+    vy: 0,
+    onGround: false,
+    invincible: 0
+  };
+
+  coins = levelData.coins.map(c => ({ ...c, width: 20, height: 20, collected: false }));
+  enemies = levelData.enemies.map(e => ({ ...e }));
+  spikes = levelData.spikes.map(s => ({ ...s }));
+  powerups = levelData.powerups.map(p => ({ ...p, collected: false }));
+
+  cameraX = Math.max(0, player.x - WIDTH * 0.4);
+  gameWon = false;
+  gameOver = false;
+  levelTransition = 0;
+  gameState = "test";
+}
+
+function loadLevel(index, restartOnly = false) {
+  currentLevel = index;
+  levelData = levels[currentLevel];
+
+  player = {
+    x: levelData.start.x,
+    y: levelData.start.y,
+    width: 34,
+    height: 50,
+    vx: 0,
+    vy: 0,
+    onGround: false,
+    invincible: 0
+  };
+
+  coins = levelData.coins.map(c => ({
+    ...c,
+    width: 20,
+    height: 20,
+    collected: false
+  }));
+
+  enemies = levelData.enemies.map(e => ({ ...e }));
+  spikes = (levelData.spikes || []).map(s => ({ ...s }));
+  powerups = (levelData.powerups || []).map(p => ({ ...p, collected: false }));
+
+  shieldTimer = 0;
+  speedTimer = 0;
+  jumpTimer = 0;
+  powerupMessage = "";
+  powerupMessageTimer = 0;
+
+  if (!restartOnly) {
+    levelScore = 0;
+  }
+
+  gameWon = false;
+  gameOver = false;
+  levelTransition = 0;
+  cameraX = 0;
+}
+
+function respawnPlayer() {
+  player.x = levelData.start.x;
+  player.y = levelData.start.y;
+  player.vx = 0;
+  player.vy = 0;
+  player.invincible = 120;
+  cameraX = 0;
+}
+
+function hurtPlayer() {
+  if (player.invincible > 0 || gameWon || gameOver || levelTransition > 0) return;
+
+  if (shieldTimer > 0) {
+    shieldTimer = 0;
+    player.invincible = 90;
+    powerupMessage = "SHIELD SAVED YOU!";
+    powerupMessageTimer = 90;
+    return;
+  }
+
+  if (shieldCharges > 0) {
+    shieldCharges--;
+    player.invincible = 90;
+    powerupMessage = "SHOP SHIELD SAVED YOU!";
+    powerupMessageTimer = 90;
+    return;
+  }
+
+  lives--;
+
+  if (lives <= 0) {
+    gameOver = true;
+  } else {
+    respawnPlayer();
+  }
+}
+
+function updatePlayer() {
+  if (gameWon || gameOver || levelTransition > 0 || shopOpen) return;
+
+  if (player.invincible > 0) player.invincible--;
+
+  const baseMoveSpeed = MOVE_SPEED + permanentSpeedLevel * 0.5;
+  const baseJumpSpeed = JUMP_SPEED + permanentJumpLevel * 0.7;
+
+  const currentMoveSpeed = speedTimer > 0 ? baseMoveSpeed * 1.55 : baseMoveSpeed;
+  const currentJumpSpeed = jumpTimer > 0 ? baseJumpSpeed * 1.28 : baseJumpSpeed;
+
+  player.vx = 0;
+  if (keys["a"] || keys["arrowleft"]) player.vx = -currentMoveSpeed;
+  if (keys["d"] || keys["arrowright"]) player.vx = currentMoveSpeed;
+
+  const jumpPressed = keys[" "] || keys["w"] || keys["arrowup"];
+  if (jumpPressed && !jumpWasPressed && player.onGround) {
+    player.vy = -currentJumpSpeed;
+    player.onGround = false;
+  }
+  jumpWasPressed = jumpPressed;
+
+  player.x += player.vx;
+
+  for (const platform of levelData.platforms) {
+    if (rectsCollide(player, platform)) {
+      if (player.vx > 0) player.x = platform.x - player.width;
+      else if (player.vx < 0) player.x = platform.x + platform.width;
+    }
+  }
+
+  if (player.x < 0) player.x = 0;
+  if (player.x + player.width > levelData.width) {
+    player.x = levelData.width - player.width;
+  }
+
+  player.vy += GRAVITY;
+  if (player.vy > 18) player.vy = 18;
+
+  const previousY = player.y;
+  player.y += player.vy;
+  player.onGround = false;
+
+  for (const platform of levelData.platforms) {
+    if (rectsCollide(player, platform)) {
+      if (player.vy >= 0 && previousY + player.height <= platform.y + 8) {
+        player.y = platform.y - player.height;
+        player.vy = 0;
+        player.onGround = true;
+      } else if (player.vy < 0 && previousY >= platform.y + platform.height - 8) {
+        player.y = platform.y + platform.height;
+        player.vy = 0;
+      }
+    }
+  }
+
+  if (player.y > HEIGHT + 150) {
+    respawnPlayer();
+  }
+
+  const targetCamera = player.x - WIDTH * 0.4;
+  cameraX += (targetCamera - cameraX) * 0.12;
+
+  if (cameraX < 0) cameraX = 0;
+  const maxCamera = Math.max(0, levelData.width - WIDTH);
+  if (cameraX > maxCamera) cameraX = maxCamera;
+}
+
+function updateCoins() {
+  if (gameWon || gameOver || levelTransition > 0 || shopOpen) return;
+
+  for (const coin of coins) {
+    if (!coin.collected && rectsCollide(player, coin)) {
+      coin.collected = true;
+      score++;
+      credits++;
+      levelScore++;
+
+      while (credits >= nextLifeAt) {
+        lives++;
+        nextLifeAt += 10;
+        lifeMessageTimer = 120;
+      }
+    }
+  }
+}
+
+function updateEnemies() {
+  if (gameWon || gameOver || levelTransition > 0 || shopOpen) return;
+
+  for (const enemy of enemies) {
+    enemy.x += enemy.speed * enemy.direction;
+
+    if (enemy.x <= enemy.minX) {
+      enemy.x = enemy.minX;
+      enemy.direction = 1;
+    }
+
+    if (enemy.x + enemy.width >= enemy.maxX) {
+      enemy.x = enemy.maxX - enemy.width;
+      enemy.direction = -1;
+    }
+
+    if (rectsCollide(player, enemy)) {
+      const playerBottom = player.y + player.height;
+
+      if (player.vy > 0 && playerBottom - enemy.y < 22) {
+        enemy.dead = true;
+        player.vy = -9;
+        score += 2;
+        levelScore += 2;
+      } else {
+        hurtPlayer();
+      }
+    }
+  }
+
+  enemies = enemies.filter(enemy => !enemy.dead);
+}
+
+function updatePowerups() {
+  if (gameWon || gameOver || levelTransition > 0 || shopOpen) return;
+
+  for (const p of powerups) {
+    if (p.collected) continue;
+
+    if (rectsCollide(player, p)) {
+      p.collected = true;
+
+      if (p.type === "shield") {
+        shieldTimer = 900;
+        powerupMessage = "SHIELD ACTIVE!";
+      } else if (p.type === "speed") {
+        speedTimer = 600;
+        powerupMessage = "SPEED BOOST!";
+      } else if (p.type === "jump") {
+        jumpTimer = 600;
+        powerupMessage = "SUPER JUMP!";
+      }
+
+      powerupMessageTimer = 120;
+    }
+  }
+}
+
+function updateSpikes() {
+  if (gameState !== "playing" || gameWon || gameOver || levelTransition > 0) return;
+
+  for (const spike of spikes) {
+    if (rectsCollide(player, spike)) {
+      hurtPlayer();
+      break;
+    }
+  }
+}
+
+function updateGoal() {
+  if (gameWon || gameOver || levelTransition > 0 || shopOpen) return;
+
+  if (rectsCollide(player, levelData.goal)) {
+    if (gameState === "test") {
+      gameWon = true;
+    } else {
+      levelTransition = 90;
+    }
+  }
+}
+
+function buyShopItem(type) {
+  if (gameState !== "shop") return;
+
+  const prices = {
+    life: 15,
+    shield: 8,
+    speed: 20,
+    jump: 20
+  };
+
+  const price = prices[type];
+
+  if (credits < price) {
+    shopMessage = "NOT ENOUGH CREDITS";
+    shopMessageTimer = 90;
+    return;
+  }
+
+  if (type === "speed" && permanentSpeedLevel >= 3) {
+    shopMessage = "SPEED MAXED";
+    shopMessageTimer = 90;
+    return;
+  }
+
+  if (type === "jump" && permanentJumpLevel >= 3) {
+    shopMessage = "JUMP MAXED";
+    shopMessageTimer = 90;
+    return;
+  }
+
+  credits -= price;
+
+  if (type === "life") {
+    lives++;
+    shopMessage = "+1 LIFE PURCHASED";
+  } else if (type === "shield") {
+    shieldCharges++;
+    shopMessage = "+1 SHIELD CHARGE";
+  } else if (type === "speed") {
+    permanentSpeedLevel++;
+    shopMessage = `SPEED LEVEL ${permanentSpeedLevel}`;
+  } else if (type === "jump") {
+    permanentJumpLevel++;
+    shopMessage = `JUMP LEVEL ${permanentJumpLevel}`;
+  }
+
+  shopMessageTimer = 90;
+}
+
+function buySkin(id) {
+  if (gameState !== "shop") return;
+
+  const skin = skins[id];
+  if (!skin) return;
+
+  if (skin.owned) {
+    equippedSkin = id;
+    shopMessage = `${skin.name} EQUIPPED`;
+    shopMessageTimer = 90;
+    return;
+  }
+
+  if (credits < skin.price) {
+    shopMessage = "NOT ENOUGH CREDITS";
+    shopMessageTimer = 90;
+    return;
+  }
+
+  credits -= skin.price;
+  skin.owned = true;
+  equippedSkin = id;
+  shopMessage = `${skin.name} UNLOCKED`;
+  shopMessageTimer = 90;
+}
+
+function equipSkin(id) {
+  if (gameState !== "shop") return;
+
+  const skin = skins[id];
+  if (!skin || !skin.owned) return;
+
+  equippedSkin = id;
+  shopMessage = `${skin.name} EQUIPPED`;
+  shopMessageTimer = 90;
+}
+
+function updateTransition() {
+  if (levelTransition <= 0) return;
+
+  levelTransition--;
+
+  if (levelTransition === 0) {
+    if (currentLevel < levels.length - 1) {
+      loadLevel(currentLevel + 1);
+    } else {
+      gameWon = true;
+    }
+  }
+}
+
+function update() {
+  if (gameState !== "playing" && gameState !== "test") return;
+
+  if (lifeMessageTimer > 0) lifeMessageTimer--;
+  if (powerupMessageTimer > 0) powerupMessageTimer--;
+  if (shopMessageTimer > 0) shopMessageTimer--;
+
+  if (shieldTimer > 0) shieldTimer--;
+  if (speedTimer > 0) speedTimer--;
+  if (jumpTimer > 0) jumpTimer--;
+
+  updatePlayer();
+  updateCoins();
+  updateEnemies();
+  updatePowerups();
+  updateSpikes();
+  updateGoal();
+  updateTransition();
+}
+
+function neonGlow(color, blur = 20) {
+  ctx.shadowColor = color;
+  ctx.shadowBlur = blur;
+}
+
+function clearGlow() {
+  ctx.shadowBlur = 0;
+  ctx.shadowColor = "transparent";
+}
+
+function worldToScreenX(x) {
+  return x - cameraX;
+}
+
+function drawBackground() {
+  const gradient = ctx.createLinearGradient(0, 0, 0, HEIGHT);
+  gradient.addColorStop(0, "#03030c");
+  gradient.addColorStop(0.6, "#09051c");
+  gradient.addColorStop(1, "#16001f");
+
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  neonGlow("#ff00ff", 35);
+  ctx.strokeStyle = "#ff00ff";
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.arc(790, 100, 55, 0, Math.PI * 2);
+  ctx.stroke();
+  clearGlow();
+
+  const parallax = cameraX * 0.18;
+
+  ctx.save();
+  ctx.translate(-(parallax % 960), 0);
+
+  for (let repeat = -1; repeat <= 2; repeat++) {
+    const offset = repeat * 960;
+
+    ctx.fillStyle = "#070712";
+    for (const [x, y, w, h] of buildings) {
+      ctx.fillRect(x + offset, y, w, h);
+    }
+
+    for (const light of windowLights) {
+      ctx.fillStyle = light.color;
+      ctx.fillRect(light.x + offset, light.y, 7, 10);
+    }
+  }
+
+  ctx.restore();
+
+  ctx.strokeStyle = "rgba(255, 0, 255, 0.22)";
+  ctx.lineWidth = 1;
+
+  for (let y = 380; y < HEIGHT; y += 22) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(WIDTH, y);
+    ctx.stroke();
+  }
+
+  ctx.strokeStyle = "rgba(0, 255, 255, 0.18)";
+
+  for (let x = -400; x < WIDTH + 400; x += 80) {
+    ctx.beginPath();
+    ctx.moveTo(WIDTH / 2, 350);
+    ctx.lineTo(x, HEIGHT);
+    ctx.stroke();
+  }
+}
+
+function drawPlatforms() {
+  for (const platform of levelData.platforms) {
+    const sx = worldToScreenX(platform.x);
+
+    if (sx + platform.width < -50 || sx > WIDTH + 50) continue;
+
+    ctx.fillStyle = "#080818";
+    ctx.fillRect(sx, platform.y, platform.width, platform.height);
+
+    neonGlow("#00ffff", 15);
+    ctx.fillStyle = "#00ffff";
+    ctx.fillRect(sx, platform.y, platform.width, 4);
+    clearGlow();
+
+    ctx.fillStyle = "#ff00ff";
+    ctx.fillRect(sx, platform.y + platform.height - 2, platform.width, 2);
+  }
+}
+
+function drawCoins() {
+  for (const coin of coins) {
+    if (coin.collected) continue;
+
+    const sx = worldToScreenX(coin.x);
+    if (sx < -40 || sx > WIDTH + 40) continue;
+
+    neonGlow("#ffe600", 20);
+    ctx.fillStyle = "#ffe600";
+    ctx.beginPath();
+    ctx.arc(sx + coin.width / 2, coin.y + coin.height / 2, 9, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.strokeStyle = "#fffbd1";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    clearGlow();
+  }
+}
+
+function drawSpikes() {
+  for (const spike of spikes) {
+    const sx = worldToScreenX(spike.x);
+    if (sx + spike.width < -50 || sx > WIDTH + 50) continue;
+
+    const count = Math.max(1, Math.floor(spike.width / 20));
+    const step = spike.width / count;
+
+    neonGlow("#ff1744", 18);
+    ctx.fillStyle = "#ff1744";
+
+    for (let i = 0; i < count; i++) {
+      const x = sx + i * step;
+      ctx.beginPath();
+      ctx.moveTo(x, spike.y + spike.height);
+      ctx.lineTo(x + step / 2, spike.y);
+      ctx.lineTo(x + step, spike.y + spike.height);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    clearGlow();
+  }
+}
+
+function drawPowerups() {
+  for (const p of powerups) {
+    if (p.collected) continue;
+
+    const sx = worldToScreenX(p.x);
+    if (sx < -50 || sx > WIDTH + 50) continue;
+
+    let color = "#00ffff";
+    let symbol = "S";
+
+    if (p.type === "speed") {
+      color = "#ff00ff";
+      symbol = ">";
+    } else if (p.type === "jump") {
+      color = "#7cff00";
+      symbol = "^";
+    }
+
+    neonGlow(color, 22);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(sx + 12, p.y + 12, 11, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = color;
+    ctx.font = "bold 16px 'Courier New', monospace";
+    ctx.textAlign = "center";
+    ctx.fillText(symbol, sx + 12, p.y + 18);
+    ctx.textAlign = "left";
+    clearGlow();
+  }
+}
+
+function drawEnemy(enemy) {
+  const sx = worldToScreenX(enemy.x);
+  if (sx + enemy.width < -40 || sx > WIDTH + 40) return;
+
+  neonGlow("#ff1744", 18);
+  ctx.fillStyle = "#ff1744";
+  ctx.fillRect(sx, enemy.y, enemy.width, enemy.height);
+  clearGlow();
+
+  ctx.fillStyle = "#25000a";
+  ctx.fillRect(sx + 4, enemy.y + 4, enemy.width - 8, enemy.height - 8);
+
+  neonGlow("#00ffff", 12);
+  ctx.fillStyle = "#00ffff";
+  ctx.fillRect(sx + 7, enemy.y + 10, 7, 4);
+  ctx.fillRect(sx + 21, enemy.y + 10, 7, 4);
+  clearGlow();
+}
+
+function drawPlayer() {
+  if (player.invincible > 0 && Math.floor(player.invincible / 5) % 2 === 0) return;
+
+  const sx = worldToScreenX(player.x);
+
+  if (shieldTimer > 0) {
+    neonGlow("#00ffff", 18);
+    ctx.strokeStyle = "#00ffff";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(
+      sx + player.width / 2,
+      player.y + player.height / 2,
+      30,
+      0,
+      Math.PI * 2
+    );
+    ctx.stroke();
+    clearGlow();
+  }
+
+  const skin = skins[equippedSkin];
+
+  neonGlow(skin.body, 22);
+  ctx.fillStyle = skin.body;
+  ctx.fillRect(sx, player.y, player.width, player.height);
+  clearGlow();
+
+  ctx.fillStyle = "#080818";
+  ctx.fillRect(sx + 4, player.y + 4, player.width - 8, player.height - 8);
+
+  neonGlow(skin.visor, 10);
+  ctx.fillStyle = skin.visor;
+  ctx.fillRect(sx + 7, player.y + 10, player.width - 14, 8);
+  clearGlow();
+
+  ctx.fillStyle = skin.body;
+  ctx.fillRect(sx + 2, player.y + player.height - 6, 13, 6);
+  ctx.fillRect(sx + 19, player.y + player.height - 6, 13, 6);
+
+  ctx.fillStyle = skin.accent || "#ffffff";
+  ctx.fillRect(sx + 7, player.y + 30, 5, 8);
+  ctx.fillRect(sx + 22, player.y + 30, 5, 8);
+
+  if (skin.premium) {
+    const t = performance.now() / 120;
+
+    if (skin.trail === "rainbow") {
+      const colors = ["#ff00ff", "#00ffff", "#ffe600", "#7cff00"];
+      for (let i = 0; i < 4; i++) {
+        ctx.fillStyle = colors[i];
+        ctx.globalAlpha = 0.45 - i * 0.08;
+        ctx.fillRect(sx - 8 - i * 7, player.y + 12 + i * 5, 10, 5);
+      }
+      ctx.globalAlpha = 1;
+    } else if (skin.trail === "fire") {
+      for (let i = 0; i < 4; i++) {
+        ctx.fillStyle = i % 2 === 0 ? "#ff2a00" : "#ffe600";
+        ctx.globalAlpha = 0.55 - i * 0.1;
+        ctx.beginPath();
+        ctx.arc(sx - 6 - i * 6, player.y + 38 + Math.sin(t + i) * 3, 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    } else if (skin.trail === "spark") {
+      ctx.fillStyle = "#ffffff";
+      for (let i = 0; i < 5; i++) {
+        const px = sx - 10 - i * 5;
+        const py = player.y + 10 + ((i * 11 + Math.floor(t * 7)) % 36);
+        ctx.fillRect(px, py, 2, 2);
+      }
+    } else if (skin.trail === "void") {
+      neonGlow("#7c4dff", 24);
+      ctx.strokeStyle = "#7c4dff";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(sx + player.width / 2, player.y + player.height / 2, 25 + Math.sin(t) * 2, 0, Math.PI * 2);
+      ctx.stroke();
+      clearGlow();
+    }
+  }
+}
+
+function drawGoal() {
+  const goal = levelData.goal;
+  const sx = worldToScreenX(goal.x);
+
+  if (sx < -80 || sx > WIDTH + 80) return;
+
+  neonGlow("#00ffff", 20);
+  ctx.fillStyle = "#00ffff";
+  ctx.fillRect(sx, goal.y, 5, goal.height);
+  clearGlow();
+
+  neonGlow("#ff00ff", 25);
+  ctx.fillStyle = "#ff00ff";
+  ctx.beginPath();
+  ctx.moveTo(sx + 5, goal.y);
+  ctx.lineTo(sx + 48, goal.y + 15);
+  ctx.lineTo(sx + 5, goal.y + 30);
+  ctx.closePath();
+  ctx.fill();
+  clearGlow();
+}
+
+function drawHUD() {
+  ctx.fillStyle = "rgba(3, 3, 15, 0.88)";
+  ctx.fillRect(15, 15, 370, 110);
+
+  neonGlow("#00ffff", 10);
+  ctx.strokeStyle = "#00ffff";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(15, 15, 370, 110);
+
+  ctx.fillStyle = "#00ffff";
+  ctx.font = "20px 'Courier New', monospace";
+  ctx.fillText(`LEVEL ${currentLevel + 1}/${levels.length}: ${levelData.name}`, 30, 43);
+
+  ctx.fillStyle = "#ffe600";
+  ctx.fillText(`CREDITS: ${credits}`, 30, 70);
+
+  ctx.fillStyle = "#ff00ff";
+  ctx.fillText(`LIVES: ${lives}`, 180, 70);
+
+  ctx.fillStyle = "#9effff";
+  ctx.font = "16px 'Courier New', monospace";
+  ctx.fillText(`PROGRESS: ${Math.min(100, Math.floor((player.x / levelData.width) * 100))}%`, 30, 96);
+  ctx.fillText(`NEXT LIFE: ${nextLifeAt - credits}`, 180, 96);
+
+  ctx.font = "14px 'Courier New', monospace";
+  let effects = [];
+  if (shieldTimer > 0) effects.push(`SHIELD ${Math.ceil(shieldTimer / 60)}s`);
+  if (speedTimer > 0) effects.push(`SPEED ${Math.ceil(speedTimer / 60)}s`);
+  if (jumpTimer > 0) effects.push(`JUMP ${Math.ceil(jumpTimer / 60)}s`);
+
+  if (shieldCharges > 0) effects.push(`SHIELDS x${shieldCharges}`);
+
+  if (effects.length > 0) {
+    ctx.fillStyle = "#7cff00";
+    ctx.fillText(effects.join("  "), 30, 118);
+  }
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "13px 'Courier New', monospace";
+  ctx.fillText("B: OPEN SHOP", 255, 118);
+
+  clearGlow();
+}
+
+function drawMessage(title, subtitle) {
+  ctx.fillStyle = "rgba(0, 0, 10, 0.82)";
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  ctx.textAlign = "center";
+
+  neonGlow("#ff00ff", 30);
+  ctx.fillStyle = "#ff00ff";
+  ctx.font = "bold 60px 'Courier New', monospace";
+  ctx.fillText(title.toUpperCase(), WIDTH / 2, HEIGHT / 2 - 20);
+  clearGlow();
+
+  neonGlow("#00ffff", 12);
+  ctx.fillStyle = "#00ffff";
+  ctx.font = "22px 'Courier New', monospace";
+  ctx.fillText(subtitle, WIDTH / 2, HEIGHT / 2 + 35);
+  clearGlow();
+
+  ctx.textAlign = "left";
+}
+
+function drawLifeMessage() {
+  if (lifeMessageTimer <= 0) return;
+
+  ctx.textAlign = "center";
+  neonGlow("#ffe600", 22);
+  ctx.fillStyle = "#ffe600";
+  ctx.font = "bold 30px 'Courier New', monospace";
+  ctx.fillText("+1 LIFE!", WIDTH / 2, 155);
+  clearGlow();
+  ctx.textAlign = "left";
+}
+
+function drawPowerupMessage() {
+  if (powerupMessageTimer <= 0) return;
+
+  ctx.textAlign = "center";
+  neonGlow("#7cff00", 20);
+  ctx.fillStyle = "#7cff00";
+  ctx.font = "bold 26px 'Courier New', monospace";
+  ctx.fillText(powerupMessage, WIDTH / 2, 190);
+  clearGlow();
+  ctx.textAlign = "left";
+}
+
+function drawSkinPreview(cx, cy, body, visor, accent, label, equipped = false, premium = false) {
+  neonGlow(body, 18);
+  ctx.fillStyle = body;
+  ctx.fillRect(cx - 20, cy - 38, 40, 58);
+  clearGlow();
+
+  ctx.fillStyle = "#080818";
+  ctx.fillRect(cx - 15, cy - 33, 30, 48);
+
+  neonGlow(visor, 10);
+  ctx.fillStyle = visor;
+  ctx.fillRect(cx - 10, cy - 20, 20, 8);
+  clearGlow();
+
+  ctx.fillStyle = body;
+  ctx.fillRect(cx - 18, cy + 14, 14, 7);
+  ctx.fillRect(cx + 4, cy + 14, 14, 7);
+
+  ctx.fillStyle = accent || "#ffffff";
+  ctx.fillRect(cx - 12, cy - 3, 6, 10);
+  ctx.fillRect(cx + 6, cy - 3, 6, 10);
+
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "13px 'Courier New', monospace";
+  ctx.fillText(label, cx, cy + 48);
+
+  if (premium) {
+    neonGlow(accent || body, 14);
+    ctx.strokeStyle = accent || body;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy - 8, 34, 0, Math.PI * 2);
+    ctx.stroke();
+    clearGlow();
+
+    ctx.fillStyle = "#ffe600";
+    ctx.font = "bold 11px 'Courier New', monospace";
+    ctx.fillText("PREMIUM", cx, cy + 83);
+  }
+
+  if (equipped) {
+    ctx.fillStyle = "#7cff00";
+    ctx.fillText("EQUIPPED", cx, cy + (premium ? 99 : 67));
+  }
+}
+
+function drawShop() {
+  ctx.fillStyle = "rgba(0,0,12,0.98)";
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  ctx.textAlign = "center";
+  neonGlow("#ff00ff", 25);
+  ctx.fillStyle = "#ff00ff";
+  ctx.font = "bold 40px 'Courier New', monospace";
+  ctx.fillText("SKIN VAULT", WIDTH / 2, 48);
+  clearGlow();
+
+  ctx.fillStyle = "#ffe600";
+  ctx.font = "18px 'Courier New', monospace";
+  ctx.fillText(`CREDITS: ${credits}`, WIDTH / 2, 76);
+
+  const cards = [
+    { key: "4", id: "cyan",    x: 105, y: 115 },
+    { key: "1", id: "magenta", x: 290, y: 115 },
+    { key: "2", id: "lime",    x: 475, y: 115 },
+    { key: "3", id: "gold",    x: 660, y: 115 },
+    { key: "5", id: "violet",  x: 845, y: 115 },
+
+    { key: "6", id: "ember",   x: 105, y: 300 },
+    { key: "7", id: "ice",     x: 290, y: 300 },
+    { key: "8", id: "shadow",  x: 475, y: 300 },
+    { key: "Q", id: "prism",   x: 660, y: 300 },
+    { key: "W", id: "inferno", x: 845, y: 300 },
+
+    { key: "E", id: "nova",    x: 385, y: 465 },
+    { key: "F", id: "eclipse", x: 575, y: 465 }
+  ];
+
+  for (const card of cards) {
+    const s = skins[card.id];
+    const cardW = 155;
+    const cardH = card.y >= 450 ? 135 : 150;
+
+    ctx.fillStyle = "rgba(10,10,28,0.95)";
+    ctx.fillRect(card.x - cardW / 2, card.y - 22, cardW, cardH);
+
+    const border = equippedSkin === card.id
+      ? "#7cff00"
+      : (s.premium ? "#ffe600" : s.body);
+
+    neonGlow(border, s.premium ? 10 : 0);
+    ctx.strokeStyle = border;
+    ctx.lineWidth = s.premium ? 3 : 2;
+    ctx.strokeRect(card.x - cardW / 2, card.y - 22, cardW, cardH);
+    clearGlow();
+
+    drawSkinPreview(
+      card.x,
+      card.y + 37,
+      s.body,
+      s.visor,
+      s.accent,
+      s.name,
+      equippedSkin === card.id,
+      !!s.premium
+    );
+
+    ctx.textAlign = "center";
+    ctx.font = "bold 11px 'Courier New', monospace";
+
+    if (s.owned) {
+      ctx.fillStyle = "#7cff00";
+      ctx.fillText(
+        equippedSkin === card.id ? "EQUIPPED" : `PRESS ${card.key} TO EQUIP`,
+        card.x,
+        card.y + (s.premium ? 115 : 108)
+      );
+    } else {
+      ctx.fillStyle = s.premium ? "#ffe600" : "#9effff";
+      ctx.fillText(
+        `PRESS ${card.key}: ${s.price} CREDITS`,
+        card.x,
+        card.y + (s.premium ? 115 : 108)
+      );
+    }
+  }
+
+  if (shopMessageTimer > 0) {
+    neonGlow("#7cff00", 15);
+    ctx.fillStyle = "#7cff00";
+    ctx.font = "bold 16px 'Courier New', monospace";
+    ctx.fillText(shopMessage, WIDTH / 2, 515);
+    clearGlow();
+  }
+
+  ctx.fillStyle = "#00ffff";
+  ctx.font = "12px 'Courier New', monospace";
+  ctx.fillText("ESC or B: Back to Home", WIDTH / 2, 535);
+
+  ctx.textAlign = "left";
+}
+
+function drawHome() {
+  ctx.fillStyle = "#03030c";
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  const gradient = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
+  gradient.addColorStop(0, "#05051a");
+  gradient.addColorStop(1, "#16001f");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  neonGlow("#00ffff", 28);
+  ctx.fillStyle = "#00ffff";
+  ctx.textAlign = "center";
+  ctx.font = "bold 58px 'Courier New', monospace";
+  ctx.fillText("NEON RUNNER", WIDTH / 2, 130);
+  clearGlow();
+
+  ctx.fillStyle = "#ff00ff";
+  ctx.font = "20px 'Courier New', monospace";
+  ctx.fillText("SURVIVE THE CIRCUIT. COLLECT CREDITS. UPGRADE YOUR STYLE.", WIDTH / 2, 175);
+
+  ctx.fillStyle = "rgba(8,8,24,0.9)";
+  ctx.fillRect(270, 220, 420, 185);
+  ctx.strokeStyle = "#00ffff";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(270, 220, 420, 185);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 28px 'Courier New', monospace";
+  ctx.fillText("1  PLAY", WIDTH / 2, 275);
+
+  ctx.fillStyle = "#ffe600";
+  ctx.fillText("2  SHOP", WIDTH / 2, 325);
+  ctx.fillText("3  LEVEL EDITOR", WIDTH / 2, 375);
+
+  ctx.fillStyle = "#9effff";
+  ctx.font = "16px 'Courier New', monospace";
+  ctx.fillText(`Credits: ${credits}   Lives: ${lives}   Skin: ${skins[equippedSkin].name}`, WIDTH / 2, 420);
+
+  ctx.fillStyle = "#00ffff";
+  ctx.font = "14px 'Courier New', monospace";
+  ctx.fillText("1/Enter: Play • 2: Shop • 3: Level Editor", WIDTH / 2, 470);
+
+  ctx.textAlign = "left";
+}
+
+function drawLevelTransition() {
+  if (levelTransition <= 0) return;
+
+  ctx.fillStyle = "rgba(0,0,15,0.48)";
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  ctx.textAlign = "center";
+
+  neonGlow("#00ffff", 18);
+  ctx.fillStyle = "#00ffff";
+  ctx.font = "bold 42px 'Courier New', monospace";
+
+  if (currentLevel < levels.length - 1) {
+    ctx.fillText("LEVEL COMPLETE", WIDTH / 2, HEIGHT / 2 - 10);
+    ctx.font = "22px 'Courier New', monospace";
+    ctx.fillText(`NEXT: ${levels[currentLevel + 1].name}`, WIDTH / 2, HEIGHT / 2 + 35);
+  } else {
+    ctx.fillText("FINAL CIRCUIT CLEARED", WIDTH / 2, HEIGHT / 2);
+  }
+
+  clearGlow();
+  ctx.textAlign = "left";
+}
+
+
+function drawEditorGrid() {
+  ctx.fillStyle = "#050510";
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  ctx.strokeStyle = "rgba(0,255,255,0.12)";
+  ctx.lineWidth = 1;
+
+  for (let x = -(editor.cameraX % 20); x < WIDTH; x += 20) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, HEIGHT);
+    ctx.stroke();
+  }
+
+  for (let y = 0; y < HEIGHT; y += 20) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(WIDTH, y);
+    ctx.stroke();
+  }
+}
+
+function drawEditor() {
+  drawEditorGrid();
+
+  const oldCameraX = cameraX;
+  const oldLevelData = levelData;
+  const oldCoins = coins;
+  const oldEnemies = enemies;
+  const oldSpikes = spikes;
+  const oldPowerups = powerups;
+
+  cameraX = editor.cameraX;
+  levelData = {
+    platforms: editor.platforms,
+    goal: editor.goal
+  };
+  coins = editor.coins.map(c => ({ ...c, width: 20, height: 20, collected: false }));
+  enemies = editor.enemies;
+  spikes = editor.spikes;
+  powerups = editor.powerups.map(p => ({ ...p, collected: false }));
+
+  drawPlatforms();
+  drawSpikes();
+  drawCoins();
+  drawPowerups();
+  drawGoal();
+
+  for (const enemy of enemies) drawEnemy(enemy);
+
+  const sx = worldToScreenX(editor.start.x);
+  neonGlow("#7cff00", 16);
+  ctx.strokeStyle = "#7cff00";
+  ctx.lineWidth = 3;
+  ctx.strokeRect(sx, editor.start.y, 34, 50);
+  clearGlow();
+
+  cameraX = oldCameraX;
+  levelData = oldLevelData;
+  coins = oldCoins;
+  enemies = oldEnemies;
+  spikes = oldSpikes;
+  powerups = oldPowerups;
+
+  ctx.fillStyle = "rgba(0,0,15,0.9)";
+  ctx.fillRect(0, 0, WIDTH, 74);
+
+  ctx.fillStyle = "#00ffff";
+  ctx.font = "bold 18px 'Courier New', monospace";
+  ctx.fillText(`LEVEL EDITOR | TOOL: ${editor.selectedTool.toUpperCase()}`, 18, 28);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "13px 'Courier New', monospace";
+  ctx.fillText("1 Platform  2 Spikes  3 Coin  4 Enemy  5 Shield  6 Speed  7 Jump  8 Start  9 Goal", 18, 50);
+
+  ctx.fillStyle = "#9effff";
+  ctx.fillText("Drag: platform/spikes • Click: place • Right-click: delete • A/D: scroll • T: test • C: clear • Esc: home", 18, 69);
+
+  if (editorDragStart) {
+    ctx.strokeStyle = "#ffe600";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(
+      editorDragStart.x - editor.cameraX,
+      editorDragStart.y,
+      mouseX + editor.cameraX - editorDragStart.x,
+      20
+    );
+  }
+
+  if (editorMessageTimer > 0) {
+    editorMessageTimer--;
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#7cff00";
+    ctx.font = "bold 20px 'Courier New', monospace";
+    ctx.fillText(editorMessage, WIDTH / 2, 105);
+    ctx.textAlign = "left";
+  }
+}
+
+function draw() {
+  if (gameState === "home") {
+    drawHome();
+    return;
+  }
+
+  if (gameState === "shop") {
+    drawShop();
+    return;
+  }
+
+  if (gameState === "editor") {
+    drawEditor();
+    return;
+  }
+
+  drawBackground();
+  drawPlatforms();
+  drawSpikes();
+  drawCoins();
+  drawPowerups();
+  drawGoal();
+
+  for (const enemy of enemies) {
+    drawEnemy(enemy);
+  }
+
+  drawPlayer();
+  drawHUD();
+  drawLifeMessage();
+  drawPowerupMessage();
+  drawLevelTransition();
+
+  if (gameWon) {
+    drawMessage("You Win!", `Final score: ${score} - press Esc for home`);
+  }
+
+  if (gameOver) {
+    drawMessage("Game Over", "Press R to restart this level");
+  }
+}
+
+function gameLoop() {
+  update();
+  draw();
+  requestAnimationFrame(gameLoop);
+}
+
+loadLevel(0);
+gameState = "home";
+gameLoop();
+</script>
+</body>
+</html>
