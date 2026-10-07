@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spin a Message!</title>
+  <style>
+    :root {
+      --bg: #050816;
+      --panel: #111827;
+      --panel-accent: #1f2937;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --accent-gold: #fbbf24;
+      --accent-pink: #fb7185;
+      --accent-blue: #38bdf8;
+      --vowel-color: #f97316;      /* warm color for vowels */
+      --consonant-color: #111827;  /* darker color for consonants */
+      --danger: #f97373;
+      --success: #4ade80;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0b1220 0%, #020617 55%, #000 100%);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .game-wrapper {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.8fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+      .game-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .header {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .title {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 10% 20%, #f97316 0%, #facc15 28%, #67e8f9 60%, #a855f7 100%);
+      color: #111827;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 14px;
+      box-shadow:
+        0 0 18px rgba(250, 204, 21, 0.7),
+        0 0 40px rgba(59, 130, 246, 0.4);
+      animation: titlePulse 3s ease-in-out infinite;
+    }
+
+    .title span {
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    @keyframes titlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    /* Board panel */
+
+    .board-panel {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.98));
+      border-radius: 24px;
+      padding: 20px 20px 18px;
+      box-shadow:
+        0 0 0 1px rgba(148, 163, 184, 0.18),
+        0 18px 40px rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .board-panel::before {
+      content: "";
+      position: absolute;
+      inset: -160px;
+      background:
+        radial-gradient(circle at 0 0, rgba(254, 249, 195, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(125, 211, 252, 0.18), transparent 55%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .score-display {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-weight: 700;
+    }
+
+    .score-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .score-value {
+      font-size: 26px;
+      text-shadow:
+        0 0 8px rgba(59, 130, 246, 0.6),
+        0 0 18px rgba(56, 189, 248, 0.8);
+      color: var(--accent-blue);
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .score-value.bump {
+      transform: scale(1.1);
+      color: var(--accent-gold);
+    }
+
+    .status-pill {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+      animation: statusBlink 1.8s ease-in-out infinite;
+    }
+
+    @keyframes statusBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .grid-divider {
+      height: 1px;
+      background: linear-gradient(to right,
+        transparent,
+        rgba(148, 163, 184, 0.35),
+        transparent);
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .phrase-board {
+      position: relative;
+      z-index: 1;
+      padding: 14px 12px 6px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
+      box-shadow:
+        inset 0 0 0 2px rgba(30, 64, 175, 0.55),
+        0 22px 45px rgba(15, 23, 42, 0.85);
+    }
+
+    .phrase-rows {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 14px;  /* spacing = word spaces */
+    }
+
+    .word-group {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .tile {
+      width: 32px;
+      height: 42px;
+      border-radius: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at 15% 0%, #1f2937 0%, #020617 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #e5e7eb;
+      box-shadow:
+        0 0 12px rgba(15, 23, 42, 0.9),
+        inset 0 0 0 1px rgba(15, 23, 42, 0.9);
+      position: relative;
+      transform: translateY(2px);
+    }
+
+    .tile::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 4px;
+      border: 1px solid rgba(30, 64, 175, 0.4);
+      opacity: 0.7;
+    }
+
+    .tile.revealed {
+      background: radial-gradient(circle at 15% 0%, #1d4ed8 0%, #1e293b 70%);
+      box-shadow:
+        0 0 12px rgba(56, 189, 248, 0.9),
+        0 0 40px rgba(56, 189, 248, 0.7);
+      border-color: rgba(191, 219, 254, 0.9);
+      animation: tilePop 0.4s ease-out;
+      transform: translateY(0);
+    }
+
+    @keyframes tilePop {
+      0%   { transform: scale(0.4) translateY(-10px); opacity: 0; }
+      60%  { transform: scale(1.15) translateY(0); }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .footer-info {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-info strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .guessed-letters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      max-width: 260px;
+      justify-content: flex-end;
+    }
+
+    .guess-chip {
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Wheel panel */
+
+    .wheel-panel {
+      background: radial-gradient(circle at top, #020617 0%, #020617 40%, #000 100%);
+      border-radius: 24px;
+      padding: 18px 18px 20px;
+      box-shadow:
+        0 0 0 1px rgba(148, 163, 184, 0.2),
+        0 18px 40px rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wheel-panel::before {
+      content: "";
+      position: absolute;
+      inset: -140px;
+      background:
+        radial-gradient(circle at 10% 0, rgba(248, 250, 252, 0.06), transparent 60%),
+        radial-gradient(circle at 80% 10%, rgba(251, 113, 133, 0.09), transparent 60%);
+      pointer-events: none;
+    }
+
+    .wheel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 6px;
+    }
+
+    .wheel-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wheel-title-badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .wheel-container {
+      margin-top: 6px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wheel-wrapper {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      margin-bottom: 16px;
+    }
+
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 8px solid #020617;
+      box-shadow:
+        0 0 0 3px rgba(15, 23, 42, 0.9),
+        0 0 0 7px rgba(30, 64, 175, 0.7),
+        0 0 40px rgba(59, 130, 246, 0.9);
+      background:
+        radial-gradient(circle at center, #020617 0 30%, transparent 30%),
+        conic-gradient(from -90deg, var(--consonant-color) 0 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 4s cubic-bezier(0.18, 0.88, 0.25, 1.05);
+    }
+
+    .wheel-center {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 0, #fbbf24 0%, #f97316 45%, #7c2d12 100%);
+      box-shadow:
+        inset 0 0 8px rgba(0, 0, 0, 0.75),
+        0 0 18px rgba(251, 191, 36, 0.95);
+      border: 3px solid rgba(15, 23, 42, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #111827;
+      text-align: center;
+      padding: 4px;
+    }
+
+    /* Pointer ABOVE wheel, tip pointing toward center */
+    .pointer {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-bottom: none;
+      border-top: 18px solid #e5e7eb; /* triangle pointing down into wheel */
+      filter: drop-shadow(0 4px 6px rgba(15, 23, 42, 0.9));
+      z-index: 2;
+    }
+
+    .pointer::after {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: -10px;
+      right: -10px;
+      height: 6px;
+      background: linear-gradient(to bottom, #111827, #020617);
+      border-radius: 999px;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .legend-swatch {
+      width: 20px;
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .legend-vowel {
+      background: linear-gradient(90deg, #fb923c, #fb7185);
+    }
+
+    .legend-consonant {
+      background: linear-gradient(90deg, #020617, #111827);
+    }
+
+    .spin-button {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      font-weight: 800;
+      color: #0f172a;
+      background: linear-gradient(135deg, #22c55e, #facc15);
+      box-shadow:
+        0 12px 25px rgba(34, 197, 94, 0.7),
+        0 0 20px rgba(250, 204, 21, 0.7);
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, filter 0.15s ease-out;
+      margin-bottom: 6px;
+      animation: spinButtonGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes spinButtonGlow {
+      0%, 100% { box-shadow:
+        0 12px 25px rgba(34, 197, 94, 0.6),
+        0 0 20px rgba(250, 204, 21, 0.4); }
+      50% { box-shadow:
+        0 16px 35px rgba(34, 197, 94, 0.9),
+        0 0 30px rgba(250, 204, 21, 0.9); }
+    }
+
+    .spin-button span {
+      font-size: 14px;
+    }
+
+    .spin-button:disabled {
+      cursor: default;
+      filter: grayscale(0.4) brightness(0.7);
+      box-shadow:
+        0 4px 10px rgba(15, 23, 42, 0.9);
+      animation: none;
+    }
+
+    .spin-button:not(:disabled):hover {
+      transform: translateY(-1px);
+    }
+
+    .spin-button:not(:disabled):active {
+      transform: translateY(1px);
+      box-shadow:
+        0 10px 20px rgba(15, 23, 42, 0.9);
+    }
+
+    .spin-status {
+      font-size: 12px;
+      color: var(--text-muted);
+      min-height: 18px;
+      text-align: center;
+    }
+
+    .phrase-guess-button {
+      margin-top: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+    }
+
+    .phrase-guess-button:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 12px rgba(15, 23, 42, 0.9);
+    }
+
+    .phrase-guess-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 6px rgba(15, 23, 42, 0.9);
+    }
+
+    /* Letter Guess overlay */
+
+    .guess-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      backdrop-filter: blur(3px);
+    }
+
+    .guess-overlay.visible {
+      display: flex;
+    }
+
+    .guess-dialog {
+      background: radial-gradient(circle at top, #020617 0%, #020617 40%, #000 100%);
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+      box-shadow:
+        0 0 0 1px rgba(148, 163, 184, 0.3),
+        0 22px 45px rgba(15, 23, 42, 0.95);
+      width: min(420px, 92vw);
+      position: relative;
+      animation: overlayPop 0.3s ease-out;
+    }
+
+    @keyframes overlayPop {
+      0%   { transform: scale(0.8) translateY(10px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .guess-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .guess-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .guess-chip {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .guess-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .guess-body strong {
+      color: #e5e7eb;
+    }
+
+    .letter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(34px, 1fr));
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .letter-button {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 6px 0;
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.12s ease-out, transform 0.1s ease-out, box-shadow 0.12s ease-out, border-color 0.12s ease-out;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.9);
+    }
+
+    .letter-button:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+      box-shadow:
+        0 6px 12px rgba(15, 23, 42, 0.95),
+        0 0 20px rgba(59, 130, 246, 0.8);
+      border-color: rgba(191, 219, 254, 0.9);
+    }
+
+    .letter-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 7px rgba(15, 23, 42, 0.9);
+    }
+
+    .letter-button:disabled {
+      cursor: default;
+      opacity: 0.3;
+      transform: none;
+      box-shadow: none;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .guess-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .close-hint {
+      font-style: italic;
+    }
+
+    .cancel-link {
+      border: none;
+      background: none;
+      color: var(--accent-blue);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      padding: 4px 0;
+      font-weight: 600;
+    }
+
+    /* Phrase guess overlay */
+
+    .phrase-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 55;
+      backdrop-filter: blur(3px);
+    }
+
+    .phrase-overlay.visible {
+      display: flex;
+    }
+
+    .phrase-dialog {
+      background: radial-gradient(circle at top, #020617 0%, #020617 40%, #000 100%);
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+      box-shadow:
+        0 0 0 1px rgba(148, 163, 184, 0.3),
+        0 22px 45px rgba(15, 23, 42, 0.95);
+      width: min(460px, 94vw);
+      position: relative;
+      animation: overlayPop 0.3s ease-out;
+    }
+
+    .phrase-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .phrase-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .phrase-input {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 14px;
+      margin-bottom: 10px;
+      outline: none;
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.9);
+    }
+
+    .phrase-input:focus {
+      border-color: rgba(96, 165, 250, 0.9);
+      box-shadow:
+        0 0 0 1px rgba(59, 130, 246, 0.6),
+        0 3px 12px rgba(15, 23, 42, 0.95);
+    }
+
+    .phrase-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .phrase-submit {
+      border-radius: 999px;
+      border: none;
+      padding: 7px 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      color: #0f172a;
+      cursor: pointer;
+      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.7);
+    }
+
+    .phrase-cancel {
+      border: none;
+      background: none;
+      color: var(--accent-blue);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      padding: 4px 0;
+      font-weight: 600;
+    }
+
+    /* Endgame overlay */
+
+    .endgame-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(15, 23, 42, 0.95), rgba(0, 0, 0, 0.98));
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 60;
+    }
+
+    .endgame-overlay.visible {
+      display: flex;
+    }
+
+    .endgame-card {
+      background: radial-gradient(circle at top, #0f172a 0%, #020617 40%, #000 100%);
+      border-radius: 24px;
+      padding: 22px 22px 20px;
+      box-shadow:
+        0 0 0 2px rgba(248, 250, 252, 0.12),
+        0 32px 70px rgba(0, 0, 0, 0.95);
+      width: min(460px, 94vw);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: endgameIn 0.4s ease-out;
+    }
+
+    @keyframes endgameIn {
+      0%   { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .endgame-card::before {
+      content: "";
+      position: absolute;
+      inset: -160px;
+      background:
+        radial-gradient(circle at 10% 0, rgba(250, 204, 21, 0.4), transparent 55%),
+        radial-gradient(circle at 90% 0, rgba(96, 165, 250, 0.4), transparent 55%);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .endgame-title {
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .endgame-message {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .endgame-message strong {
+      color: #e5e7eb;
+    }
+
+    .endgame-score {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 16px;
+      position: relative;
+      color: #e5e7eb;
+    }
+
+    .endgame-score span {
+      color: var(--accent-gold);
+    }
+
+    .endgame-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+    }
+
+    .endgame-primary,
+    .endgame-secondary {
+      padding: 8px 18px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+    }
+
+    .endgame-primary {
+      background: linear-gradient(135deg, #22c55e, #facc15);
+      color: #0f172a;
+      box-shadow:
+        0 12px 22px rgba(34, 197, 94, 0.85),
+        0 0 25px rgba(250, 204, 21, 0.8);
+    }
+
+    .endgame-secondary {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-wrapper">
+    <header class="header">
+      <div class="title">
+        <span>Spin a Message!</span>
+      </div>
+      <div class="subtitle">
+        Land on a <strong>vowel</strong> or <strong>consonant</strong>, pick a letter, and uncover the secret phrase.
+      </div>
+    </header>
+
+    <!-- Board / phrase panel -->
+    <section class="board-panel" aria-label="Puzzle board">
+      <div class="board-header">
+        <div class="score-display" aria-live="polite">
+          <span class="score-label">Score</span>
+          <span id="score" class="score-value">1000</span>
+        </div>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span id="board-status">Spin to start!</span>
+        </div>
+      </div>
+
+      <div class="grid-divider"></div>
+
+      <div class="phrase-board" id="phrase-board">
+        <div class="phrase-rows" id="phrase-rows"></div>
+      </div>
+
+      <div class="footer-info">
+        <div>
+          Wrong letters or phrases: <strong>-100</strong> points. Reach <strong>0</strong>, and the board goes dark.
+        </div>
+        <div class="guessed-letters" id="guessed-letters" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Wheel / controls panel -->
+    <section class="wheel-panel" aria-label="Spin wheel">
+      <div class="wheel-header">
+        <div class="wheel-title">
+          Spin the Wheel
+          <div class="wheel-title-badge">
+            Game Show Mode
+          </div>
+        </div>
+      </div>
+
+      <div class="wheel-container">
+        <div class="legend">
+          <div class="legend-item">
+            <div class="legend-swatch legend-vowel"></div>
+            <span>Vowel (x4)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch legend-consonant"></div>
+            <span>Consonant (x6)</span>
+          </div>
+        </div>
+
+        <div class="wheel-wrapper">
+          <div class="pointer" aria-hidden="true"></div>
+          <div class="wheel" id="wheel">
+            <div class="wheel-center">
+              Spin<br />to Guess
+            </div>
+          </div>
+        </div>
+
+        <button id="spin-button" class="spin-button">
+          <span>Spin</span>
+        </button>
+        <button id="phrase-guess-btn" class="phrase-guess-button">
+          Guess the Phrase
+        </button>
+        <div id="spin-status" class="spin-status">Spin to uncover a secret message, just for you!</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Letter Guess overlay -->
+  <div class="guess-overlay" id="guess-overlay" role="dialog" aria-modal="true" aria-labelledby="guess-title">
+    <div class="guess-dialog">
+      <div class="guess-header">
+        <div class="guess-title" id="guess-title">Pick a Letter</div>
+        <div class="guess-chip" id="guess-type-chip">Type: —</div>
+      </div>
+      <div class="guess-body" id="guess-body">
+        You landed on a <strong>—</strong>. Choose a letter below.
+      </div>
+      <div class="letter-grid" id="letter-grid"></div>
+      <div class="guess-footer">
+        <span class="close-hint">Click a letter to lock in your guess.</span>
+        <button class="cancel-link" id="guess-cancel">Skip Guess</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phrase Guess overlay -->
+  <div class="phrase-overlay" id="phrase-overlay" role="dialog" aria-modal="true" aria-labelledby="phrase-title">
+    <div class="phrase-dialog">
+      <div class="phrase-title" id="phrase-title">Guess the Secret Phrase</div>
+      <div class="phrase-body">
+        Think you know it? Type your full guess below. A wrong phrase will cost you <strong>100 points</strong>.
+      </div>
+      <input
+        type="text"
+        id="phrase-input"
+        class="phrase-input"
+        placeholder="Type your guess here..."
+      />
+      <div class="phrase-actions">
+        <button class="phrase-cancel" id="phrase-cancel">Cancel</button>
+        <button class="phrase-submit" id="phrase-submit">Submit Guess</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Endgame overlay -->
+  <div class="endgame-overlay" id="endgame-overlay">
+    <div class="endgame-card">
+      <div class="endgame-title" id="endgame-title">You Win!</div>
+      <div class="endgame-message" id="endgame-message">
+        The hidden message was: <strong>Happy Birthday Grandma</strong>.
+      </div>
+      <div class="endgame-score" id="endgame-score">
+        Final Score: <span>1000</span>
+      </div>
+      <div class="endgame-buttons">
+        <button class="endgame-primary" id="play-again">Play Again</button>
+        <button class="endgame-secondary" id="close-endgame">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const PHRASE = "HAPPY BIRTHDAY GRANDMA";
+      const START_SCORE = 1000;
+      const PENALTY = 100;
+      const VOWELS = ["A", "E", "I", "O", "U"];
+
+      const wheelEl = document.getElementById("wheel");
+      const spinButton = document.getElementById("spin-button");
+      const phraseGuessBtn = document.getElementById("phrase-guess-btn");
+      const spinStatus = document.getElementById("spin-status");
+      const scoreEl = document.getElementById("score");
+      const boardStatus = document.getElementById("board-status");
+      const phraseRowsEl = document.getElementById("phrase-rows");
+      const guessedLettersEl = document.getElementById("guessed-letters");
+
+      const guessOverlay = document.getElementById("guess-overlay");
+      const guessTitleEl = document.getElementById("guess-title");
+      const guessTypeChip = document.getElementById("guess-type-chip");
+      const guessBodyEl = document.getElementById("guess-body");
+      const letterGridEl = document.getElementById("letter-grid");
+      const guessCancelBtn = document.getElementById("guess-cancel");
+
+      const phraseOverlay = document.getElementById("phrase-overlay");
+      const phraseInput = document.getElementById("phrase-input");
+      const phraseCancelBtn = document.getElementById("phrase-cancel");
+      const phraseSubmitBtn = document.getElementById("phrase-submit");
+
+      const endgameOverlay = document.getElementById("endgame-overlay");
+      const endgameTitleEl = document.getElementById("endgame-title");
+      const endgameMessageEl = document.getElementById("endgame-message");
+      const endgameScoreEl = document.getElementById("endgame-score").querySelector("span");
+      const playAgainBtn = document.getElementById("play-again");
+      const closeEndgameBtn = document.getElementById("close-endgame");
+
+      let tiles = [];
+      let score = START_SCORE;
+      let guessedLetters = new Set();
+      let remainingLetters = 0;
+      let isSpinning = false;
+      let awaitingGuess = false;
+      let wheelSegments = [];
+      let segmentAngle = 0;
+      let totalTurns = 0;
+
+      function normalizePhrase(str) {
+        return str.replace(/[^A-Za-z]/g, "").toUpperCase();
+      }
+
+      function bumpScoreEffect() {
+        scoreEl.classList.add("bump");
+        setTimeout(() => {
+          scoreEl.classList.remove("bump");
+        }, 200);
+      }
+
+      /* Board */
+
+      function createBoard() {
+        phraseRowsEl.innerHTML = "";
+        tiles = [];
+        remainingLetters = 0;
+
+        const words = PHRASE.split(" ");
+        words.forEach((word) => {
+          const wordGroup = document.createElement("div");
+          wordGroup.className = "word-group";
+
+          for (const ch of word) {
+            const tile = document.createElement("div");
+            tile.className = "tile";
+            tile.dataset.letter = ch;
+            tile.textContent = "";
+            wordGroup.appendChild(tile);
+            tiles.push(tile);
+            remainingLetters++;
+          }
+
+          phraseRowsEl.appendChild(wordGroup);
+        });
+      }
+
+      function updateScoreDisplay() {
+        scoreEl.textContent = score;
+      }
+
+      function updateGuessedLettersDisplay() {
+        guessedLettersEl.innerHTML = "";
+        if (guessedLetters.size === 0) return;
+
+        const sorted = Array.from(guessedLetters).sort();
+        sorted.forEach(letter => {
+          const chip = document.createElement("div");
+          chip.className = "guess-chip";
+          chip.textContent = letter;
+          guessedLettersEl.appendChild(chip);
+        });
+      }
+
+      /* Wheel segments + radial lines */
+
+      function buildWheelSegments() {
+        const baseSegments = [];
+        const vowelPositions = [0, 3, 6, 8]; // 4 vowel segments, 6 consonant segments
+
+        for (let i = 0; i < 10; i++) {
+          baseSegments.push({
+            type: vowelPositions.includes(i) ? "vowel" : "consonant"
+          });
+        }
+
+        wheelSegments = baseSegments;
+        segmentAngle = 360 / wheelSegments.length;
+
+        let currentAngle = 0;
+        const parts = [];
+        for (const seg of wheelSegments) {
+          const nextAngle = currentAngle + segmentAngle;
+          const color = seg.type === "vowel"
+            ? "var(--vowel-color)"
+            : "var(--consonant-color)";
+          parts.push(`${color} ${currentAngle}deg ${nextAngle}deg`);
+          currentAngle = nextAngle;
+        }
+
+        const radialCenter = `radial-gradient(circle at center, #020617 0 30%, transparent 30%)`;
+        const segmentsGradient = `conic-gradient(from -90deg, ${parts.join(", ")})`;
+        const borderLines = `repeating-conic-gradient(from -90deg,
+          transparent 0deg ${segmentAngle - 1}deg,
+          rgba(248, 250, 252, 0.8) ${segmentAngle - 1}deg ${segmentAngle}deg)`;
+
+        wheelEl.style.background = `${radialCenter}, ${segmentsGradient}, ${borderLines}`;
+      }
+
+      /* Letter reveal */
+
+      function revealLetter(letter) {
+        let revealedCount = 0;
+        tiles.forEach(tile => {
+          if (tile.dataset.letter === letter && !tile.classList.contains("revealed")) {
+            tile.classList.add("revealed");
+            tile.textContent = letter;
+            revealedCount++;
+          }
+        });
+        remainingLetters -= revealedCount;
+        return revealedCount;
+      }
+
+      /* End state */
+
+      function triggerWin() {
+        endgameTitleEl.textContent = "You Solved It!";
+        endgameMessageEl.innerHTML =
+          `The hidden message was: <strong>${PHRASE}</strong>.<br />Happy Birthday, Grandma!`;
+        endgameScoreEl.textContent = score;
+        endgameOverlay.classList.add("visible");
+      }
+
+      function triggerLoss() {
+        endgameTitleEl.textContent = "Out of Points!";
+        endgameMessageEl.innerHTML =
+          `You ran out of points before revealing the full message.<br />The phrase was: <strong>${PHRASE}</strong>.`;
+        endgameScoreEl.textContent = score;
+        endgameOverlay.classList.add("visible");
+      }
+
+      /* Letter guess flow */
+
+      function handleGuess(letter) {
+        letter = letter.toUpperCase();
+        guessOverlay.classList.remove("visible");
+        awaitingGuess = false;
+
+        if (guessedLetters.has(letter)) {
+          boardStatus.textContent = `You already picked "${letter}". Try spinning again.`;
+          spinButton.disabled = false;
+          return;
+        }
+
+        guessedLetters.add(letter);
+        updateGuessedLettersDisplay();
+
+        const count = revealLetter(letter);
+        if (count > 0) {
+          boardStatus.textContent = `Nice! ${letter} appears ${count} time${count > 1 ? "s" : ""}.`;
+          if (remainingLetters <= 0) {
+            triggerWin();
+          } else {
+            spinButton.disabled = false;
+          }
+        } else {
+          score = Math.max(0, score - PENALTY);
+          updateScoreDisplay();
+          bumpScoreEffect();
+          boardStatus.textContent = `No ${letter.toUpperCase()}... -${PENALTY} points.`;
+          if (score <= 0) {
+            triggerLoss();
+          } else {
+            spinButton.disabled = false;
+          }
+        }
+      }
+
+      function openGuessDialog(type) {
+        const isVowel = type === "vowel";
+        const titleText = isVowel ? "Pick a Vowel" : "Pick a Consonant";
+
+        const availableLetters = [];
+        if (isVowel) {
+          VOWELS.forEach(v => {
+            if (!guessedLetters.has(v)) {
+              availableLetters.push(v);
+            }
+          });
+        } else {
+          for (let code = 65; code <= 90; code++) {
+            const ch = String.fromCharCode(code);
+            if (!VOWELS.includes(ch) && !guessedLetters.has(ch)) {
+              availableLetters.push(ch);
+            }
+          }
+        }
+
+        if (availableLetters.length === 0) {
+          spinStatus.textContent = isVowel
+            ? "No vowels left to guess. Spin again!"
+            : "No consonants left to guess. Spin again!";
+          spinButton.disabled = false;
+          awaitingGuess = false;
+          return;
+        }
+
+        guessTitleEl.textContent = titleText;
+        guessTypeChip.textContent = `Type: ${isVowel ? "Vowel" : "Consonant"}`;
+        guessBodyEl.innerHTML = `You landed on a <strong>${isVowel ? "vowel" : "consonant"}</strong> space. Choose your letter!`;
+
+        letterGridEl.innerHTML = "";
+        availableLetters.forEach(letter => {
+          const btn = document.createElement("button");
+          btn.className = "letter-button";
+          btn.textContent = letter;
+          btn.addEventListener("click", () => handleGuess(letter));
+          letterGridEl.appendChild(btn);
+        });
+
+        awaitingGuess = true;
+        guessOverlay.classList.add("visible");
+      }
+
+      /* Phrase guess flow */
+
+      function openPhraseGuess() {
+        if (isSpinning) return;
+        phraseOverlay.classList.add("visible");
+        phraseInput.value = "";
+        phraseInput.focus();
+      }
+
+      function closePhraseGuess() {
+        phraseOverlay.classList.remove("visible");
+      }
+
+      function submitPhraseGuess() {
+        const guess = phraseInput.value.trim();
+        if (!guess) return;
+
+        phraseOverlay.classList.remove("visible");
+
+        const correct = normalizePhrase(guess) === normalizePhrase(PHRASE);
+        if (correct) {
+          tiles.forEach(tile => {
+            tile.classList.add("revealed");
+            tile.textContent = tile.dataset.letter;
+          });
+          remainingLetters = 0;
+          triggerWin();
+          return;
+        }
+
+        score = Math.max(0, score - PENALTY);
+        updateScoreDisplay();
+        bumpScoreEffect();
+        boardStatus.textContent = `Not quite... Incorrect phrase guess. -${PENALTY} points.`;
+        if (score <= 0) {
+          triggerLoss();
+        }
+      }
+
+      /* Wheel spin */
+
+function spinWheel() {
+  if (isSpinning || awaitingGuess) return;
+  if (score <= 0 || remainingLetters <= 0) return;
+
+  isSpinning = true;
+  spinButton.disabled = true;
+  boardStatus.textContent = "Spinning...";
+  spinStatus.textContent = "Good luck!";
+
+  const targetIndex = Math.floor(Math.random() * wheelSegments.length);
+  const extraSpins = Math.floor(Math.random() * 3) + 3; // 3–5 full turns
+
+  // Each segment is segmentAngle wide.
+  // Because the gradients start at -90deg,
+  // the center of segment i is:
+  //   centerAngle = -90 + (i + 0.5) * segmentAngle
+  const segmentCenterAngle = -90 + (targetIndex + 0.5) * segmentAngle;
+
+  // We want that center to end up under the pointer at 0deg,
+  // so we rotate by -segmentCenterAngle (plus whole turns).
+  totalTurns += extraSpins;
+  const finalRotation = totalTurns * 360 - segmentCenterAngle;
+
+  // Use a non-overshooting easing so it doesn't "bounce back"
+  wheelEl.style.transition = "transform 4s ease-out";
+  wheelEl.style.transform = `rotate(${finalRotation}deg)`;
+
+  const onTransitionEnd = () => {
+    wheelEl.removeEventListener("transitionend", onTransitionEnd);
+    wheelEl.style.transition = "";
+    isSpinning = false;
+
+    const segment = wheelSegments[targetIndex];
+    const type = segment.type;
+    spinStatus.textContent = type === "vowel"
+      ? "Vowel spin! Pick a vowel."
+      : "Consonant spin! Pick a consonant.";
+    openGuessDialog(type);
+  };
+
+  wheelEl.addEventListener("transitionend", onTransitionEnd);
+}
+
+
+      /* Reset */
+
+      function resetGame() {
+        score = START_SCORE;
+        guessedLetters.clear();
+        updateScoreDisplay();
+        updateGuessedLettersDisplay();
+        createBoard();
+        boardStatus.textContent = "Spin to start!";
+        spinStatus.textContent = "Spin to uncover a hidden birthday message.";
+        endgameOverlay.classList.remove("visible");
+        spinButton.disabled = false;
+        totalTurns = 0;
+        wheelEl.style.transform = "rotate(0deg)";
+      }
+
+      /* Event listeners */
+
+      spinButton.addEventListener("click", spinWheel);
+
+      guessCancelBtn.addEventListener("click", () => {
+        guessOverlay.classList.remove("visible");
+        awaitingGuess = false;
+        boardStatus.textContent = "Guess skipped. Spin again!";
+        spinButton.disabled = false;
+      });
+
+      guessOverlay.addEventListener("click", (e) => {
+        if (e.target === guessOverlay) {
+          guessOverlay.classList.remove("visible");
+          awaitingGuess = false;
+          boardStatus.textContent = "Guess skipped. Spin again!";
+          spinButton.disabled = false;
+        }
+      });
+
+      phraseGuessBtn.addEventListener("click", openPhraseGuess);
+      phraseCancelBtn.addEventListener("click", closePhraseGuess);
+      phraseSubmitBtn.addEventListener("click", submitPhraseGuess);
+
+      phraseOverlay.addEventListener("click", (e) => {
+        if (e.target === phraseOverlay) {
+          closePhraseGuess();
+        }
+      });
+
+      phraseInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          submitPhraseGuess();
+        }
+      });
+
+      playAgainBtn.addEventListener("click", resetGame);
+      closeEndgameBtn.addEventListener("click", () => {
+        endgameOverlay.classList.remove("visible");
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          if (guessOverlay.classList.contains("visible")) {
+            guessOverlay.classList.remove("visible");
+            awaitingGuess = false;
+            spinButton.disabled = false;
+          } else if (phraseOverlay.classList.contains("visible")) {
+            closePhraseGuess();
+          } else if (endgameOverlay.classList.contains("visible")) {
+            endgameOverlay.classList.remove("visible");
+          }
+        }
+      });
+
+      /* Init */
+
+      createBoard();
+      buildWheelSegments();
+      updateScoreDisplay();
+      boardStatus.textContent = "Spin to start!";
+    })();
+  </script>
+</body>
+</html>
