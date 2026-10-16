@@ -1,0 +1,218 @@
+@import 'breakpoint';
+@import 'variables';
+@import 'tags';
+@import 'typography';
+@import 'components';
+@import 'resume';
+
+// Global Styles that apply everywhere
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+img {
+  max-width: 100%;
+}
+
+.header-img {
+  margin: 1% 0;
+}
+
+.twitter-tweet {
+  margin: 0 auto;
+}
+
+.icon {
+  display: inline-block;
+  height: 34px;
+  margin: 4px 2px;
+  width: 34px;
+
+  &.goodreads svg {
+    background-color: #553b08;
+    border-radius: 2px;
+    fill: white;
+    padding: 3px;
+  }
+
+  &.linkedin svg {
+    fill: #2867b2;
+  }
+}
+
+.icon-inline {
+  height: 1em;
+  vertical-align: middle;
+
+  &.pdf {
+    fill: #ff0000;
+  }
+}
+
+article {
+  @include breakpoint($tablet) {
+    margin-right: 10px;   
+    max-width: 36em;
+  }
+
+  @include breakpoint($addside) {
+    position: relative;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  li {
+    line-height: 1.15em;
+    margin-bottom: .5em;
+    text-align: justify;
+    text-indent: -1em;
+  }
+
+  ol {
+    list-style: number inside;
+    padding-left: 2em;
+
+    ul,
+    ol {
+      padding-left: 1.2em;
+    }
+  }
+
+  ul {
+    list-style: disc inside;
+    padding-left: 2em;
+
+    ul,
+    ol {
+      padding-left: 1.2em;
+    }
+  }
+}
+
+nav {
+  background-color: $white;
+  border-bottom: $black solid 1px;
+  display: table-row;
+  left: 0;
+  float: left;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+
+  @include breakpoint($tablet) {
+    background-color: transparent;
+    border: 0;
+    display: block;
+    left: 10px;
+    padding: 0;
+    position: sticky;
+    top: 20px;
+    width: 100px;
+  }
+
+  .avatar {
+    border-radius: 5px;
+  }
+
+  a,
+  a:visited {
+    color: $blue;
+  } 
+
+  ul {
+    flex-grow: 2;
+    list-style-type: none;
+    margin: 8px 0;
+    padding: 0;
+    text-align: center;
+
+    @include breakpoint($tablet) {
+      flex-grow: 1;
+      padding-left: 2px;
+      text-align: left;
+    }
+
+    li {
+      font-family: 'Muli', sans-serif;
+      margin-bottom: .2em;
+    }
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 50em;
+}
+
+.main {
+  margin: 60px 5px auto;
+
+  @include breakpoint($tablet) {
+    margin: 18px auto auto 120px;
+  }
+}
+
+.menu {
+  display: none;
+
+  @include breakpoint($tablet) {
+    display: block;
+  }
+
+  &.open {
+    display: flex;
+
+    @include breakpoint($tablet) {
+      display: block;
+    }
+  }
+}
+
+.mobile-title {
+  display: table-cell;
+  font-size: 9vw;
+  font-variant: small-caps;
+  // margin is set to 0, to keep the top bar from changing size a little bit right at $tablet
+  margin: 0;
+  padding-left: 2vw;
+  vertical-align: middle;
+
+  @include breakpoint($tablet) { 
+    display: none;
+  }
+}
+
+blockquote {
+  font-style: italic;
+  margin: 0 4em;
+}
+
+.listing {
+  h2 {
+    color: $grey;
+    display: inline-block;
+    font-size: 1.25em;
+    padding-right: .75em;
+  }
+
+  li {
+    line-height: 1.25em;
+  }
+
+  ul {
+    display: inline-block;
+    margin-top: 1em;
+  }
+}
+
+.post-listing {
+  display: inline-block;
+}

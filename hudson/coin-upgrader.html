@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coin Upgrader</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    body { margin: 0; background:#0b1020; color:#e9eefc; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 26px; }
+    .sub { opacity: .8; margin-bottom: 16px; }
+    .grid { display:grid; grid-template-columns: 1.2fr .8fr; gap: 16px; }
+    .card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .big {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      margin: 8px 0 0;
+    }
+    .row { display:flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .spaced { justify-content: space-between; }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: #6d5efc;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .06s ease, filter .12s ease;
+      user-select: none;
+    }
+    button:hover { filter: brightness(1.08); }
+    button:active { transform: translateY(1px) scale(.99); }
+    button:disabled {
+      background: rgba(255,255,255,.14);
+      color: rgba(255,255,255,.5);
+      cursor: not-allowed;
+      filter: none;
+    }
+
+    .muted { opacity: .75; }
+    .pill {
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .shop { display:flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .upgrade {
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .u-left { display:flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .u-title { font-weight: 800; }
+    .u-desc { font-size: 13px; opacity: .8; }
+    .u-right { display:flex; gap: 10px; align-items: center; }
+    .price { font-weight: 800; }
+    .footer { margin-top: 14px; font-size: 12px; opacity: .7; }
+    .tiny { font-size: 12px; opacity: .75; }
+
+    /* --- Progress bar (Pending pouch) --- */
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.12);
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .bar > div {
+      height: 100%;
+      width: 0%;
+      background: rgba(109,94,252,.9);
+      transition: width .15s ease;
+    }
+
+    /* --- Coin fly animation --- */
+    .coin-fly {
+      position: fixed;
+      left: 0;
+      top: 0;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      font-weight: 900;
+      font-size: 18px;
+      text-shadow: 0 6px 20px rgba(0,0,0,.6);
+      will-change: transform, opacity;
+      animation: fly 520ms cubic-bezier(.2,.9,.2,1) forwards;
+    }
+    @keyframes fly {
+      0%   { opacity: 0; transform: translate(var(--x0), var(--y0)) scale(.7); }
+      10%  { opacity: 1; }
+      100% { opacity: 0; transform: translate(var(--x1), var(--y1)) scale(1.15); }
+    }
+
+    /* Small pulse on the coins counter when collecting */
+    .pulse {
+      animation: pulse 220ms ease-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div id="winOverlay" style="display:none; position:fixed; inset:0; background:rgba(11,16,32,.92); z-index:10000; align-items:center; justify-content:center;">
+      <div style="text-align:center; padding:30px; border-radius:18px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); box-shadow:0 30px 80px rgba(0,0,0,.6);">
+        <div style="font-size:48px; font-weight:900; margin-bottom:10px;">🎉 You win! 🎉</div>
+        <div class="muted" style="font-size:16px; margin-bottom:20px;">You reached <b>$5,000,000</b> in the bank.</div>
+        <button onclick="location.reload()" style="background:#22c55e; font-size:16px;">Play again</button>
+      </div>
+    </div>
+    <h1>Coin Upgrader</h1>
+    <div class="sub">Coins are produced every second — but now you must <b>collect</b> them from your pouch before it fills up. Waiting too long can cost you. 🪙</div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="row">
+          <span class="pill" id="cpsPill">+0 / sec</span>
+          <span class="pill" id="clickPill">+1 / click</span>
+          <span class="pill" id="riskPill">risk: 0%</span>
+          <span class="pill" id="spentPill">spent: 0</span>
+        </div>
+
+        <div class="big" id="coinsText">0 coins</div>
+        <div class="muted" id="statsText">0.0 coins/sec • 1 coins/click</div>
+
+        <div style="height:12px"></div>
+
+        <div class="row spaced">
+          <div style="display:flex; gap:10px; flex-wrap: wrap; align-items:center;">
+            <button id="clickBtn" style="font-size:16px; padding:14px 16px;">Mine (adds to pouch)</button>
+            <button id="collectBtn" style="background:#22c55e;">Collect pouch</button>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap: wrap;">
+            <button id="saveBtn">Save</button>
+            <button id="resetBtn" style="background:#ff4d6d;">Reset</button>
+          </div>
+        </div>
+
+        <div class="bar" title="Pouch fill level">
+          <div id="pouchFill"></div>
+        </div>
+        <div class="tiny" id="pouchText" style="margin-top:8px;">
+          Pouch: 0 / 50
+        </div>
+
+        <div class="footer" id="eventText">
+          Tip: Collect frequently. If your pouch is nearly full, you lose production — and thieves get bolder.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="row" style="justify-content: space-between;">
+          <div>
+            <div style="font-weight:800; font-size:18px;">Shop</div>
+            <div class="tiny">Some upgrades are locked until you reach a level.</div>
+          </div>
+          <div class="pill" id="levelPill">level 1</div>
+        </div>
+
+        <div class="shop" id="shop"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+
+    // ---- Game state ----
+    const state = {
+      coins: 0,      // banked
+      spent: 0,
+      cps: 0,
+      clickPower: 1,
+      level: 1,
+
+      // NEW: produced coins go into a pouch first
+      pouch: 0,
+      pouchCap: 50,
+
+      // NEW: theft risk (steals from pouch if you neglect it)
+      theftResist: 0, // 0..0.9
+      lastTheftMs: 0,
+
+      // NEW: win flag
+      hasWon: false,
+
+      upgrades: {
+        miner:   { count: 0, baseCost: 20,   costMult: 1.20, addCps: 1 },
+        drill:   { count: 0, baseCost: 160,  costMult: 1.22, addCps: 6 },
+        factory: { count: 0, baseCost: 600, costMult: 1.25, addCps: 40 },
+
+        gloves:  { count: 0, baseCost: 45,   costMult: 1.21, addClick: 1 },
+        turbo:   { count: 0, baseCost: 420,  costMult: 1.23, addClick: 6 },
+
+        pouch:   { count: 0, baseCost: 60,   costMult: 1.28, addCap: 60 },
+        lock:    { count: 0, baseCost: 200,  costMult: 1.30, addResist: 0.10 },
+      }
+    };
+
+    const UPGRADE_DEFS = [
+      { key: 'miner',   name: 'Hire Miner',       desc: '+1 coin/sec (to pouch)', type: 'cps',   unlockLevel: 1 },
+      { key: 'drill',   name: 'Buy Drill',        desc: '+6 coins/sec (to pouch)', type: 'cps',  unlockLevel: 2 },
+      { key: 'factory', name: 'Build Factory', desc: '+40 coins/sec (to pouch)', type: 'cps', unlockLevel: 1 },
+
+      { key: 'gloves',  name: 'Better Gloves',    desc: '+1 coin/click (to pouch)', type: 'click', unlockLevel: 1 },
+      { key: 'turbo',   name: 'Turbo Clicker',    desc: '+6 coins/click (to pouch)', type: 'click', unlockLevel: 3 },
+
+      { key: 'pouch',   name: 'Bigger Pouch',     desc: '+60 pouch capacity', type: 'pouch', unlockLevel: 1 },
+      { key: 'lock', name: 'Padlock', desc: '-10% theft chance (stacks)', type: 'risk', unlockLevel: 1 },
+    ];
+
+    // ---- Persistence ----
+    const SAVE_KEY = 'coin-upgrader-save-v2';
+
+    function saveGame() {
+      localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+      flash('Saved!');
+    }
+
+    function loadGame() {
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (!raw) return;
+      try {
+        const loaded = JSON.parse(raw);
+        Object.assign(state, loaded);
+        // ensure upgrade keys exist
+        for (const def of UPGRADE_DEFS) {
+          if (!state.upgrades?.[def.key]) {
+            if (!state.upgrades) state.upgrades = {};
+            state.upgrades[def.key] = { ...state.upgrades[def.key], count: 0 };
+          }
+        }
+        // backwards safety
+        if (typeof state.pouch !== 'number') state.pouch = 0;
+        if (typeof state.pouchCap !== 'number') state.pouchCap = 50;
+        if (typeof state.theftResist !== 'number') state.theftResist = 0;
+      } catch (e) {
+        console.warn('Failed to load save:', e);
+      }
+    }
+
+    function resetGame() {
+      if (!confirm('Reset all progress?')) return;
+      localStorage.removeItem(SAVE_KEY);
+      location.reload();
+    }
+
+    // ---- Helpers ----
+    function clamp(n, lo, hi) { return Math.max(lo, Math.min(hi, n)); }
+
+    function fmt(n) {
+      if (n >= 1e9) return (n / 1e9).toFixed(2).replace(/\.?0+$/, '') + 'B';
+      if (n >= 1e6) return (n / 1e6).toFixed(2).replace(/\.?0+$/, '') + 'M';
+      if (n >= 1e3) return (n / 1e3).toFixed(2).replace(/\.?0+$/, '') + 'K';
+      return String(Math.floor(n));
+    }
+
+    function exact(n) {
+      return (Math.round(n * 10) / 10).toFixed(1);
+    }
+
+    function upgradeCost(u) {
+      return Math.floor(u.baseCost * Math.pow(u.costMult, u.count));
+    }
+
+    function pouchFillRatio() {
+      if (state.pouchCap <= 0) return 1;
+      return clamp(state.pouch / state.pouchCap, 0, 1);
+    }
+
+    // production penalty when pouch is full-ish (makes it harder)
+    function productionMultiplier() {
+      const r = pouchFillRatio();
+      // Soft penalty near full, never fully stalls
+      // 0..80%: no penalty
+      if (r <= 0.8) return 1;
+      // 80%..100%: ease down to a floor (not zero)
+      const t = (r - 0.8) / 0.2; // 0..1
+      const minMult = 0.35; // never slower than 35%
+      return clamp(1 - t * (1 - minMult), minMult, 1);
+    }
+
+    // theft chance increases as pouch fills; reduced by padlocks
+    function theftChancePerTick() {
+      const r = pouchFillRatio();
+      // LESS frequent thefts overall
+      const base = 0.005 + 0.05 * (r * r); // ~0.5% .. 5% per second
+      const resisted = base * (1 - clamp(state.theftResist, 0, 0.9));
+      return clamp(resisted, 0, 0.08);
+    }
+
+    function recalcStats() {
+      let cps = 0;
+      let click = 1;
+      let cap = 50;
+      let resist = 0;
+
+      const up = state.upgrades;
+      cps += up.miner.count * up.miner.addCps;
+      cps += up.drill.count * up.drill.addCps;
+      cps += up.factory.count * up.factory.addCps;
+
+      click += up.gloves.count * up.gloves.addClick;
+      click += up.turbo.count * up.turbo.addClick;
+
+      cap += up.pouch.count * up.pouch.addCap;
+      resist += up.lock.count * up.lock.addResist;
+
+      state.cps = cps;
+      state.clickPower = click;
+      state.pouchCap = cap;
+      state.theftResist = clamp(resist, 0, 0.9);
+
+      // level: tied to total power, but slower now
+      state.level = 1 + Math.floor((state.cps + state.clickPower) / 18);
+    }
+
+    // ---- UI ----
+    const coinsText = document.getElementById('coinsText');
+    const statsText = document.getElementById('statsText');
+    const cpsPill = document.getElementById('cpsPill');
+    const clickPill = document.getElementById('clickPill');
+    const riskPill = document.getElementById('riskPill');
+    const spentPill = document.getElementById('spentPill');
+    const levelPill = document.getElementById('levelPill');
+    const pouchFillEl = document.getElementById('pouchFill');
+    const pouchText = document.getElementById('pouchText');
+    const eventText = document.getElementById('eventText');
+
+    const clickBtn = document.getElementById('clickBtn');
+    const collectBtn = document.getElementById('collectBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const shop = document.getElementById('shop');
+
+    function renderShop() {
+      shop.innerHTML = '';
+      for (const def of UPGRADE_DEFS) {
+        const u = state.upgrades[def.key];
+        const cost = upgradeCost(u);
+        const locked = state.level < (def.unlockLevel ?? 1);
+
+        const row = document.createElement('div');
+        row.className = 'upgrade';
+
+        const left = document.createElement('div');
+        left.className = 'u-left';
+
+        const title = document.createElement('div');
+        title.className = 'u-title';
+        title.textContent = `${def.name}  (owned: ${u.count})`;
+
+        const desc = document.createElement('div');
+        desc.className = 'u-desc';
+        desc.textContent = locked ? `Locked until level ${def.unlockLevel}.` : def.desc;
+
+        left.appendChild(title);
+        left.appendChild(desc);
+
+        const right = document.createElement('div');
+        right.className = 'u-right';
+
+        const price = document.createElement('div');
+        price.className = 'price';
+        price.textContent = `${fmt(cost)}🪙`;
+
+        const buy = document.createElement('button');
+        buy.textContent = locked ? 'Locked' : 'Buy';
+        buy.disabled = locked || state.coins < cost;
+        buy.onclick = () => buyUpgrade(def.key);
+
+        right.appendChild(price);
+        right.appendChild(buy);
+
+        row.appendChild(left);
+        row.appendChild(right);
+
+        shop.appendChild(row);
+      }
+    }
+
+    function renderHUD() {
+      coinsText.textContent = `${fmt(state.coins)} coins`;
+
+      const mult = productionMultiplier();
+      const multText = mult < 0.999 ? ` (x${mult.toFixed(2)} prod)` : '';
+      statsText.textContent = `${exact(state.cps)} coins/sec${multText} • ${fmt(state.clickPower)} coins/click`;
+
+      cpsPill.textContent = `+${exact(state.cps)} / sec`;
+      clickPill.textContent = `+${fmt(state.clickPower)} / click`;
+      spentPill.textContent = `spent: ${fmt(state.spent)}`;
+      levelPill.textContent = `level ${state.level}`;
+
+      const risk = theftChancePerTick();
+      riskPill.textContent = `risk: ${Math.round(risk * 100)}%`;
+
+      const r = pouchFillRatio();
+      pouchFillEl.style.width = `${Math.round(r * 100)}%`;
+      pouchText.textContent = `Pouch: ${fmt(state.pouch)} / ${fmt(state.pouchCap)}`;
+
+      collectBtn.disabled = state.pouch < 1;
+      clickBtn.disabled = state.pouch >= state.pouchCap;
+
+      // WIN CONDITION
+      if (!state.hasWon && state.coins >= 5_000_000) {
+        state.hasWon = true;
+        document.getElementById('winOverlay').style.display = 'flex';
+      }
+    }
+
+    function renderAll() {
+      recalcStats();
+      renderHUD();
+      renderShop();
+    }
+
+    // ---- Animation helpers ----
+    function rectCenter(el) {
+      const r = el.getBoundingClientRect();
+      return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+    }
+
+    function flyCoins({ fromEl, toEl, count = 6 }) {
+      const from = rectCenter(fromEl);
+      const to = rectCenter(toEl);
+
+      for (let i = 0; i < count; i++) {
+        const node = document.createElement('div');
+        node.className = 'coin-fly';
+        node.textContent = '🪙';
+
+        const jitterX = (Math.random() - 0.5) * 18;
+        const jitterY = (Math.random() - 0.5) * 18;
+        const arcX = (Math.random() - 0.5) * 60;
+        const arcY = (Math.random() - 0.5) * 60;
+
+        node.style.setProperty('--x0', `${from.x + jitterX}px`);
+        node.style.setProperty('--y0', `${from.y + jitterY}px`);
+        node.style.setProperty('--x1', `${to.x + arcX}px`);
+        node.style.setProperty('--y1', `${to.y + arcY}px`);
+
+        document.body.appendChild(node);
+        node.addEventListener('animationend', () => node.remove(), { once: true });
+      }
+
+      coinsText.classList.remove('pulse');
+      // reflow to restart animation
+      void coinsText.offsetWidth;
+      coinsText.classList.add('pulse');
+    }
+
+    // ---- Game actions ----
+    function addToPouch(amount) {
+      if (amount <= 0) return 0;
+      const before = state.pouch;
+      state.pouch = clamp(state.pouch + amount, 0, state.pouchCap);
+      return state.pouch - before;
+    }
+
+    function tick() {
+      const mult = productionMultiplier();
+      const produced = Math.floor(state.cps * mult);
+      const added = addToPouch(produced);
+
+      // if pouch is full, production gets "wasted"
+      if (produced > 0 && added === 0) {
+        eventText.textContent = 'Your pouch is full — production is being wasted. Collect!';
+      }
+
+      // theft event
+      const now = Date.now();
+      const chance = theftChancePerTick();
+      if (state.pouch > 0 && Math.random() < chance && (now - (state.lastTheftMs || 0)) > 1200) {
+        state.lastTheftMs = now;
+        // steal BIG chunks, but less often: 20%..55% depending on fill level
+        const r = pouchFillRatio();
+        const pct = 0.20 + 0.35 * r;
+        const stolen = Math.max(1, Math.floor(state.pouch * pct));
+        state.pouch = Math.max(0, state.pouch - stolen);
+        eventText.textContent = `A thief made off with ${fmt(stolen)} coins! (${Math.round(pct * 100)}% of your pouch)`;
+      }
+
+      renderAll();
+    }
+
+    function clickMine() {
+      // Clicking creates pouch coins (harder: can't mine if pouch is full)
+      if (state.pouch >= state.pouchCap) {
+        eventText.textContent = 'Pouch full — you can’t mine until you collect.';
+        renderAll();
+        return;
+      }
+      const added = addToPouch(state.clickPower);
+      if (added > 0) {
+        flyCoins({ fromEl: clickBtn, toEl: pouchText, count: Math.min(10, 2 + Math.floor(Math.sqrt(added))) });
+      }
+      renderAll();
+    }
+
+    function collectPouch() {
+      if (state.pouch <= 0) return;
+      const amount = Math.floor(state.pouch);
+      state.pouch = 0;
+      state.coins += amount;
+
+      flyCoins({ fromEl: collectBtn, toEl: coinsText, count: Math.min(14, 5 + Math.floor(Math.log10(Math.max(10, amount))) * 2) });
+      eventText.textContent = `Collected ${fmt(amount)} into your bank.`;
+      renderAll();
+    }
+
+    function buyUpgrade(key) {
+      const u = state.upgrades[key];
+      const cost = upgradeCost(u);
+      if (state.coins < cost) return;
+
+      state.coins -= cost;
+      state.spent += cost;
+      u.count += 1;
+
+      eventText.textContent = 'Upgrade purchased.';
+      renderAll();
+    }
+
+    // ---- Tiny toast ----
+    let toastTimeout = null;
+    function flash(msg) {
+      const t = document.createElement('div');
+      t.textContent = msg;
+      Object.assign(t.style, {
+        position: 'fixed',
+        left: '50%',
+        top: '18px',
+        transform: 'translateX(-50%)',
+        background: 'rgba(0,0,0,.75)',
+        border: '1px solid rgba(255,255,255,.18)',
+        color: 'white',
+        padding: '10px 12px',
+        borderRadius: '12px',
+        zIndex: 9999,
+        fontWeight: 700
+      });
+      document.body.appendChild(t);
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => t.remove(), 900);
+    }
+
+    // ---- Minimal tests (run in console) ----
+    function runTests() {
+      console.assert(fmt(0) === '0', 'fmt(0) should be "0"');
+      console.assert(fmt(999) === '999', 'fmt(999) should be "999"');
+      console.assert(fmt(1000) === '1K', 'fmt(1000) should be "1K"');
+      console.assert(fmt(1500) === '1.5K', 'fmt(1500) should be "1.5K"');
+      console.assert(fmt(1_000_000) === '1M', 'fmt(1,000,000) should be "1M"');
+      console.assert(fmt(2_500_000) === '2.5M', 'fmt(2,500,000) should be "2.5M"');
+      console.assert(fmt(1_000_000_000) === '1B', 'fmt(1,000,000,000) should be "1B"');
+
+      const testU = { baseCost: 10, costMult: 1.15, count: 0 };
+      console.assert(upgradeCost(testU) === 10, 'upgradeCost at count 0 should equal baseCost');
+      testU.count = 1;
+      console.assert(upgradeCost(testU) === Math.floor(10 * 1.15), 'upgradeCost at count 1 should scale by costMult');
+
+      // pouch behavior
+      state.pouch = 0; state.pouchCap = 10;
+      console.assert(addToPouch(4) === 4 && state.pouch === 4, 'addToPouch should add under cap');
+      console.assert(addToPouch(20) === 6 && state.pouch === 10, 'addToPouch should clamp to cap');
+      state.pouch = 10;
+      console.assert(addToPouch(1) === 0, 'addToPouch should add 0 when full');
+    }
+
+    // ---- Wire up ----
+    clickBtn.addEventListener('click', clickMine);
+    collectBtn.addEventListener('click', collectPouch);
+    saveBtn.addEventListener('click', saveGame);
+    resetBtn.addEventListener('click', resetGame);
+
+    loadGame();
+    renderAll();
+    runTests();
+
+    // coin production every second
+    setInterval(tick, 1000);
+
+    // autosave every 15 seconds
+    setInterval(saveGame, 15000);
+  </script>
+</body>
+</html>
